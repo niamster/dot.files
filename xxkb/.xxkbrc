@@ -1,0 +1,11 @@
+XXkb.controls.add_when_start: yes
+XXkb.controls.add_when_create: yes
+XXkb.controls.add_when_change: no
+XXkb.controls.two_state: yes
+XXkb.controls.focusout: no
+
+XXkb.group.base: 1
+XXkb.group.alt: 2
+
+XXkb.mainwindow.enable: no
+XXkb.button.enable: no

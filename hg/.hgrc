@@ -1,0 +1,27 @@
+[ui]
+username = Dmytro Milinevskyy <millinevskyy@gmail.com>
+editor = vim
+
+[defaults]
+cdiff = -q
+
+[extensions]
+hgext.graphlog =
+color =
+hgk =
+hgext.record =
+pager =
+rebase =
+transplant =
+bookmarks =
+
+[bookmarks]
+track.current = True
+
+[diff]
+showfunc = 1
+unified = 4
+
+[pager]
+pager = LESS='FSRX' less
+attend = annotate, cat, diff, glog, log
