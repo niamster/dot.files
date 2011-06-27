@@ -9,3 +9,4 @@ pu sfcolor          YELLOW
 pu histlines        5000
 pu minit            
 pu statusline       disabled
+pu logfname

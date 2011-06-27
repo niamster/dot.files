@@ -8,3 +8,4 @@ pu tfcolor          GREEN
 pu histlines        5000
 pu minit            
 pu statusline       disabled
+pu logfname
