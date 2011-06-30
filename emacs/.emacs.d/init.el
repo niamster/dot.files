@@ -216,6 +216,13 @@
 (global-set-key (kbd "C-h") 'delete-backward-char)
 (global-set-key (kbd "M-h") 'backward-kill-word)
 
+(add-hook 'text-mode-hook '(lambda () (local-set-key (kbd "RET") 'newline)))
+(add-hook 'text-mode-hook '(lambda () (local-set-key (kbd "C-m") 'newline)))
+(add-hook 'text-mode-hook '(lambda () (local-set-key (kbd "C-j") (lambda () (interactive) (end-of-line) (newline-and-indent)))))
+
+(setq initial-major-mode 'text-mode)
+(setq default-major-mode 'text-mode)
+
 ; buffer navigation
 (define-prefix-command 'buffer-nav-map)
 (define-key buffer-nav-map "b" 'windmove-left)
