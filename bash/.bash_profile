@@ -58,6 +58,11 @@ function notify() {
 	notify-send -i typing-monitor "$TITLE" "$*"
 }
 
+function wtitle() {
+	TITLE=$1
+	wmctrl -i -r $(xprop -root | /bin/grep "_NET_ACTIVE_WINDOW(WINDOW)" | /usr/bin/gawk -F '# ' '{print $2}') -T "$TITLE"
+}
+
 # pretty man pages
 export LESS_TERMCAP_mb=$'\e[01;31m'        # begin blinking
 export LESS_TERMCAP_md=$'\e[01;33m'        # begin bold
