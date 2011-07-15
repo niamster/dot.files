@@ -17,7 +17,7 @@
 		</item>
 	</menu>
 	<menu id="apps-accessories-menu" label="Accessories">
-		<item label="oo">
+		<item label="LibreOffice">
 			<action name="Execute">
 				<execute>
 					libreoffice
@@ -38,7 +38,7 @@
 				</execute>
 			</action>
 		</item>
-		<item label="gimp">
+		<item label="Gimp">
 			<action name="Execute">
 				<execute>
 					gimp
@@ -99,6 +99,13 @@
 				<command>
 					gcalctool
 				</command>
+			</action>
+		</item>
+		<item label="gitg">
+			<action name="Execute">
+				<execute>
+					gitg
+				</execute>
 			</action>
 		</item>
 	</menu>
