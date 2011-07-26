@@ -772,5 +772,9 @@
       <decor>no</decor>
       <maximized>true</maximized>
     </application>
+    <application name="acroread" type="normal">
+      <decor>no</decor>
+      <maximized>true</maximized>
+    </application>
   </applications>
 </openbox_config>
