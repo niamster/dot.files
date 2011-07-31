@@ -4,5 +4,6 @@ feh --bg-scale ~/images/wallpaper.* &
 urxvtd -q -f
 xxkb &
 parcellite &
+volumeicon &
 
 exec openbox --config-file ~/.config/openbox/openbox.xml
