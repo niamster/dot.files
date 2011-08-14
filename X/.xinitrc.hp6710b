@@ -5,5 +5,6 @@ urxvtd -q -f
 xxkb &
 parcellite &
 volumeicon &
+blueman-applet &
 
 exec openbox --config-file ~/.config/openbox/openbox.xml
