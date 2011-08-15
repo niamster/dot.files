@@ -115,6 +115,13 @@
 				</command>
 			</action>
 		</item>
+		<item label="DeaDBeeF">
+			<action name="Execute">
+				<command>
+					deadbeef
+				</command>
+			</action>
+		</item>
 	</menu>
 	<menu id="apps-net-menu" label="Internet">
 		<item label="Transmission">
