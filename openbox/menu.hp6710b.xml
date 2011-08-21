@@ -45,6 +45,13 @@
 				</execute>
 			</action>
 		</item>
+		<item label="Mirage">
+			<action name="Execute">
+				<execute>
+					mirage
+				</execute>
+			</action>
+		</item>
 		<item label="Chmsee">
 			<action name="Execute">
 				<execute>
