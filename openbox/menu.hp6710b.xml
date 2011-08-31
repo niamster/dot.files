@@ -45,6 +45,13 @@
 				</execute>
 			</action>
 		</item>
+		<item label="Mirage">
+			<action name="Execute">
+				<execute>
+					mirage
+				</execute>
+			</action>
+		</item>
 		<item label="Chmsee">
 			<action name="Execute">
 				<execute>
@@ -124,13 +131,6 @@
 		</item>
 	</menu>
 	<menu id="apps-net-menu" label="Internet">
-		<item label="Transmission">
-			<action name="Execute">
-				<execute>
-					transmission-gtk
-				</execute>
-			</action>
-		</item>
 		<item label="Wicd">
 			<action name="Execute">
 				<execute>
@@ -142,13 +142,6 @@
 			<action name="Execute">
 				<command>
 					firefox
-				</command>
-			</action>
-		</item>
-		<item label="Thunderbird">
-			<action name="Execute">
-				<command>
-					thunderbird	
 				</command>
 			</action>
 		</item>
