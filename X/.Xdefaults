@@ -12,6 +12,7 @@ Emacs.font:               Monospace-8
 Emacs.toolBar:            off
 Emacs.menuBar:            off
 Emacs.verticalScrollBars: off
+Emacs.fullscreen:         maximized
 
 URxvt.buffered:             true
 URxvt.scrollBar:            false
