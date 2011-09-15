@@ -768,6 +768,10 @@
       <decor>no</decor>
       <maximized>true</maximized>
     </application>
+    <application class="Firefox" type="normal">
+      <decor>no</decor>
+      <maximized>true</maximized>
+    </application>
     <application name="thunderbird*" type="normal">
       <decor>no</decor>
       <maximized>true</maximized>
