@@ -108,6 +108,20 @@
 				</execute>
 			</action>
 		</item>
+		<item label="meld">
+			<action name="Execute">
+				<execute>
+					meld
+				</execute>
+			</action>
+		</item>
+		<item label="rapidSVN">
+			<action name="Execute">
+				<execute>
+					rapidsvn
+				</execute>
+			</action>
+		</item>
 	</menu>
 	<menu id="apps-net-menu" label="Internet">
 		<item label="Skype">
