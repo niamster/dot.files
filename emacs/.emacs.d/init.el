@@ -658,6 +658,35 @@
 		  )
 ; Do not prompt for non-existent buffer creation
 (setq ido-create-new-buffer 'always)
+; Find files in TAGs
+(defun ido-find-file-in-tag-files ()
+  (interactive)
+  (save-excursion
+    (let ((enable-recursive-minibuffers t))
+      (visit-tags-table-buffer))
+    (find-file
+     (expand-file-name
+      (ido-completing-read
+       "Project file: " (tags-table-files) nil t)
+      )
+     )
+    )
+  )
+(global-set-key (kbd "C-x t") 'ido-find-file-in-tag-files)
+; M-x mode with ido
+(global-set-key (kbd "M-x")
+ (lambda ()
+   (interactive)
+   (call-interactively
+    (intern
+     (ido-completing-read
+      "M-x "
+      (all-completions "" obarray 'commandp)
+      )
+     )
+    )
+   )
+ )
 
 (require 'dired+)
 (toggle-dired-find-file-reuse-dir 1)
