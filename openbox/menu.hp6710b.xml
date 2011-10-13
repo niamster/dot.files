@@ -24,6 +24,13 @@
 				</execute>
 			</action>
 		</item>
+		<item label="urxvt">
+			<action name="Execute">
+				<execute>
+					urxvt
+				</execute>
+			</action>
+		</item>
 		<item label="VirtualBox">
 			<action name="Execute">
 				<execute>
@@ -70,13 +77,6 @@
 			<action name="Execute">
 				<execute>
 					emacs
-				</execute>
-			</action>
-		</item>
-		<item label="urxvt">
-			<action name="Execute">
-				<execute>
-					urxvt
 				</execute>
 			</action>
 		</item>

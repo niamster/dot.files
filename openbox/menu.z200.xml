@@ -17,6 +17,20 @@
 		</item>
 	</menu>
 	<menu id="apps-accessories-menu" label="Accessories">
+		<item label="urxvtc">
+			<action name="Execute">
+				<execute>
+					urxvtc
+				</execute>
+			</action>
+		</item>
+		<item label="urxvt">
+			<action name="Execute">
+				<execute>
+					urxvt
+				</execute>
+			</action>
+		</item>
 		<item label="LibreOffice">
 			<action name="Execute">
 				<execute>
@@ -56,13 +70,6 @@
 			<action name="Execute">
 				<execute>
 					emacs
-				</execute>
-			</action>
-		</item>
-		<item label="urxvt">
-			<action name="Execute">
-				<execute>
-					urxvt
 				</execute>
 			</action>
 		</item>
