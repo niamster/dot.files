@@ -725,9 +725,6 @@
 (add-hook 'c++-mode-hook (lambda () (highlight-parentheses-mode t)))
 (add-hook 'emacs-lisp-mode-hook (lambda () (highlight-parentheses-mode t)))
 
-(require 'deft)
-(global-set-key (kbd "C-c d") 'deft)
-
 ; truncate lines [NOTE: keep this in the end]
 (add-hook 'c-mode-hook (lambda () (toggle-truncate-lines t)))
 (add-hook 'c++-mode-hook (lambda () (toggle-truncate-lines t)))
