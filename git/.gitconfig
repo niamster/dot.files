@@ -8,7 +8,6 @@
 [core]
 	editor = vim
 	pager = less -+$LESS -FRSX
-	autocrlf = true
 [alias]
 	ci = commit
 	co = checkout
