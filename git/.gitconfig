@@ -18,6 +18,8 @@
 	lol = log --graph --decorate --pretty=oneline --abbrev-commit
 	lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
 	wdiff = diff --color-words
+	cdiff = diff --cached
+	wcdiff = diff --color-words --cached
 [color]
     branch=auto
     diff=auto
