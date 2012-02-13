@@ -80,6 +80,13 @@
 				</execute>
 			</action>
 		</item>
+		<item label="MplabX">
+			<action name="Execute">
+				<execute>
+					mplab_ide
+				</execute>
+			</action>
+		</item>
 		<item label="emacs">
 			<action name="Execute">
 				<execute>
@@ -134,6 +141,13 @@
 				<command>
 					deadbeef
 				</command>
+			</action>
+		</item>
+		<item label="meld">
+			<action name="Execute">
+				<execute>
+					meld
+				</execute>
 			</action>
 		</item>
 	</menu>
