@@ -324,9 +324,9 @@
       <action name="Execute">
         <startupnotify>
           <enabled>true</enabled>
-          <name>pcmanfm</name>
+          <name>spacefm</name>
         </startupnotify>
-        <command>pcmanfm-mod</command>
+        <command>spacefm</command>
       </action>
     </keybind>
   </keyboard>
