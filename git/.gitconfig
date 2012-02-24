@@ -9,6 +9,8 @@
 	editor = vim
 	pager = less -+$LESS -FRSX
 [alias]
+	d = diff
+	l = log
 	ci = commit
 	co = checkout
 	st = status
@@ -21,19 +23,19 @@
 	cdiff = diff --cached
 	wcdiff = diff --color-words --cached
 [color]
-    branch=auto
-    diff=auto
-    status=auto
+    branch = auto
+    diff = auto
+    status = auto
 [color "branch"]
-    current=red
-    local=yellow
-    remote=green
+    current = red
+    local = yellow
+    remote = green
 [color "diff"]
-    meta=yellow bold
-    frag=magenta bold
-    old=red bold
-    new=green bold
+    meta = yellow bold
+    frag = magenta bold
+    old = red bold
+    new = green bold
 [color "status"]
-    added=green
-    changed=red
-    untracked=cyan
+    added = green
+    changed = red
+    untracked = cyan
