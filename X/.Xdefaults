@@ -25,6 +25,8 @@ URxvt.saveLines:            0
 URxvt.name:                 URxvt
 URxvt.title:                URxvt
 URxvt.iconFile:             /opt/icons/extra/terminal.png
+URxvt.transparent: 			true
+URxvt.shading: 				10
 ! colors
 URxvt.color0:               #000000
 URxvt.color1:               #a80000
@@ -33,7 +35,7 @@ URxvt.color3:               #a85400
 URxvt.color4:               #0000a8
 URxvt.color5:               #a800a8
 URxvt.color6:               #00a8a8
-URxvt.color7:               #a8a8a8
+URxvt.color7:               #228B22
 URxvt.color8:               #545054
 URxvt.color9:               #f85450
 URxvt.color10:              #50fc50
@@ -44,6 +46,6 @@ URxvt.color14:              #50fcf8
 URxvt.color15:              #f8fcf8
 
 URxvt.background:           #000000
-URxvt.foreground:           #a8a8a8
+URxvt.foreground:          	#228B22
 URxvt.cursorColor:          #a8a8a8
 URxvt.underlineColor:       #a8a8a8
