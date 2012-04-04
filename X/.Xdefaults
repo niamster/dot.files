@@ -17,8 +17,8 @@ Emacs.fullscreen:         maximized
 URxvt.buffered:             true
 URxvt.scrollBar:            false
 URxvt.fontBackend:          xft
-URxvt.font:                 xft:Monospace-7
-URxvt.boldFont:             xft:Monospace-7
+URxvt.font:                 xft:Monospace-6
+URxvt.boldFont:             xft:Monospace-6
 URxvt.letterSpace:          0
 URxvt.termName:            	rxvt-256color
 URxvt.saveLines:            0
