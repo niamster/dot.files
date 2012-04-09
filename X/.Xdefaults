@@ -8,7 +8,7 @@ Xft.render:     true
 Xft.autohint:   true
 
 Emacs.fontBackend:        xft
-Emacs.font:               Monospace-8
+Emacs.font:               DejaVu Sans Mono-9 
 Emacs.toolBar:            off
 Emacs.menuBar:            off
 Emacs.verticalScrollBars: off
@@ -17,8 +17,8 @@ Emacs.fullscreen:         maximized
 URxvt.buffered:             true
 URxvt.scrollBar:            false
 URxvt.fontBackend:          xft
-URxvt.font:                 xft:Monospace-6
-URxvt.boldFont:             xft:Monospace-6
+URxvt.font:                 xft:Inconsolata-6
+URxvt.boldFont:             xft:Inconsolata-bold-6
 URxvt.letterSpace:          0
 URxvt.termName:            	rxvt-256color
 URxvt.saveLines:            0
