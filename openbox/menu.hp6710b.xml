@@ -73,13 +73,6 @@
 				</execute>
 			</action>
 		</item>
-		<item label="Blueman">
-			<action name="Execute">
-				<execute>
-					blueman-manager
-				</execute>
-			</action>
-		</item>
 		<item label="MplabX">
 			<action name="Execute">
 				<execute>
@@ -152,6 +145,13 @@
 		</item>
 	</menu>
 	<menu id="apps-net-menu" label="Internet">
+		<item label="Filezilla">
+			<action name="Execute">
+				<execute>
+					filezilla
+				</execute>
+			</action>
+		</item>
 		<item label="Wicd">
 			<action name="Execute">
 				<execute>
