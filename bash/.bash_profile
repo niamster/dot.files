@@ -33,7 +33,7 @@ alias pc="sudo sh -c 'echo conservative > /sys/devices/system/cpu/cpu0/cpufreq/s
 complete -cf sudo
 complete -cf man
 
-PS1="\[\e[0;31m\](\[\e[0;32m\]\t\[\e[0;31m\]|\[\e[1;34m\]\w\[\e[0;31m\])\n\[\e[0;31m\]*~>\[\e[0;37m\]"
+PS1="\[\e[0;31m\](\[\e[0;32m\]\t\[\e[0;31m\]|\[\e[1;34m\]\w\[\e[0;31m\])\n\[\e[0;31m\]*~>\[\e[0m\]"
 XTERM_TITLE='\[\033]0;\W@\u@\H\007\]'
 
 export BC_ENV_ARGS=-l
