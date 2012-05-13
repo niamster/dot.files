@@ -47,9 +47,7 @@
 		</item>
 		<item label="Gimp">
 			<action name="Execute">
-				<execute>
-					gimp-2.6
-				</execute>
+				<execute>gimp</execute>
 			</action>
 		</item>
 		<item label="Geeqie">
@@ -145,6 +143,11 @@
 		</item>
 	</menu>
 	<menu id="apps-net-menu" label="Internet">
+		<item label="Transmission">
+			<action name="Execute">
+				<execute>transmission-gtk</execute>
+			</action>
+		</item>
 		<item label="Filezilla">
 			<action name="Execute">
 				<execute>
