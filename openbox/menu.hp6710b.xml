@@ -31,13 +31,6 @@
 				</execute>
 			</action>
 		</item>
-		<item label="arandr">
-			<action name="Execute">
-				<execute>
-					arandr
-				</execute>
-			</action>
-		</item>
 		<item label="VirtualBox">
 			<action name="Execute">
 				<execute>
@@ -69,6 +62,16 @@
 				<execute>
 					chmsee
 				</execute>
+			</action>
+		</item>
+		<item label="GerbV">
+			<action name="Execute">
+				<execute>gerbv</execute>
+			</action>
+		</item>
+		<item label="Eagle">
+			<action name="Execute">
+				<execute>eagle</execute>
 			</action>
 		</item>
 		<item label="MplabX">
