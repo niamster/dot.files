@@ -7,8 +7,8 @@
 (if window-system
     (setq default-frame-alist
           '(
-            (background-color . "black")
-            (foreground-color . "RoyalBlue")
+            (background-color . "#181818")
+            (foreground-color . "#00868b")
             (left-fringe . 1) (right-fringe . 1)
             )
           )
@@ -100,7 +100,7 @@
 (font-lock-add-keywords 'emacs-lisp-mode keys)
 (font-lock-add-keywords 'python-mode keys)
 
-(defface font-lock-function-call-face '((t (:foreground "forest green"))) "Font Lock mode face used to highlight function calls." :group 'font-lock-highlighting-faces)
+(defface font-lock-function-call-face '((t (:foreground "#228b22"))) "Font Lock mode face used to highlight function calls." :group 'font-lock-highlighting-faces)
 (defvar font-lock-function-call-face 'font-lock-function-call-face)
 (defun font-lock-function-call-hook ()
   (font-lock-add-keywords
