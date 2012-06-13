@@ -7,14 +7,14 @@
 (if window-system
     (setq default-frame-alist
           '(
-            (background-color . "#181818")
+            (background-color . "#121212")
             (foreground-color . "#00868b")
             (left-fringe . 1) (right-fringe . 1)
             )
           )
 
-  (set-background-color "black")
-  (set-foreground-color "green")
+  (set-background-color "#121212")
+  (set-foreground-color "#00868b")
   (menu-bar-mode nil)
   )
 
@@ -692,6 +692,7 @@
 (toggle-dired-find-file-reuse-dir 1)
 (custom-set-faces
  '(diredp-dir-heading ((t (:foreground "White" :bold t :weight bold))))
+ '(diredp-file-name ((t (:foreground "#00868b" :bold t :weight bold))))
  '(diredp-dir-priv ((t (:foreground "#0f5fff" :bold t :weight bold))))
  '(diredp-read-priv ((t (:background "#1e1e1e" :foreground "Green"))))
  '(diredp-write-priv ((t (:background "#1e1e1e" :foreground "Red"))))
