@@ -253,14 +253,14 @@
   (move-key (current-global-map) oldkey newkey)
   )
 
-(global-move-key (kbd "<home>") (kbd "C-a"))
-(global-move-key (kbd "<end>") (kbd "C-e"))
-(global-move-key (kbd "<next>") (kbd "C-v"))
-(global-move-key (kbd "<prior>") (kbd "M-v"))
-(global-move-key (kbd "<left>") (kbd "C-b"))
-(global-move-key (kbd "<right>") (kbd "C-f"))
-(global-move-key (kbd "<up>") (kbd "C-p"))
-(global-move-key (kbd "<down>") (kbd "C-n"))
+;; (global-move-key (kbd "<home>") (kbd "C-a"))
+;; (global-move-key (kbd "<end>") (kbd "C-e"))
+;; (global-move-key (kbd "<next>") (kbd "C-v"))
+;; (global-move-key (kbd "<prior>") (kbd "M-v"))
+;; (global-move-key (kbd "<left>") (kbd "C-b"))
+;; (global-move-key (kbd "<right>") (kbd "C-f"))
+;; (global-move-key (kbd "<up>") (kbd "C-p"))
+;; (global-move-key (kbd "<down>") (kbd "C-n"))
 
 ; frame control
 (global-set-key (kbd "C-x 5 3") 'make-frame-on-display)
