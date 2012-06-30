@@ -19,6 +19,7 @@ URxvt.scrollBar:            false
 URxvt.fontBackend:          xft
 URxvt.font:                 xft:DejaVu Sans Mono-7
 URxvt.boldFont:             xft:DejaVu Sans Mono-7
+URxvt.imlocale: 			en_US.UTF-8
 URxvt.letterSpace:          0
 URxvt.termName:            	rxvt-256color
 URxvt.saveLines:            0

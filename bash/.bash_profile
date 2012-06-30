@@ -1,6 +1,8 @@
 PATH=/usr/lib/colorgcc/bin:$PATH:/opt/bin
 export CCACHE_PATH=/usr/bin
 
+export LANG=en_US.UTF-8
+
 alias ls="ls --color"
 alias ll="ls -lh"
 alias l="ll"
