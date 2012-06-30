@@ -29,6 +29,9 @@
   )
 (global-set-key [f11] 'fullscreen)
 
+; do not copy marked region to the primary selection
+(setq select-active-regions nil)
+
 ;server
 (setq server-use-tcp t)
 (setq server-host "0.0.0.0")
