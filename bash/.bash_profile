@@ -1,7 +1,9 @@
 PATH=/usr/lib/colorgcc/bin:$PATH:/opt/bin
 export CCACHE_PATH=/usr/bin
-
 export LANG=en_US.UTF-8
+
+GREP=$(which grep)
+GAWK=$(which gawk)
 
 alias ls="ls --color"
 alias ll="ls -lh"
@@ -63,11 +65,11 @@ function notify() {
 
 function wtitle() {
 	TITLE=$1
-	wmctrl -i -r $(xprop -root | /bin/grep "_NET_ACTIVE_WINDOW(WINDOW)" | /usr/bin/gawk -F '# ' '{print $2}') -T "$TITLE"
+	wmctrl -i -r $(xprop -root | $GREP "_NET_ACTIVE_WINDOW(WINDOW)" | $GAWK -F '# ' '{print $2}') -T "$TITLE"
 }
 
 function tptoggle() {
-	synclient TouchpadOff=$(synclient -l| /bin/grep TouchpadOff| /usr/bin/gawk -F'= ' '{print !$2}')
+	synclient TouchpadOff=$(synclient -l| $GREP TouchpadOff | $GAWK -F'= ' '{print !$2}')
 }
 
 # pretty man pages
