@@ -692,7 +692,6 @@
  )
 
 (require 'dired+)
-(toggle-dired-find-file-reuse-dir 1)
 (custom-set-faces
  '(diredp-dir-heading ((t (:foreground "White" :bold t :weight bold))))
  '(diredp-file-name ((t (:foreground "#00868b" :bold t :weight bold))))
