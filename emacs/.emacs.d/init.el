@@ -52,8 +52,9 @@
 (prefer-coding-system 'utf-8-unix)
 
 ; highlighting
-(setq font-lock-maximum-decoration 3)
+(setq font-lock-maximum-decoration t)
 (global-font-lock-mode t)
+(setq light-symbol-mode t)
 
 ; hi-lock
 (defface hi-brown  '((t (:foreground "#cd3333"))) "hi- face" :group 'hi-lock-faces)
@@ -693,13 +694,13 @@
 
 (require 'dired+)
 (custom-set-faces
- '(diredp-dir-heading ((t (:foreground "White" :bold t :weight bold))))
+ '(diredp-dir-heading ((t (:foreground "white" :bold t :weight bold))))
  '(diredp-file-name ((t (:foreground "#00868b" :bold t :weight bold))))
  '(diredp-dir-priv ((t (:foreground "#0f5fff" :bold t :weight bold))))
- '(diredp-read-priv ((t (:background "#1e1e1e" :foreground "Green"))))
- '(diredp-write-priv ((t (:background "#1e1e1e" :foreground "Red"))))
- '(diredp-exec-priv ((t (:background "#1e1e1e" :foreground "Yellow"))))
- '(diredp-no-priv ((t (:background "#1e1e1e" :foreground "White"))))
+ '(diredp-read-priv ((t (:background "#1e1e1e" :foreground "green"))))
+ '(diredp-write-priv ((t (:background "#1e1e1e" :foreground "red"))))
+ '(diredp-exec-priv ((t (:background "#1e1e1e" :foreground "yellow"))))
+ '(diredp-no-priv ((t (:background "#1e1e1e" :foreground "white"))))
  )
 
 (require 'browse-kill-ring)
@@ -727,6 +728,22 @@
 (add-hook 'c-mode-hook (lambda () (highlight-parentheses-mode t)))
 (add-hook 'c++-mode-hook (lambda () (highlight-parentheses-mode t)))
 (add-hook 'emacs-lisp-mode-hook (lambda () (highlight-parentheses-mode t)))
+
+(require 'highlight-symbol)
+(global-set-key (kbd "C-x h") 'highlight-symbol-at-point)
+(global-set-key (kbd "C-x u") 'highlight-symbol-remove-all)
+
+(require 'idle-highlight-mode)
+(custom-set-faces
+ '(idle-highlight ((t (:foreground "#ffd700" :bold t :weight bold))))
+ )
+(setq idle-highlight-idle-time .6)
+(add-hook 'c-mode-hook (lambda () (idle-highlight-mode t)))
+(add-hook 'c++-mode-hook (lambda () (idle-highlight-mode t)))
+(add-hook 'asm-mode-hook (lambda () (idle-highlight-mode t)))
+(add-hook 'python-mode-hook (lambda () (idle-highlight-mode t)))
+(add-hook 'emacs-lisp-mode-hook (lambda () (idle-highlight-mode t)))
+(add-hook 'makefile-mode-hook (lambda () (idle-highlight-mode t)))
 
 ; truncate lines [NOTE: keep this in the end]
 (add-hook 'c-mode-hook (lambda () (toggle-truncate-lines t)))
