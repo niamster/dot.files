@@ -745,6 +745,14 @@
 (add-hook 'emacs-lisp-mode-hook (lambda () (idle-highlight-mode t)))
 (add-hook 'makefile-mode-hook (lambda () (idle-highlight-mode t)))
 
+(require 'ascope)
+(define-prefix-command 'ascope-map)
+(define-key ascope-map "i" 'ascope-init)
+(define-key ascope-map "s" 'ascope-find-this-symbol)
+(define-key ascope-map "r" 'ascope-find-functions-calling-this-function)
+(define-key ascope-map "*" 'ascope-pop-mark)
+(global-set-key (kbd "C-x a") ascope-map)
+
 ; truncate lines [NOTE: keep this in the end]
 (add-hook 'c-mode-hook (lambda () (toggle-truncate-lines t)))
 (add-hook 'c++-mode-hook (lambda () (toggle-truncate-lines t)))
