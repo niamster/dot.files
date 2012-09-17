@@ -32,7 +32,7 @@
 ; do not copy marked region to the primary selection
 (setq select-active-regions nil)
 
-;server
+; server
 (setq server-use-tcp t)
 (setq server-host "0.0.0.0")
 (defun run-server()
@@ -42,7 +42,6 @@
   (server-start)
   )
 (global-set-key (kbd "C-c s") 'run-server)
-
 
 ; locale
 (setq current-language-environment "UTF-8")
@@ -135,14 +134,19 @@
 (add-hook 'c++-mode-hook 'cpp-font-lock-if0-hook)
 
 ; misc staff
+(setq-default bidi-display-reordering nil) ; do not use BIDI
 (transient-mark-mode t) ; highlight the region whenever it is active
 (auto-compression-mode t) ; uncompress files before displaying them
 (setq make-backup-files nil)
 (setq scroll-conservatively most-positive-fixnum) ; scroll only one line when move past the bottom of the screen
 (setq scroll-down-aggressively 0.0)
-(setq scroll-margin 0)
+(setq scroll-margin 10)
 (setq scroll-step 1)
 (setq scroll-up-aggressively 0.0)
+(setq scroll-preserve-screen-position t)
+(setq auto-window-vscroll nil) ; speedup down scroll
+(setq hscroll-step 1)
+(setq redisplay-dont-pause t) ; this will be default in emacs24
 (fset 'yes-or-no-p 'y-or-n-p) ; make the y or n suffice for a yes or no question
 (setq comment-style 'indent)
 (delete-selection-mode t) ; replace highlighted text with what typed
