@@ -11,11 +11,19 @@
 [alias]
 	d = diff
 	l = log
+	br = branch
+	fp = format-patch
+	rb = rebase
+	rbi = rebase -i
 	ci = commit
+	cia = commit --amend
 	co = checkout
+	up = !(git add . && git stash && git pull --rebase >&2) | grep -v "No local changes to save" && git stash pop
 	st = status
+	stb = status -sb
 	pulom = pull origin master
 	pusom = push origin master
+	pr = pull --rebase
 	lg = log -p
 	lol = log --graph --decorate --pretty=oneline --abbrev-commit
 	lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
