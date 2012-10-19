@@ -12,6 +12,8 @@
 	d = diff
 	l = log
 	br = branch
+	in = !git remote update -p && git log ..@{u}
+	out = log @{u}..
 	fp = format-patch
 	rb = rebase
 	rbi = rebase -i
