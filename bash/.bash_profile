@@ -8,6 +8,7 @@ GAWK=$(which gawk)
 alias ls="ls --color"
 alias ll="ls -lh"
 alias l="ll"
+alias lt="l -t"
 alias vi="vim"
 alias et="emacs -nw"
 alias ec="emacsclient -a \"\" -c -n"
