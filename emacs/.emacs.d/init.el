@@ -454,15 +454,26 @@
 				)
 			  auto-mode-alist))
 
-(defun linux-c-mode ()
-  "C mode with adjusted defaults for use with the Linux kernel."
+(defun tab-mode ()
+  "C mode with tabs for indentation."
   (interactive)
   (c-mode)
   (setq indent-tabs-mode 1)
-
   (c-set-offset 'case-label 0)
   )
-(setq auto-mode-alist (cons '(".*/linux-2.6/.*\\.[chsS]$" . linux-c-mode) auto-mode-alist))
+(setq auto-mode-alist (cons '(".*/linux-.*/.*\\.[chsS]$" . tab-mode) auto-mode-alist))
+
+(defun two-space-mode ()
+  "C mode with 2 spaces for indentation."
+  (interactive)
+  (message "dsdfsdf")
+  (c-mode)
+  (setq tab-width 2)
+  (setq default-tab-width tab-width)
+  (setq tab-stop-list '(2 4 6 8 10 12 14 16 18 20 22 24 26 28 30 32 34 36 38 40))
+  (setq standard-indent tab-width)
+  )
+(setq auto-mode-alist (cons '(".*/chibios/.*\\.[ch]$" . two-space-mode) auto-mode-alist))
 
 (defun Kconfig-mode ()
   "Kconfig mode"
