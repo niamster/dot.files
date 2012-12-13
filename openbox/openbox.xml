@@ -329,6 +329,15 @@
         <command>spacefm</command>
       </action>
     </keybind>
+    <keybind key="W-s">
+      <action name="Execute">
+        <startupnotify>
+          <enabled>true</enabled>
+          <name>screen off</name>
+        </startupnotify>
+        <command>xset dpms force standby</command>
+      </action>
+    </keybind>
   </keyboard>
   <mouse>
     <dragThreshold>8</dragThreshold>
