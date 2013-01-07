@@ -289,7 +289,7 @@
 (global-unset-key (kbd "C-x <left>"))
 (global-unset-key (kbd "C-x <right>"))
 
-# speedup vc-git for big git repos(http://debbugs.gnu.org/cgi/bugreport.cgi?bug=8288)
+; speedup vc-git for big git repos(http://debbugs.gnu.org/cgi/bugreport.cgi?bug=8288)
 (defun vc-git-state-heuristic (file)
   "Just claim we're up to date."
   'up-to-date)
