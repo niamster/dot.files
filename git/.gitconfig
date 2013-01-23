@@ -17,6 +17,8 @@
 	fp = format-patch
 	rb = rebase
 	rbi = rebase -i
+	rbc = rebase --continue
+	cp = cherry-pick
 	ci = commit
 	cia = commit --amend
 	co = checkout
