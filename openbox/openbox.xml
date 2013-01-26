@@ -315,9 +315,9 @@
       <action name="Execute">
         <startupnotify>
           <enabled>true</enabled>
-          <name>firefox</name>
+          <name>chromium</name>
         </startupnotify>
-        <command>firefox</command>
+        <command>chromium --disk-cache-dir="/tmp/chromium"</command>
       </action>
     </keybind>
     <keybind key="W-p">
