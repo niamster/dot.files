@@ -239,21 +239,21 @@
 		<item label="Power off">
 			<action name="Execute">
 				<execute>
-					poweroff
+					systemctl poweroff
 				</execute>
 			</action>
 		</item>
 		<item label="Reboot">
 			<action name="Execute">
 				<execute>
-					reboot
+					systemctl reboot
 				</execute>
 			</action>
 		</item>
 		<item label="Suspend">
 			<action name="Execute">
 				<execute>
-					sudo sh -c 'echo mem &gt; /sys/power/state'
+					systemctl suspend
 				</execute>
 			</action>
 		</item>
