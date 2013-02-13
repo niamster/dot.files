@@ -52,6 +52,8 @@
 
 ; highlighting
 (setq font-lock-maximum-decoration t)
+(setq-default font-lock-multiline t)
+
 (global-font-lock-mode t)
 (setq light-symbol-mode t)
 
@@ -178,6 +180,19 @@
 		)
 	  )
 
+; stop prompting me about whether I really mean to bring that large file into a buffer
+(setq large-file-warning-threshold nil)
+
+(defun find-file-check-make-large-file-read-only-hook ()
+  "If a file is over a given size, make the buffer read only."
+  (when (> (buffer-size) (* 1024 1024))
+    (setq buffer-read-only t)
+    (buffer-disable-undo)
+    (fundamental-mode)
+    (font-lock-fontify-buffer)
+    )
+  )
+(add-hook 'find-file-hook 'find-file-check-make-large-file-read-only-hook)
 
 ; up/low case region
 (put 'upcase-region 'disabled nil) ; enable C-x C-u for upcase region
