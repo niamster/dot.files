@@ -158,13 +158,6 @@
 				</execute>
 			</action>
 		</item>
-		<item label="Liferea">
-			<action name="Execute">
-				<execute>
-					liferea
-				</execute>
-			</action>
-		</item>
 		<item label="Wicd">
 			<action name="Execute">
 				<execute>
