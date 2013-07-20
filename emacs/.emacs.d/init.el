@@ -212,6 +212,7 @@
 (add-hook 'text-mode-hook 'subword-hook)
 (add-hook 'asm-mode-hook 'subword-hook)
 (add-hook 'python-mode-hook 'subword-hook)
+(add-hook 'ruby-mode-hook 'subword-hook)
 (add-hook 'emacs-lisp-mode-hook 'subword-hook)
 
 ; backspace to delete character backwards
@@ -633,6 +634,7 @@
 (add-hook 'c++-mode-hook (lambda () (linum-mode t)))
 (add-hook 'asm-mode-hook (lambda () (linum-mode t)))
 (add-hook 'python-mode-hook (lambda () (linum-mode t)))
+(add-hook 'ruby-mode-hook (lambda () (linum-mode t)))
 (add-hook 'emacs-lisp-mode-hook (lambda () (linum-mode t)))
 (add-hook 'makefile-mode-hook (lambda () (linum-mode t)))
 
@@ -762,6 +764,7 @@
 (require 'highlight-parentheses)
 (add-hook 'c-mode-hook (lambda () (highlight-parentheses-mode t)))
 (add-hook 'c++-mode-hook (lambda () (highlight-parentheses-mode t)))
+(add-hook 'ruby-hook (lambda () (highlight-parentheses-mode t)))
 (add-hook 'emacs-lisp-mode-hook (lambda () (highlight-parentheses-mode t)))
 
 (require 'highlight-symbol)
@@ -777,6 +780,7 @@
 (add-hook 'c++-mode-hook (lambda () (idle-highlight-mode t)))
 (add-hook 'asm-mode-hook (lambda () (idle-highlight-mode t)))
 (add-hook 'python-mode-hook (lambda () (idle-highlight-mode t)))
+(add-hook 'ruby-mode-hook (lambda () (idle-highlight-mode t)))
 (add-hook 'emacs-lisp-mode-hook (lambda () (idle-highlight-mode t)))
 (add-hook 'makefile-mode-hook (lambda () (idle-highlight-mode t)))
 
@@ -796,6 +800,7 @@
 (add-hook 'dired-mode-hook (lambda () (toggle-truncate-lines t)))
 (add-hook 'ibuffer-mode-hook (lambda () (toggle-truncate-lines t)))
 (add-hook 'python-mode-hook (lambda () (toggle-truncate-lines t)))
+(add-hook 'ruby-mode-hook (lambda () (toggle-truncate-lines t)))
 (add-hook 'emacs-lisp-mode-hook (lambda () (toggle-truncate-lines t)))
 (add-hook 'grep-mode-hook (lambda () (toggle-truncate-lines t)))
 (add-hook 'makefile-mode-hook (lambda () (toggle-truncate-lines t)))
