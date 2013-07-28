@@ -42,7 +42,45 @@ alias pc="sudo sh -c 'echo conservative > /sys/devices/system/cpu/cpu0/cpufreq/s
 complete -cf sudo
 complete -cf man
 
+# Git me harder!
+__git_ps1 ()
+{
+    local g="$(git rev-parse --git-dir 2>/dev/null)"
+    if [ -n "$g" ]; then
+        local r
+        local b
+        if [ -d "$g/../.dotest" ]
+        then
+            local b="$(git symbolic-ref HEAD 2>/dev/null)"
+            r="|REBASING"
+        elif [ -d "$g/.dotest-merge" ]
+        then
+            r="|REBASING"
+            b="$(cat $g/.dotest-merge/head-name)"
+        elif [ -f "$g/MERGE_HEAD" ]
+        then
+            r="|MERGING"
+            b="$(git symbolic-ref HEAD 2>/dev/null)"
+        else
+            if [ -f $g/BISECT_LOG ]
+            then
+                r="|BISECTING"
+            fi
+            if ! b="$(git symbolic-ref HEAD 2>/dev/null)"
+            then
+                b="$(cut -c1-7 $g/HEAD)..."
+            fi
+        fi
+        if [ -n "$1" ]; then
+            printf "$1" "${b##refs/heads/}$r"
+        else
+            printf " (%s)" "${b##refs/heads/}$r"
+        fi
+    fi
+}
+
 PS1="\[\e[0;31m\](\[\e[0;33m\]\u\[\e[0;36m\]@\[\e[0;37m\]\H\[\e[0;31m\]|\[\e[0;32m\]\t\[\e[0;31m\]|\[\e[1;34m\]\w\[\e[0;31m\])\n\[\e[0;31m\]*~>\[\e[0m\]"
+PS1="${PS1//\\w/\\w\$(__git_ps1)}"
 XTERM_TITLE='\[\033]0;\W@\u@\H\007\]'
 
 export BC_ENV_ARGS=-l
