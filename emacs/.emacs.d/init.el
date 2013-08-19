@@ -487,7 +487,6 @@
 (defun two-space-mode ()
   "C mode with 2 spaces for indentation."
   (interactive)
-  (message "dsdfsdf")
   (c-mode)
   (setq tab-width 2)
   (setq default-tab-width tab-width)
