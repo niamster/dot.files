@@ -462,6 +462,7 @@
 (setq default-tab-width tab-width)
 (setq tab-stop-list '(4 8 12 16 20 24 28 32 36 40 44 48 52 56 60 64 68 72 76 80))
 (setq standard-indent tab-width)
+(setq python-indent tab-width)
 
 ; file types to mode
 (setq auto-mode-alist
