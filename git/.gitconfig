@@ -1,7 +1,3 @@
-[color]
-	diff = auto
-	status = auto
-	branch = auto
 [user]
 	name = Dmytro Milinevskyy
 	email = milinevskyy@gmail.com
@@ -10,10 +6,10 @@
 	pager = less -+$LESS -FRSX
 [alias]
 	d = diff
-	l = log
+	l = log --color=always
 	br = branch
-	in = !git remote update -p && git log ..@{u}
-	out = log @{u}..
+	in = !git remote update -p && git log --color=always ..@{u}
+	out = log --color=always @{u}..
 	fp = format-patch
 	rb = rebase
 	rbi = rebase -i
@@ -28,10 +24,10 @@
 	pulom = pull origin master
 	pusom = push origin master
 	pr = pull --rebase
-	lg = log -p
-	lol = log --graph --decorate --pretty=oneline --abbrev-commit
-	lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
-	gr = log --all --graph --pretty=format:'%Cred%h%Creset%x09%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+	lg = log --color=always -p
+	lol = log --color=always --graph --decorate --pretty=oneline --abbrev-commit
+	lola = log --color=always --graph --decorate --pretty=oneline --abbrev-commit --all
+	gr = log --color=always --all --graph --pretty=format:'%Cred%h%Creset%x09%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
 	wd = diff --color-words
 	cd = diff --cached
 	wcd = diff --color-words --cached
@@ -39,6 +35,7 @@
     branch = auto
     diff = auto
     status = auto
+    log = always
 [color "branch"]
     current = red
     local = yellow
