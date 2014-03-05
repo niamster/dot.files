@@ -542,6 +542,12 @@
 ; gdb configuration
 (setq gdb-many-windows t)
 
+; verilog-mode configuration
+(defun verilog-mode-custom ()
+  (setq verilog-auto-newline nil)
+)
+(setq verilog-mode-hook 'verilog-mode-custom)
+
 ; ediff
 (define-prefix-command 'ediff-map)
 (define-key ediff-map "b" 'ediff-buffers)
