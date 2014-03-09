@@ -214,6 +214,7 @@
 (add-hook 'python-mode-hook 'subword-hook)
 (add-hook 'ruby-mode-hook 'subword-hook)
 (add-hook 'emacs-lisp-mode-hook 'subword-hook)
+(add-hook 'verilog-mode-hook 'subword-hook)
 
 ; backspace to delete character backwards
 (define-key key-translation-map "\177" (kbd "C-="))
@@ -545,6 +546,8 @@
 ; verilog-mode configuration
 (defun verilog-mode-custom ()
   (setq verilog-auto-newline nil)
+  (setq verilog-auto-endcomments nil)
+  (setq verilog-auto-lineup nil)
 )
 (setq verilog-mode-hook 'verilog-mode-custom)
 
@@ -643,6 +646,7 @@
 (add-hook 'ruby-mode-hook (lambda () (linum-mode t)))
 (add-hook 'emacs-lisp-mode-hook (lambda () (linum-mode t)))
 (add-hook 'makefile-mode-hook (lambda () (linum-mode t)))
+(add-hook 'verilog-mode-hook (lambda () (linum-mode t)))
 
 (require 'ibuf-ext)
 (add-hook 'ibuffer-mode-hook (lambda ()
@@ -789,6 +793,7 @@
 (add-hook 'ruby-mode-hook (lambda () (idle-highlight-mode t)))
 (add-hook 'emacs-lisp-mode-hook (lambda () (idle-highlight-mode t)))
 (add-hook 'makefile-mode-hook (lambda () (idle-highlight-mode t)))
+(add-hook 'verilog-mode-hook (lambda () (idle-highlight-mode t)))
 
 (require 'ascope)
 (define-prefix-command 'ascope-map)
@@ -811,4 +816,5 @@
 (add-hook 'grep-mode-hook (lambda () (toggle-truncate-lines t)))
 (add-hook 'makefile-mode-hook (lambda () (toggle-truncate-lines t)))
 (add-hook 'diff-mode-hook (lambda () (toggle-truncate-lines t)))
+(add-hook 'verilog-mode-hook (lambda () (toggle-truncate-lines t)))
 
