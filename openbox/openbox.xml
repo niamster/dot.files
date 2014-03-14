@@ -338,6 +338,30 @@
         <command>xset dpms force standby</command>
       </action>
     </keybind>
+    <keybind key="W-Right">
+      <action name="MoveRelative">
+        <x>5</x>
+        <y>0</y>
+      </action>
+    </keybind>
+    <keybind key="W-Up">
+      <action name="MoveRelative">
+        <x>0</x>
+        <y>-5</y>
+      </action>
+    </keybind>
+    <keybind key="W-Left">
+      <action name="MoveRelative">
+        <x>-5</x>
+        <y>0</y>
+      </action>
+    </keybind>
+    <keybind key="W-Down">
+      <action name="MoveRelative">
+        <x>0</x>
+        <y>5</y>
+      </action>
+    </keybind>
   </keyboard>
   <mouse>
     <dragThreshold>8</dragThreshold>
