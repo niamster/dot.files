@@ -144,6 +144,20 @@
 				</execute>
 			</action>
 		</item>
+		<item label="gtkwave">
+			<action name="Execute">
+				<execute>
+					gtkwave
+				</execute>
+			</action>
+		</item>
+		<item label="quartus">
+			<action name="Execute">
+				<execute>
+					/projects/tools/altera-quartus-web/quartus/bin/quartus
+				</execute>
+			</action>
+		</item>
 	</menu>
 	<menu id="apps-net-menu" label="Internet">
 		<item label="Transmission">
@@ -172,10 +186,38 @@
 				</command>
 			</action>
 		</item>
+		<item label="Firefox Private">
+			<action name="Execute">
+				<command>
+					firefox -private-window
+				</command>
+			</action>
+		</item>
 		<item label="Skype">
 			<action name="Execute">
 				<command>
 					skype
+				</command>
+			</action>
+		</item>
+		<item label="Viber">
+			<action name="Execute">
+				<command>
+					viber
+				</command>
+			</action>
+		</item>
+		<item label="Cromium">
+			<action name="Execute">
+				<command>
+					chromium
+				</command>
+			</action>
+		</item>
+		<item label="Cromium Incognito">
+			<action name="Execute">
+				<command>
+					chromium --incognito
 				</command>
 			</action>
 		</item>
