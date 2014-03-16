@@ -548,6 +548,10 @@
   (setq verilog-auto-newline nil)
   (setq verilog-auto-endcomments nil)
   (setq verilog-auto-lineup nil)
+  (setq verilog-indent-level 2)
+  (setq verilog-indent-level-module 2)
+  (setq verilog-indent-level-declaration 2)
+  (setq verilog-indent-level-behavioral 2)
 )
 (setq verilog-mode-hook 'verilog-mode-custom)
 
