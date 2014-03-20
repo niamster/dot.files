@@ -257,27 +257,6 @@
 		</item>
 	</menu>
 	<menu id="log-out-menu" label="Log out">
-		<item label="Log Out">
-			<action name="Exit">
-				<prompt>
-					yes
-				</prompt>
-			</action>
-		</item>
-		<item label="Power off">
-			<action name="Execute">
-				<execute>
-					systemctl poweroff
-				</execute>
-			</action>
-		</item>
-		<item label="Reboot">
-			<action name="Execute">
-				<execute>
-					systemctl reboot
-				</execute>
-			</action>
-		</item>
 		<item label="Suspend">
 			<action name="Execute">
 				<execute>
