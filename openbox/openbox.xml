@@ -302,6 +302,15 @@
         <command>urxvtc -sl 0 -e tmux -2</command>
       </action>
     </keybind>
+    <keybind key="W-u">
+      <action name="Execute">
+        <startupnotify>
+          <enabled>true</enabled>
+          <name>urxvtc</name>
+        </startupnotify>
+        <command>urxvtc -sl 0</command>
+      </action>
+    </keybind>
     <keybind key="W-e">
       <action name="Execute">
         <startupnotify>
