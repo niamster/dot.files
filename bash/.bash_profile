@@ -2,7 +2,7 @@ PATH=/usr/lib/colorgcc/bin:$PATH:/opt/bin
 export CCACHE_PATH=/usr/bin
 export LANG=en_US.UTF-8
 
-[[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx
+[[ -z $DISPLAY && $XDG_VTNR -eq 9 ]] && exec startx
 
 GREP=$(which grep)
 GAWK=$(which gawk)
