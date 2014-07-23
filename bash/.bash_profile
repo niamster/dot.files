@@ -40,6 +40,7 @@ alias pp="sudo sh -c 'echo performance > /sys/devices/system/cpu/cpu0/cpufreq/sc
 alias pc="sudo sh -c 'echo conservative > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor; echo conservative > /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor'"
 
 complete -cf sudo
+complete -cf xargs
 complete -cf man
 
 # Git me harder!
