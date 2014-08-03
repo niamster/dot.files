@@ -223,11 +223,9 @@
 		</item>
 	</menu>
 	<menu id="config-menu" label="Config">
-		<item label="GTK theme changer">
+		<item label="Lxappearance">
 			<action name="Execute">
-				<execute>
-					gtk-chtheme
-				</execute>
+				<execute>lxappearance</execute>
 			</action>
 		</item>
 		<item label="Tint Configuration Manager">
