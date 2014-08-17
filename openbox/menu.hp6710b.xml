@@ -200,13 +200,6 @@
 				</command>
 			</action>
 		</item>
-		<item label="Viber">
-			<action name="Execute">
-				<command>
-					viber
-				</command>
-			</action>
-		</item>
 		<item label="Cromium">
 			<action name="Execute">
 				<command>
