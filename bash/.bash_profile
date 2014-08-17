@@ -110,6 +110,9 @@ function notify() {
 function wtitle() {
 	TITLE=$1
 	wmctrl -i -r $(xprop -root | $GREP "_NET_ACTIVE_WINDOW(WINDOW)" | $GAWK -F '# ' '{print $2}') -T "$TITLE"
+	if [[ -n "$TMUX" ]]; then
+		tmux rename-session $TITLE
+	fi
 }
 
 function tptoggle() {
