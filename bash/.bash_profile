@@ -1,4 +1,4 @@
-PATH=/usr/lib/colorgcc/bin:$PATH:/opt/bin
+PATH=/usr/lib/colorgcc/bin:$PATH:/opt/bin:~/bin
 export CCACHE_PATH=/usr/bin
 export LANG=en_US.UTF-8
 
