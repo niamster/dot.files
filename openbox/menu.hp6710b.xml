@@ -160,18 +160,6 @@
 		</item>
 	</menu>
 	<menu id="apps-net-menu" label="Internet">
-		<item label="Transmission">
-			<action name="Execute">
-				<execute>transmission-gtk</execute>
-			</action>
-		</item>
-		<item label="Filezilla">
-			<action name="Execute">
-				<execute>
-					filezilla
-				</execute>
-			</action>
-		</item>
 		<item label="Wicd">
 			<action name="Execute">
 				<execute>
