@@ -478,13 +478,18 @@
 			  auto-mode-alist))
 
 (defun tab-mode ()
-  "C mode with tabs for indentation."
+  (interactive)
+  (setq indent-tabs-mode 1)
+  )
+
+(defun linux-mode ()
+  "Linux-style C mode with tabs for indentation."
   (interactive)
   (c-mode)
   (setq indent-tabs-mode 1)
   (c-set-offset 'case-label 0)
   )
-(setq auto-mode-alist (cons '(".*/linux-.*/.*\\.[chsS]$" . tab-mode) auto-mode-alist))
+(setq auto-mode-alist (cons '(".*/linux-.*/.*\\.[chsS]$" . linux-mode) auto-mode-alist))
 
 (defun two-space-mode ()
   "C mode with 2 spaces for indentation."
