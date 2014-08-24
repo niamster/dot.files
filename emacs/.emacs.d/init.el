@@ -644,7 +644,7 @@
 ; modules
 
 (require 'whitespace)
-(setq whitespace-style '(face trailing empty space-before-tab space-after-tab))
+(setq whitespace-style '(face trailing empty))
 (global-whitespace-mode t)
 
 (require 'linum)
