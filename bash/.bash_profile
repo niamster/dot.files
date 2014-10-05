@@ -121,6 +121,15 @@ function tptoggle() {
 	synclient TouchpadOff=$(synclient -l| $GREP TouchpadOff | $GAWK -F'= ' '{print !$2}')
 }
 
+function tags_c() {
+    rm -f TAGS
+    find ./ -name '*.[ch]' -o -name '*.cpp' -o -name '*.cxx' | xargs etags -a
+}
+function tags_py() {
+    rm -f TAGS
+    find ./ -name '*.py' | xargs etags -a
+}
+
 # pretty man pages
 export LESS_TERMCAP_mb=$'\e[01;31m'        # begin blinking
 export LESS_TERMCAP_md=$'\e[01;33m'        # begin bold
