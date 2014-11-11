@@ -1,5 +1,8 @@
 PATH=/usr/lib/colorgcc/bin:$PATH:/opt/bin:~/bin
-which ruby >/dev/null 2>&1 && which gem >/dev/null 2>&1 && PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
+which ruby >/dev/null 2>&1 && \
+	which gem >/dev/null 2>&1 && \
+	export GEM_HOME=$(ruby -e 'print Gem.user_dir') && \
+	PATH=$GEM_HOME/bin:$PATH
 
 export CCACHE_PATH=/usr/bin
 export LANG=en_US.UTF-8
