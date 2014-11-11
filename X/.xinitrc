@@ -4,7 +4,7 @@ feh --bg-scale ~/images/wallpaper.* &
 urxvtd -q -f
 xxkb &
 parcellite &
-volumeicon &
+pasystray &
 brightnessicon &
 wicd-gtk &
 xcalib -d :0 ~/.color/icc/current.icm
