@@ -5,9 +5,6 @@ ConnectTimeout 60
 Compression yes
 CompressionLevel 3 
 
-Cipher blowfish
-Ciphers blowfish-cbc,aes128-cbc,3des-cbc,cast128-cbc,arcfour,aes192-cbc,aes256-cbc
-
 Host *
 
 ControlMaster auto
