@@ -31,6 +31,7 @@
 
 ; do not copy marked region to the primary selection
 (setq select-active-regions nil)
+(setq mouse-drag-copy-region nil)
 
 ; server
 (setq server-use-tcp t)
