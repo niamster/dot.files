@@ -8,6 +8,6 @@ pasystray &
 brightnessicon &
 wicd-gtk &
 xcalib -d :0 ~/.color/icc/current.icm
-/opt/urserver/urserver --daemon
+xbindkeys
 
 exec openbox --config-file ~/.config/openbox/openbox.xml
