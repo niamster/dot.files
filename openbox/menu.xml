@@ -17,6 +17,21 @@
 		</item>
 	</menu>
 	<menu id="apps-accessories-menu" label="Accessories">
+		<item label="Libre Office">
+			<action name="Execute">
+				<execute>libreoffice</execute>
+			</action>
+		</item>
+		<item label="asoundconf">
+			<action name="Execute">
+				<execute>asoundconf-gtk</execute>
+			</action>
+		</item>
+		<item label="robomongo">
+			<action name="Execute">
+				<execute>robomongo</execute>
+			</action>
+		</item>
 		<item label="urxvtc">
 			<action name="Execute">
 				<execute>
@@ -54,13 +69,6 @@
 			<action name="Execute">
 				<execute>
 					mirage
-				</execute>
-			</action>
-		</item>
-		<item label="Chmsee">
-			<action name="Execute">
-				<execute>
-					chmsee
 				</execute>
 			</action>
 		</item>
@@ -204,6 +212,11 @@
 		</item>
 	</menu>
 	<menu id="config-menu" label="Config">
+		<item label="keys">
+			<action name="Execute">
+				<execute>xbindkeys_config</execute>
+			</action>
+		</item>
 		<item label="Lxappearance">
 			<action name="Execute">
 				<execute>lxappearance</execute>
