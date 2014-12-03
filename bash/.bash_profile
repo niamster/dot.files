@@ -135,8 +135,8 @@ function tags_py() {
 
 function enable_rvm() {
     unset GEM_HOME
-    PATH="$PATH:~/.rvm/bin"
-    [[ -s "~/.rvm/scripts/rvm" ]] && source "~/.rvm/scripts/rvm"
+    PATH=$PATH:~/.rvm/bin
+    [[ -s ~/.rvm/scripts/rvm ]] && source ~/.rvm/scripts/rvm
 }
 
 # pretty man pages
