@@ -133,6 +133,12 @@ function tags_py() {
     find ./ -name '*.py' | xargs etags -a
 }
 
+function enable_rvm() {
+    unset GEM_HOME
+    PATH="$PATH:~/.rvm/bin"
+    [[ -s "~/.rvm/scripts/rvm" ]] && source "~/.rvm/scripts/rvm"
+}
+
 # pretty man pages
 export LESS_TERMCAP_mb=$'\e[01;31m'        # begin blinking
 export LESS_TERMCAP_md=$'\e[01;33m'        # begin bold
