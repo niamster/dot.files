@@ -41,8 +41,13 @@ nocolor: dumb emacs
 # Text between ` and ' is usually source code.
 srcColor: bold cyan
 
+# Text between ‘ and ’ is usually a source code identifier.
+identColor: green
+
 # Text other than a warning or error.
-introColor: reset
+introFileNameColor: reset
+introMessageColor:  magenta
+introColor:			white
 
 # Warnings and errors both have similar formats:
 #    filename:999:Message
@@ -50,15 +55,15 @@ introColor: reset
 
 # Warnings
 warningFileNameColor: reset
-warningNumberColor:   blue
+warningNumberColor:   magenta
 warningMessageColor:  yellow
 
 # Errors
 errorFileNameColor: reset
-errorNumberColor:   cyan
+errorNumberColor:   magenta
 errorMessageColor:  bold red
 
-# Possible translations, if you use localized compiler.
-# (List all translations on one line, seperated by whitespace.)
-warningTranslations:
-errorTranslations:
+# Notes
+noteFileNameColor: reset
+noteNumberColor:   magenta
+noteMessageColor:  green
