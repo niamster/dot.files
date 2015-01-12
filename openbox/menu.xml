@@ -72,34 +72,10 @@
 				</execute>
 			</action>
 		</item>
-		<item label="GerbV">
-			<action name="Execute">
-				<execute>gerbv</execute>
-			</action>
-		</item>
-		<item label="Eagle">
-			<action name="Execute">
-				<execute>eagle</execute>
-			</action>
-		</item>
-		<item label="MplabX">
-			<action name="Execute">
-				<execute>
-					mplab_ide
-				</execute>
-			</action>
-		</item>
 		<item label="emacs">
 			<action name="Execute">
 				<execute>
 					emacs
-				</execute>
-			</action>
-		</item>
-		<item label="sMplayer">
-			<action name="Execute">
-				<execute>
-					smplayer
 				</execute>
 			</action>
 		</item>
