@@ -132,6 +132,10 @@ function tags_py() {
     rm -f TAGS
     find ./ -name '*.py' | xargs etags -a
 }
+function tags_rb() {
+    rm -f TAGS
+    ripper-tags -f TAGS -R
+}
 
 function enable_rvm() {
     unset GEM_HOME
