@@ -25,6 +25,7 @@
 	pulom = pull origin master
 	pusom = push origin master
 	pr = pull --rebase
+	rvt = revert --no-edit
 	lg = log --color=always -p
 	lol = log --color=always --graph --decorate --pretty=oneline --abbrev-commit
 	lola = log --color=always --graph --decorate --pretty=oneline --abbrev-commit --all
