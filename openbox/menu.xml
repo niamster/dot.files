@@ -27,6 +27,11 @@
 				<execute>asoundconf-gtk</execute>
 			</action>
 		</item>
+		<item label="Redis Manager">
+			<action name="Execute">
+				<execute>rdm</execute>
+			</action>
+		</item>
 		<item label="robomongo">
 			<action name="Execute">
 				<execute>robomongo</execute>
@@ -163,6 +168,11 @@
 				<command>
 					firefox -private-window
 				</command>
+			</action>
+		</item>
+		<item label="Pidgin">
+			<action name="Execute">
+				<execute>pidgin</execute>
 			</action>
 		</item>
 		<item label="Skype">
