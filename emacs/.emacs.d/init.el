@@ -759,6 +759,8 @@
  '(diredp-exec-priv ((t (:background "#1e1e1e" :foreground "yellow"))))
  '(diredp-no-priv ((t (:background "#1e1e1e" :foreground "white"))))
  )
+(setq diredp-hide-details-initially-flag nil)
+(setq diredp-hide-details-propagate-flag nil)
 
 (require 'browse-kill-ring)
 (browse-kill-ring-default-keybindings)
