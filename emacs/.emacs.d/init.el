@@ -3,20 +3,19 @@
 ;(set-default-font "-bitstream-bitstream vera sans mono-bold-r-normal--10-8-*-*-m-*-iso8859-1")
 ;(set-default-font "-misc-dejavu sans mono-medium-r-normal--10-8-*-*-m-*-iso8859-1")
 
-; fg/bg colors
-(if window-system
-    (setq default-frame-alist
-          '(
-            (background-color . "#121212")
-            (foreground-color . "#00868b")
-            (left-fringe . 1) (right-fringe . 1)
-            )
-          )
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
 
-  (set-background-color "#121212")
-  (set-foreground-color "#00868b")
-  (menu-bar-mode nil)
-  )
+(setq custom-bg-color "#101010")
+(setq custom-fg-color "#00868b")
+
+(if (>= emacs-major-version 24) (load-theme 'monokai t))
+
+(if window-system
+    (setq default-frame-alist '((left-fringe . 1) (right-fringe . 1)))
+  (menu-bar-mode nil))
+
+(custom-set-faces `(default ((t (:background ,custom-bg-color)))))
+(custom-set-faces `(default ((t (:foreground ,custom-fg-color)))))
 
 (setq frame-title-format '("" "%b:" default-directory))
 
