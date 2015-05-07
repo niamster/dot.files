@@ -22,7 +22,6 @@ alias vi="vim"
 alias et="emacs -nw"
 alias ec="emacsclient -a \"\" -c -n"
 alias ect="emacsclient -a \"\" -c -nw"
-alias grep="grep --exclude-dir=.svn --exclude-dir=.git --exclude-dir=.hg --exclude=TAGS --exclude '*.d' --color=always -n"
 alias psf="ps xuf"
 alias sb="sudo bash"
 alias minicom="minicom -c on -w"
@@ -103,6 +102,10 @@ function heff() {
 }
 function hexl() {
     ew -eval "(hexl-find-file \"$1\")"
+}
+
+function grep() {
+    $GREP --exclude-dir=.svn --exclude-dir=.git --exclude-dir=.hg --exclude=TAGS --exclude '*.d' --color=always -n $*
 }
 
 function rgrep() {
