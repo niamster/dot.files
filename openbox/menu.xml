@@ -16,6 +16,18 @@
 			</action>
 		</item>
 	</menu>
+	<menu id="fun-menu" label="Fun">
+		<item label="steam">
+			<action name="Execute">
+				<execute>steam</execute>
+			</action>
+		</item>
+		<item label="planescape torment">
+			<action name="Execute">
+				<execute>gog-planescape-torment</execute>
+			</action>
+		</item>
+	</menu>
 	<menu id="apps-accessories-menu" label="Accessories">
 		<item label="Libre Office">
 			<action name="Execute">
@@ -249,6 +261,7 @@
 		<separator label="Applications"/>
 		<menu id="apps-accessories-menu"/>
 		<menu id="apps-net-menu"/>
+		<menu id="fun-menu"/>
 		<separator label="System"/>
 		<menu id="config-menu"/>
 		<separator/>
