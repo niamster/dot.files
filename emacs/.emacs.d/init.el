@@ -661,6 +661,7 @@
 ;; - highlight-parentheses
 ;; - highlight-symbol
 ;; - idle-highlight-mode
+;; - list-register
 ;; local modules
 ;; - ascope
 
