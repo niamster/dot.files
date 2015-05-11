@@ -288,6 +288,9 @@
 ;; (global-move-key (kbd "<up>") (kbd "C-p"))
 ;; (global-move-key (kbd "<down>") (kbd "C-n"))
 
+;; remove annoying keybinding(`[` is too close to `p`)
+(global-unset-key (kbd "C-[ C-["))
+
 ; frame control
 (global-set-key (kbd "C-x 5 3") 'make-frame-on-display)
 ; C-z     : Minimize (or “iconify) the selected Emacs frame (suspend-frame)
