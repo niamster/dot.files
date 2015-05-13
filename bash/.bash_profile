@@ -136,6 +136,11 @@ function tptoggle() {
 	synclient TouchpadOff=$(synclient -l| $GREP TouchpadOff | $GAWK -F'= ' '{print !$2}')
 }
 
+function cscope() {
+    rm -f cscope.*
+    find ./ -name '*.[ch]' -o -name '*.cpp' -o -name '*.cxx' | xargs cscope -bqk
+}
+
 function tags_c() {
     rm -f TAGS
     find ./ -name '*.[ch]' -o -name '*.cpp' -o -name '*.cxx' | xargs etags -a
