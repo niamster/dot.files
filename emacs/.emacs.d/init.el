@@ -665,8 +665,7 @@
 ;; - highlight-symbol
 ;; - idle-highlight-mode
 ;; - list-register
-;; local modules
-;; - ascope
+;; - xcscope
 
 ;; Modules initialization and their parameters
 
@@ -833,13 +832,15 @@
 (add-hook 'makefile-mode-hook (lambda () (idle-highlight-mode t)))
 (add-hook 'verilog-mode-hook (lambda () (idle-highlight-mode t)))
 
-(require 'ascope)
-(define-prefix-command 'ascope-map)
-(define-key ascope-map "i" 'ascope-init)
-(define-key ascope-map "s" 'ascope-find-this-symbol)
-(define-key ascope-map "r" 'ascope-find-functions-calling-this-function)
-(define-key ascope-map "*" 'ascope-pop-mark)
-(global-set-key (kbd "C-x a") ascope-map)
+
+(require 'xcscope)
+(cscope-setup)
+(define-prefix-command 'xscope-map)
+(define-key xscope-map "i" 'cscope-set-initial-directory)
+(define-key xscope-map "s" 'cscope-find-this-symbol)
+(define-key xscope-map "r" 'cscope-find-functions-calling-this-function)
+(define-key xscope-map "*" 'cscope-pop-mark)
+(global-set-key (kbd "C-x a") xscope-map)
 
 ; truncate lines [NOTE: keep this in the end]
 (add-hook 'c-mode-hook (lambda () (toggle-truncate-lines t)))
