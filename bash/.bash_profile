@@ -26,7 +26,7 @@ alias psf="ps xuf"
 alias sb="sudo bash"
 alias minicom="minicom -c on -w"
 alias tmux="tmux -2"
-alias grep="$GREP --exclude-dir=.svn --exclude-dir=.git --exclude-dir=.hg --exclude=TAGS --exclude '*.d' --color=always -n"
+alias grep="$GREP --exclude-dir=.svn --exclude-dir=.git --exclude-dir=.hg --exclude=TAGS --exclude='cscope.*' --exclude '*.d' --color=always -n"
 alias rgrep="grep -rI"
 [[ -f /usr/bin/colorsvn ]] && {
     alias svn="colorsvn"
@@ -138,7 +138,8 @@ function tptoggle() {
 
 function cscope() {
     rm -f cscope.*
-    find ./ -name '*.[ch]' -o -name '*.cpp' -o -name '*.cxx' | xargs cscope -bqk
+    find ./ -name '*.[ch]' -o -name '*.cpp' -o -name '*.cxx' > cscope.files
+    cscope -bq
 }
 
 function tags_c() {
