@@ -549,6 +549,9 @@
 (add-hook 'c++-mode-hook 'comment-mode-common-hook)
 (add-hook 'asm-mode-hook 'comment-mode-common-hook)
 
+;; display current function in mode space
+(which-function-mode t)
+
 ; gdb configuration
 (setq gdb-many-windows t)
 
