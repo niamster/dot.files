@@ -127,7 +127,7 @@
 		<item label="calculator">
 			<action name="Execute">
 				<command>
-					gcalctool
+					gnome-calculator
 				</command>
 			</action>
 		</item>
