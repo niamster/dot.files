@@ -137,7 +137,7 @@ function tptoggle() {
 	synclient TouchpadOff=$(synclient -l| $GREP TouchpadOff | $GAWK -F'= ' '{print !$2}')
 }
 
-function cscope() {
+function cscope_c() {
     rm -f cscope.*
     find ./ -name '*.[ch]' -o -name '*.cpp' -o -name '*.cxx' > cscope.files
     cscope -bq
