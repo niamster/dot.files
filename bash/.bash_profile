@@ -28,6 +28,7 @@ alias minicom="minicom -c on -w"
 alias tmux="tmux -2"
 alias grep="$GREP --exclude-dir=.svn --exclude-dir=.git --exclude-dir=.hg --exclude=TAGS --exclude='cscope.*' --exclude '*.d' --color=always -n"
 alias rgrep="grep -rI"
+alias gti=git
 [[ -f /usr/bin/colorsvn ]] && {
     alias svn="colorsvn"
 }
