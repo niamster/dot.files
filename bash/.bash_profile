@@ -3,6 +3,7 @@ which ruby >/dev/null 2>&1 && \
 	which gem >/dev/null 2>&1 && \
 	export GEM_HOME=$(ruby -e 'print Gem.user_dir') && \
 	PATH=$GEM_HOME/bin:$PATH
+PATH=~/.local/bin:$PATH
 
 export CCACHE_PATH=/usr/bin
 export LANG=en_US.UTF-8
