@@ -5,6 +5,10 @@ which ruby >/dev/null 2>&1 && \
 	PATH=$GEM_HOME/bin:$PATH
 PATH=~/.local/bin:$PATH
 
+export GOPATH=~/.local/go
+mkdir -p $GOPATH
+PATH=$PATH:$GOPATH/bin
+
 export CCACHE_PATH=/usr/bin
 export LANG=en_US.UTF-8
 
