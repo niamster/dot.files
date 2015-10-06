@@ -514,6 +514,27 @@
   )
 (setq auto-mode-alist (cons '(".*Kconfig.*" . Kconfig-mode) auto-mode-alist))
 
+(defun custom-c-lineup-expression-plus-4 (langelem)
+  "Indents to the beginning of the current C expression plus 4 spaces."
+  (save-excursion
+    (back-to-indentation)
+    ;; Go to beginning of *previous* line:
+    (c-backward-syntactic-ws)
+    (back-to-indentation)
+    (cond
+     ;; We are making a reasonable assumption that if there is a control
+     ;; structure to indent past, it has to be at the beginning of the line.
+     ((looking-at ".*?\\([a-zA-Z0-9_]+\s*(\\)")
+      (goto-char (match-beginning 1))
+      )
+     )
+    ;; (message "matched %d '%s'"
+    ;;          (match-beginning 1)
+    ;;          (buffer-substring (match-beginning 1) (match-end 1)))
+    (vector (+ c-basic-offset (current-column)))
+    )
+  )
+
 ; List of c-set-offset's [from http://stuff.mit.edu/afs/sipb/contrib/emacs/packages/cc-mode-5.21/cc-styles.el]
 (defun indentation-mode-common-hook ()
   (interactive)
@@ -534,6 +555,7 @@
   (c-set-offset 'brace-list-open 0)
   (c-set-offset 'arglist-cont-nonempty '+)
   (c-set-offset 'arglist-close '+)
+  (c-set-offset 'arglist-intro 'custom-c-lineup-expression-plus-4)
 )
 (add-hook 'c-mode-hook 'indentation-mode-common-hook)
 (add-hook 'c++-mode-hook 'indentation-mode-common-hook)
