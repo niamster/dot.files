@@ -554,7 +554,7 @@
   (c-set-offset 'statement-case-open 0)
   (c-set-offset 'brace-list-open 0)
   (c-set-offset 'arglist-cont-nonempty '+)
-  (c-set-offset 'arglist-close '+)
+  (c-set-offset 'arglist-close 0)
   (c-set-offset 'arglist-intro 'custom-c-lineup-expression-plus-4)
 )
 (add-hook 'c-mode-hook 'indentation-mode-common-hook)
