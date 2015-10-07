@@ -514,8 +514,8 @@
   )
 (setq auto-mode-alist (cons '(".*Kconfig.*" . Kconfig-mode) auto-mode-alist))
 
-(defun custom-c-lineup-expression-plus-4 (langelem)
-  "Indents to the beginning of the current C expression plus 4 spaces."
+(defun custom-c-arglist-init-expression (langelem)
+  "Indents to the beginning of the current C expression plus one offset."
   (save-excursion
     (back-to-indentation)
     ;; Go to beginning of *previous* line:
@@ -532,6 +532,17 @@
     ;;          (match-beginning 1)
     ;;          (buffer-substring (match-beginning 1) (match-end 1)))
     (vector (+ c-basic-offset (current-column)))
+    )
+  )
+(defun custom-c-arglist-close-expression (langelem)
+  "Indents to the beginning of the current C expression."
+  (save-excursion
+    (c-beginning-of-statement-1)
+    (back-to-indentation)
+    ;; (message "moving %d '%s'"
+    ;;          (current-column)
+    ;;          (buffer-substring (point) (+ (point) 10)))
+    (vector (current-column))
     )
   )
 
@@ -554,8 +565,8 @@
   (c-set-offset 'statement-case-open 0)
   (c-set-offset 'brace-list-open 0)
   (c-set-offset 'arglist-cont-nonempty '+)
-  (c-set-offset 'arglist-close 0)
-  (c-set-offset 'arglist-intro 'custom-c-lineup-expression-plus-4)
+  (c-set-offset 'arglist-close 'custom-c-arglist-close-expression)
+  (c-set-offset 'arglist-intro 'custom-c-arglist-init-expression)
 )
 (add-hook 'c-mode-hook 'indentation-mode-common-hook)
 (add-hook 'c++-mode-hook 'indentation-mode-common-hook)
