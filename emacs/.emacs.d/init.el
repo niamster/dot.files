@@ -537,7 +537,7 @@
 (defun custom-c-arglist-close-expression (langelem)
   "Indents to the beginning of the current C expression."
   (save-excursion
-    (c-beginning-of-statement-1)
+    (c-beginning-of-statement 1)
     (back-to-indentation)
     ;; (message "moving %d '%s'"
     ;;          (current-column)
