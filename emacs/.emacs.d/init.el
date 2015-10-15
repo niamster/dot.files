@@ -756,6 +756,8 @@
 
 (require 'ido)
 (ido-mode t)
+(setq ido-default-file-method 'selected-window)
+(setq ido-default-buffer-method 'selected-window)
 (setq ido-ignore-buffers
       '("\\` ""^\\*.*" ".*Completion")
       ido-work-directory-list '("~/" "~/Desktop" "~/Documents")
