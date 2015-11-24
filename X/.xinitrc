@@ -4,7 +4,6 @@ feh --bg-scale ~/images/wallpaper.* &
 urxvtd -q -f
 xxkb &
 parcellite &
-pulseaudio --start
 pasystray &
 brightnessicon &
 wicd-gtk &
