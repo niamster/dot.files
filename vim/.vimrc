@@ -10,8 +10,10 @@ set undolevels=100
 set nu
 set autoindent
 
+filetype plugin indent on
 set tabstop=4
 set shiftwidth=4
+set expandtab
 
 colorscheme desert
 syn on
@@ -19,4 +21,4 @@ syn on
 set t_Co=256
 
 " prevent screen clearing on exit
-set t_ti= t_te= 
+set t_ti= t_te=
