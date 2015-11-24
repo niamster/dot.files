@@ -161,6 +161,11 @@
 		</item>
 	</menu>
 	<menu id="apps-net-menu" label="Internet">
+		<item label="Wireshark">
+			<action name="Execute">
+				<execute>wireshark-qt</execute>
+			</action>
+		</item>
 		<item label="Wicd">
 			<action name="Execute">
 				<execute>
@@ -206,6 +211,11 @@
 				<command>
 					chromium --incognito
 				</command>
+			</action>
+		</item>
+		<item label="Tor">
+			<action name="Execute">
+				<execute>tor-browser-en</execute>
 			</action>
 		</item>
 	</menu>
