@@ -1,9 +1,8 @@
-PATH=/usr/lib/colorgcc/bin:/opt/bin:~/bin:$PATH
+PATH=/usr/lib/colorgcc/bin:/opt/bin:~/bin:~/.local/bin/:$PATH
 which ruby >/dev/null 2>&1 && \
 	which gem >/dev/null 2>&1 && \
 	export GEM_HOME=$(ruby -e 'print Gem.user_dir') && \
 	PATH=$GEM_HOME/bin:$PATH
-PATH=~/.local/bin:$PATH
 
 export GOPATH=~/.local/go
 mkdir -p $GOPATH
