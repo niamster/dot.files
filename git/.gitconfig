@@ -18,7 +18,9 @@
 	cp = cherry-pick
 	ci = commit
 	cia = commit --amend
+	ciaa = commit --amend -a
 	cian = commit --amend --no-edit
+	ciana = commit --amend --no-edit -a
 	co = checkout
 	up = !(git add . && git stash && git pull --rebase >&2) | grep -v "No local changes to save" && git stash pop
 	st = status
