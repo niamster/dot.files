@@ -215,6 +215,7 @@
 (add-hook 'ruby-mode-hook 'subword-hook)
 (add-hook 'emacs-lisp-mode-hook 'subword-hook)
 (add-hook 'verilog-mode-hook 'subword-hook)
+(add-hook 'go-mode-hook 'subword-hook)
 
 ; backspace to delete character backwards
 (define-key key-translation-map "\177" (kbd "C-="))
@@ -479,6 +480,7 @@
 				("\\.inline$"   . c++-mode)
 				("\\.env$"		. shell-script-mode)
 				("\\.conf$"		. shell-script-mode)
+                ("\\.go$"		. go-mode)
 				)
 			  auto-mode-alist))
 
@@ -719,6 +721,7 @@
 (add-hook 'emacs-lisp-mode-hook (lambda () (linum-mode t)))
 (add-hook 'makefile-mode-hook (lambda () (linum-mode t)))
 (add-hook 'verilog-mode-hook (lambda () (linum-mode t)))
+(add-hook 'go-mode-hook (lambda () (linum-mode t)))
 
 (require 'ibuf-ext)
 (add-hook 'ibuffer-mode-hook (lambda ()
@@ -870,7 +873,7 @@
 (add-hook 'emacs-lisp-mode-hook (lambda () (idle-highlight-mode t)))
 (add-hook 'makefile-mode-hook (lambda () (idle-highlight-mode t)))
 (add-hook 'verilog-mode-hook (lambda () (idle-highlight-mode t)))
-
+(add-hook 'go-mode-hook (lambda () (idle-highlight-mode t)))
 
 (require 'xcscope)
 (cscope-setup)
@@ -895,4 +898,5 @@
 (add-hook 'makefile-mode-hook (lambda () (toggle-truncate-lines t)))
 (add-hook 'diff-mode-hook (lambda () (toggle-truncate-lines t)))
 (add-hook 'verilog-mode-hook (lambda () (toggle-truncate-lines t)))
+(add-hook 'go-mode-hook (lambda () (toggle-truncate-lines t)))
 
