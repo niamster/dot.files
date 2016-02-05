@@ -6,7 +6,8 @@ xxkb &
 parcellite &
 pasystray &
 brightnessicon &
-wicd-gtk &
+nm-applet &
+radiotray &
 xcalib -d :0 ~/.color/icc/current.icm
 xbindkeys
 
