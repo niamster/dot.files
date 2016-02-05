@@ -19,7 +19,7 @@
 	<menu id="fun-menu" label="Fun">
 		<item label="steam">
 			<action name="Execute">
-				<execute>steam</execute>
+				<execute>steam-launch</execute>
 			</action>
 		</item>
 		<item label="planescape torment">
