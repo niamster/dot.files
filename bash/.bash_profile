@@ -30,7 +30,7 @@ alias psf="ps xuf"
 alias sb="sudo bash"
 alias minicom="minicom -c on -w"
 alias tmux="tmux -2"
-alias grep="$GREP --exclude-dir=.svn --exclude-dir=.git --exclude-dir=.hg --exclude=TAGS --exclude='cscope.*' --exclude '*.d' --color=always -n"
+alias grep="$GREP --exclude-dir=.svn --exclude-dir=.git --exclude-dir=.hg --exclude-dir=obj --exclude-dir=build --exclude=TAGS --exclude='cscope.*' --exclude '*.d' --color=always -n"
 alias rgrep="grep -rI"
 alias gti=git
 [[ -f /usr/bin/colorsvn ]] && {
