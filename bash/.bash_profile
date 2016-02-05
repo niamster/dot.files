@@ -43,7 +43,7 @@ alias gti=git
 }
 
 # cleanly reset terminal
-alias cls="echo -ne '\033c'"
+alias cls="reset; echo -ne '\033c'"
 
 export LESS="-FRX"
 
