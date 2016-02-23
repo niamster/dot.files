@@ -178,3 +178,5 @@ export LESS_TERMCAP_ue=$'\e[0m'            # end underline
 COLORTERM=y
 export COLORTERM
 
+BASHRC_USER=~/.bashrc_user
+[[ -s $BASHRC_USER ]] && source $BASHRC_USER
