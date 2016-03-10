@@ -166,6 +166,13 @@ function enable_rvm() {
     [[ -s ~/.rvm/scripts/rvm ]] && source ~/.rvm/scripts/rvm
 }
 
+function tp_mad_fan() {
+	echo level disengaged | sudo tee /proc/acpi/ibm/fan
+}
+function tp_auto_fan() {
+	echo level auto | sudo tee /proc/acpi/ibm/fan
+}
+
 # pretty man pages
 export LESS_TERMCAP_mb=$'\e[01;31m'        # begin blinking
 export LESS_TERMCAP_md=$'\e[01;33m'        # begin bold
