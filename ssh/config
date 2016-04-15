@@ -10,29 +10,3 @@ Host *
 ControlMaster auto
 ControlPath ~/.ssh/master-%r@%h:%p
 
-#Host aws
-#    Ciphers 3des-cbc
-
-Host rizzo-tor
-    Hostname rv2lfusqgynyhkoz.onion
-	# openbsd netcat
-    ProxyCommand nc -X 5 -x 127.0.0.1:9050 %h %p
-
-Host pandora-tor
-    Hostname qem5t3w6t7t6aemu.onion
-	# openbsd netcat
-    ProxyCommand nc -X 5 -x 127.0.0.1:9050 %h %p
-
-Host office.forgetbox.com
-    Port 33047
-    # ssh -D 4444 dmytro@office.forgetbox.com -v
-
-Host pandora-office
-	# openbsd netcat
-    Hostname 10.0.6.140
-    ProxyCommand nc -X 5 -x 127.0.0.1:4444 %h %p
-
-Host mfg2
-	# openbsd netcat
-    Hostname 2mv30bae5zgvehcnhybtem5sqj3zmi1.z
-    ProxyCommand nc -X 5 -x 127.0.0.1:57121 %h %p
