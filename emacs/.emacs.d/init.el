@@ -471,7 +471,8 @@
 (setq standard-indent tab-width)
 (setq python-indent tab-width)
 (setq python-guess-indent nil)
-(add-hook 'python-mode-hook (function (lambda () (setq tab-width 4))))
+(add-hook 'python-mode-hook (function (lambda () (setq tab-width tab-width))))
+(setq lua-indent-level tab-width)
 
 ; file types to mode
 (setq auto-mode-alist
