@@ -760,63 +760,21 @@
 (require 'list-register)
 (global-set-key (kbd "C-x r v") 'list-registers)
 
-(require 'ido)
-(ido-mode t)
-(setq ido-default-file-method 'selected-window)
-(setq ido-default-buffer-method 'selected-window)
-(setq ido-ignore-buffers
-      '("\\` ""^\\*.*" ".*Completion")
-      ido-work-directory-list '("~/" "~/Desktop" "~/Documents")
-      ido-case-fold  t
-      ido-use-filename-at-point nil
-      ido-use-url-at-point nil
-      ido-enable-flex-matching t
-      ido-max-prospects 6
-      ido-everywhere t
-      ido-auto-merge-work-directories-length -1
-      ido-confirm-unique-completion t)
-;; This tab override shouldn't be necessary given ido's default
-;; configuration, but minibuffer-complete otherwise dominates the
-;; tab binding because of my custom tab-completion-everywhere
-;; configuration.
-(add-hook 'ido-setup-hook
-		  (lambda ()
-			(define-key ido-completion-map (kbd "<tab>") 'ido-complete)
-            (define-key ido-completion-map (kbd "C-b") 'ido-prev-match)
-            (define-key ido-completion-map (kbd "C-f") 'ido-next-match)
-			)
-		  )
-; Do not prompt for non-existent buffer creation
-(setq ido-create-new-buffer 'always)
-; Find files in TAGs
-(defun ido-find-file-in-tag-files ()
-  (interactive)
-  (save-excursion
-    (let ((enable-recursive-minibuffers t))
-      (visit-tags-table-buffer))
-    (find-file
-     (expand-file-name
-      (ido-completing-read
-       "Project file: " (tags-table-files) nil t)
-      )
-     )
-    )
-  )
-(global-set-key (kbd "C-x t") 'ido-find-file-in-tag-files)
-; M-x mode with ido
-(global-set-key (kbd "M-x")
- (lambda ()
-   (interactive)
-   (call-interactively
-    (intern
-     (ido-completing-read
-      "M-x "
-      (all-completions "" obarray 'commandp)
-      )
-     )
-    )
-   )
- )
+(require 'ivy)
+(ivy-mode t)
+(setq ivy-use-virtual-buffers t)
+
+(require 'swiper)
+(global-set-key (kbd "C-s") 'swiper)
+
+(require 'counsel)
+(global-set-key (kbd "M-x") 'counsel-M-x)
+(global-set-key (kbd "C-x C-f") 'counsel-find-file)
+
+(require 'projectile)
+(projectile-global-mode)
+(setq projectile-enable-caching t)
+(setq projectile-completion-system 'ivy)
 
 (require 'dired+)
 (custom-set-faces
