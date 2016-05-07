@@ -725,6 +725,8 @@
 (add-hook 'makefile-mode-hook (lambda () (linum-mode t)))
 (add-hook 'verilog-mode-hook (lambda () (linum-mode t)))
 (add-hook 'go-mode-hook (lambda () (linum-mode t)))
+(add-hook 'lua-mode-hook (lambda () (linum-mode t)))
+(add-hook 'rust-mode-hook (lambda () (linum-mode t)))
 
 (require 'ibuf-ext)
 (add-hook 'ibuffer-mode-hook (lambda ()
