@@ -159,6 +159,10 @@ function tags_rb() {
     rm -f TAGS
     ripper-tags -f TAGS -R
 }
+function tags_rs() {
+    rm -f TAGS
+    rusty-tags emacs
+}
 
 function enable_rvm() {
     unset GEM_HOME
