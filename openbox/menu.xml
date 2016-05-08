@@ -29,6 +29,21 @@
 		</item>
 	</menu>
 	<menu id="apps-accessories-menu" label="Accessories">
+		<item label="Dropbox">
+			<action name="Execute">
+				<execute>dropbox</execute>
+			</action>
+		</item>
+		<item label="TeamViewer">
+			<action name="Execute">
+				<execute>teamviewer</execute>
+			</action>
+		</item>
+		<item label="Zeal">
+			<action name="Execute">
+				<execute>zeal</execute>
+			</action>
+		</item>
 		<item label="Libre Office">
 			<action name="Execute">
 				<execute>libreoffice</execute>
