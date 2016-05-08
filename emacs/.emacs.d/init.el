@@ -865,4 +865,6 @@
 (add-hook 'diff-mode-hook (lambda () (toggle-truncate-lines t)))
 (add-hook 'verilog-mode-hook (lambda () (toggle-truncate-lines t)))
 (add-hook 'go-mode-hook (lambda () (toggle-truncate-lines t)))
+(add-hook 'lua-mode-hook (lambda () (toggle-truncate-lines t)))
+(add-hook 'rust-mode-hook (lambda () (toggle-truncate-lines t)))
 
