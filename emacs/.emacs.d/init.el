@@ -847,6 +847,9 @@
 (define-key xscope-map "*" 'cscope-pop-mark)
 (global-set-key (kbd "C-x a") xscope-map)
 
+(require 'zeal-at-point)
+(global-set-key (kbd "C-c z") 'zeal-at-point)
+
 ; truncate lines [NOTE: keep this in the end]
 (add-hook 'c-mode-hook (lambda () (toggle-truncate-lines t)))
 (add-hook 'c++-mode-hook (lambda () (toggle-truncate-lines t)))
