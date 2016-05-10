@@ -177,6 +177,8 @@ function tp_auto_fan() {
 	echo level auto | sudo tee /proc/acpi/ibm/fan
 }
 
+export RUST_BACKTRACE=1
+
 # pretty man pages
 export LESS_TERMCAP_mb=$'\e[01;31m'        # begin blinking
 export LESS_TERMCAP_md=$'\e[01;33m'        # begin bold
