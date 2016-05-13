@@ -492,6 +492,11 @@
   (setq indent-tabs-mode 1)
   )
 
+(defun spc-mode ()
+  (interactive)
+  (setq indent-tabs-mode nil)
+  )
+
 (defun linux-mode ()
   "Linux-style C mode with tabs for indentation."
   (interactive)
