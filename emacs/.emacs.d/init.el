@@ -207,15 +207,6 @@
 	(c-subword-mode)
 	)
   )
-(add-hook 'c-mode-hook 'subword-hook)
-(add-hook 'c++-mode-hook 'subword-hook)
-(add-hook 'text-mode-hook 'subword-hook)
-(add-hook 'asm-mode-hook 'subword-hook)
-(add-hook 'python-mode-hook 'subword-hook)
-(add-hook 'ruby-mode-hook 'subword-hook)
-(add-hook 'emacs-lisp-mode-hook 'subword-hook)
-(add-hook 'verilog-mode-hook 'subword-hook)
-(add-hook 'go-mode-hook 'subword-hook)
 
 ; backspace to delete character backwards
 (define-key key-translation-map "\177" (kbd "C-="))
@@ -704,34 +695,11 @@
 (setq load-path	(cons "~/.emacs.d" load-path))
 (byte-recompile-directory "~/.emacs.d" 0 nil)
 
-;; modules from elpa:
-;; - browse-kill-ring
-;; - dired+
-;; - etags-select
-;; - highlight-parentheses
-;; - highlight-symbol
-;; - idle-highlight-mode
-;; - list-register
-;; - xcscope
-
 ;; Modules initialization and their parameters
 
 (require 'whitespace)
 (setq whitespace-style '(face trailing empty))
 (global-whitespace-mode t)
-
-(require 'linum)
-(add-hook 'c-mode-hook (lambda () (linum-mode t)))
-(add-hook 'c++-mode-hook (lambda () (linum-mode t)))
-(add-hook 'asm-mode-hook (lambda () (linum-mode t)))
-(add-hook 'python-mode-hook (lambda () (linum-mode t)))
-(add-hook 'ruby-mode-hook (lambda () (linum-mode t)))
-(add-hook 'emacs-lisp-mode-hook (lambda () (linum-mode t)))
-(add-hook 'makefile-mode-hook (lambda () (linum-mode t)))
-(add-hook 'verilog-mode-hook (lambda () (linum-mode t)))
-(add-hook 'go-mode-hook (lambda () (linum-mode t)))
-(add-hook 'lua-mode-hook (lambda () (linum-mode t)))
-(add-hook 'rust-mode-hook (lambda () (linum-mode t)))
 
 (require 'ibuf-ext)
 (add-hook 'ibuffer-mode-hook (lambda ()
@@ -833,15 +801,6 @@
  '(idle-highlight ((t (:foreground "#ffd700" :bold t :weight bold))))
  )
 (setq idle-highlight-idle-time .6)
-(add-hook 'c-mode-hook (lambda () (idle-highlight-mode t)))
-(add-hook 'c++-mode-hook (lambda () (idle-highlight-mode t)))
-(add-hook 'asm-mode-hook (lambda () (idle-highlight-mode t)))
-(add-hook 'python-mode-hook (lambda () (idle-highlight-mode t)))
-(add-hook 'ruby-mode-hook (lambda () (idle-highlight-mode t)))
-(add-hook 'emacs-lisp-mode-hook (lambda () (idle-highlight-mode t)))
-(add-hook 'makefile-mode-hook (lambda () (idle-highlight-mode t)))
-(add-hook 'verilog-mode-hook (lambda () (idle-highlight-mode t)))
-(add-hook 'go-mode-hook (lambda () (idle-highlight-mode t)))
 
 (require 'xcscope)
 (cscope-setup)
@@ -856,20 +815,26 @@
 (global-set-key (kbd "C-c z") 'zeal-at-point)
 
 ; truncate lines [NOTE: keep this in the end]
-(add-hook 'c-mode-hook (lambda () (toggle-truncate-lines t)))
-(add-hook 'c++-mode-hook (lambda () (toggle-truncate-lines t)))
-(add-hook 'text-mode-hook (lambda () (toggle-truncate-lines t)))
-(add-hook 'asm-mode-hook (lambda () (toggle-truncate-lines t)))
 (add-hook 'dired-mode-hook (lambda () (toggle-truncate-lines t)))
 (add-hook 'ibuffer-mode-hook (lambda () (toggle-truncate-lines t)))
-(add-hook 'python-mode-hook (lambda () (toggle-truncate-lines t)))
-(add-hook 'ruby-mode-hook (lambda () (toggle-truncate-lines t)))
-(add-hook 'emacs-lisp-mode-hook (lambda () (toggle-truncate-lines t)))
 (add-hook 'grep-mode-hook (lambda () (toggle-truncate-lines t)))
-(add-hook 'makefile-mode-hook (lambda () (toggle-truncate-lines t)))
 (add-hook 'diff-mode-hook (lambda () (toggle-truncate-lines t)))
-(add-hook 'verilog-mode-hook (lambda () (toggle-truncate-lines t)))
-(add-hook 'go-mode-hook (lambda () (toggle-truncate-lines t)))
-(add-hook 'lua-mode-hook (lambda () (toggle-truncate-lines t)))
-(add-hook 'rust-mode-hook (lambda () (toggle-truncate-lines t)))
 
+(setq modes '(c-mode-hook
+              c++-mode-hook
+              asm-mode-hook
+              python-mode-hook
+              ruby-mode-hook
+              emacs-lisp-mode-hook
+              makefile-mode-hook
+              verilog-mode-hook
+              go-mode-hook
+              lua-mode-hook
+              rust-mode-hook
+              text-mode-hook))
+(dolist (mode modes)
+  (add-hook mode (lambda () (toggle-truncate-lines t)))
+  (add-hook mode (lambda () (linum-mode t)))
+  (add-hook mode (lambda () (idle-highlight-mode t)))
+  (add-hook mode 'subword-hook)
+  )
