@@ -235,6 +235,11 @@
 		</item>
 	</menu>
 	<menu id="config-menu" label="Config">
+		<item label="PA prefs">
+			<action name="Execute">
+				<execute>paprefs</execute>
+			</action>
+		</item>
 		<item label="keys">
 			<action name="Execute">
 				<execute>xbindkeys_config</execute>
