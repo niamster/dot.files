@@ -11,7 +11,7 @@ PATH=$PATH:$GOPATH/bin
 export CCACHE_PATH=/usr/bin
 export LANG=en_US.UTF-8
 
-[[ -z $DISPLAY && $XDG_VTNR -eq 9 ]] && exec startx
+#[[ -z $DISPLAY && $XDG_VTNR -eq 9 ]] && exec startx -- -keeptty
 
 GREP=$(which grep)
 GAWK=$(which gawk)
