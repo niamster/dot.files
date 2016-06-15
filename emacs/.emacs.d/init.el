@@ -100,10 +100,6 @@
              ("\\([A-Z_]*DEBUG[A-Z_]*\\)" 1 debugkeyface t)
              )
       )
-(font-lock-add-keywords 'c-mode keys)
-(font-lock-add-keywords 'c++-mode keys)
-(font-lock-add-keywords 'emacs-lisp-mode keys)
-(font-lock-add-keywords 'python-mode keys)
 
 (defface font-lock-function-call-face '((t (:foreground "#228b22"))) "Font Lock mode face used to highlight function calls." :group 'font-lock-highlighting-faces)
 (defvar font-lock-function-call-face 'font-lock-function-call-face)
@@ -113,8 +109,6 @@
    '(("\\<\\([a-zA-Z0-9_]+\\) ?(" 1 font-lock-function-call-face))
    t)
   )
-(add-hook 'c-mode-hook 'font-lock-function-call-hook)
-(add-hook 'c++-mode-hook 'font-lock-function-call-hook)
 
 ; highlight #if 0
 (defface if0face '((t (:foreground "#cccccc"))) "#if 0 face" :group 'basic-faces)
@@ -583,6 +577,7 @@
 (add-hook 'c-mode-hook 'comment-mode-common-hook)
 (add-hook 'c++-mode-hook 'comment-mode-common-hook)
 (add-hook 'asm-mode-hook 'comment-mode-common-hook)
+(add-hook 'java-mode-hook 'comment-mode-common-hook)
 
 ;; display current function in mode space
 (which-function-mode t)
@@ -791,10 +786,6 @@
 (setq uniquify-ignore-buffers-re "^\\*")
 
 (require 'highlight-parentheses)
-(add-hook 'c-mode-hook (lambda () (highlight-parentheses-mode t)))
-(add-hook 'c++-mode-hook (lambda () (highlight-parentheses-mode t)))
-(add-hook 'ruby-hook (lambda () (highlight-parentheses-mode t)))
-(add-hook 'emacs-lisp-mode-hook (lambda () (highlight-parentheses-mode t)))
 
 (require 'highlight-symbol)
 (global-set-key (kbd "C-x h") 'highlight-symbol-at-point)
@@ -826,6 +817,7 @@
 
 (setq modes '(c-mode-hook
               c++-mode-hook
+              java-mode-hook
               asm-mode-hook
               python-mode-hook
               ruby-mode-hook
@@ -840,5 +832,19 @@
   (add-hook mode (lambda () (toggle-truncate-lines t)))
   (add-hook mode (lambda () (linum-mode t)))
   (add-hook mode (lambda () (idle-highlight-mode t)))
+  (font-lock-add-keywords mode keys)
   (add-hook mode 'subword-hook)
+  (add-hook mode (lambda () (highlight-parentheses-mode t)))
+  )
+
+(setq modes '(c-mode-hook
+              c++-mode-hook
+              java-mode-hook
+              python-mode-hook
+              ruby-mode-hook
+              go-mode-hook
+              lua-mode-hook
+              rust-mode-hook))
+(dolist (mode modes)
+  (add-hook mode 'font-lock-function-call-hook)
   )
