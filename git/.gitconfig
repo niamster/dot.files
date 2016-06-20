@@ -13,6 +13,7 @@
 	fp = format-patch
 	rb = rebase
 	rbi = rebase -i
+	rbis = !git stash && git rebase -i && git stash pop
 	rbc = rebase --continue
 	rba = rebase --abort
 	cp = cherry-pick
@@ -28,6 +29,7 @@
 	pulom = pull origin master
 	pusom = push origin master
 	pr = pull --rebase
+	prs = !git stash && git pull --rebase && git stash pop
 	rvt = revert --no-edit
 	lg = log --color=always -p
 	lol = log --color=always --graph --decorate --pretty=oneline --abbrev-commit
