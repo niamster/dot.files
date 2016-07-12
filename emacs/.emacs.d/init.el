@@ -92,7 +92,7 @@
 (setq bugface '((:foreground "#ff0000" :weight bold)))
 (setq debugkeyface '((:foreground "#00cdcd" :weight bold)))
 (setq keys '(
-             ("\\(FIXME\\|TODO\\|NOTE\\)" 1 keysface t)
+             ("\\(FIXME\\|TODO\\|NOTE\\|WARNING\\|XXX\\)" 1 keysface t)
              ("[^E]\\(BUG\\)" 1 bugface t)
              ("[^E]\\(BUG_ON\\)" 1 bugface t)
              ("\\(WARN_ON[A-Z_]*\\)" 1 assertface t)
@@ -100,14 +100,12 @@
              ("\\([A-Z_]*DEBUG[A-Z_]*\\)" 1 debugkeyface t)
              )
       )
+(defun font-lock-kw-hook () (font-lock-add-keywords nil keys t))
 
 (defface font-lock-function-call-face '((t (:foreground "#228b22"))) "Font Lock mode face used to highlight function calls." :group 'font-lock-highlighting-faces)
 (defvar font-lock-function-call-face 'font-lock-function-call-face)
 (defun font-lock-function-call-hook ()
-  (font-lock-add-keywords
-   nil
-   '(("\\<\\([a-zA-Z0-9_]+\\) ?(" 1 font-lock-function-call-face))
-   t)
+  (font-lock-add-keywords nil '(("\\<\\([a-zA-Z0-9_]+\\) ?(" 1 font-lock-function-call-face)) t)
   )
 
 ; highlight #if 0
@@ -832,7 +830,7 @@
   (add-hook mode (lambda () (toggle-truncate-lines t)))
   (add-hook mode (lambda () (linum-mode t)))
   (add-hook mode (lambda () (idle-highlight-mode t)))
-  (font-lock-add-keywords mode keys)
+  (add-hook mode 'font-lock-kw-hook)
   (add-hook mode 'subword-hook)
   (add-hook mode (lambda () (highlight-parentheses-mode t)))
   )
