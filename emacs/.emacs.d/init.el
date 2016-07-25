@@ -823,6 +823,7 @@
               makefile-mode-hook
               verilog-mode-hook
               go-mode-hook
+              sh-mode-hook
               lua-mode-hook
               rust-mode-hook
               text-mode-hook))
@@ -841,6 +842,7 @@
               python-mode-hook
               ruby-mode-hook
               go-mode-hook
+              sh-mode-hook
               lua-mode-hook
               rust-mode-hook))
 (dolist (mode modes)
