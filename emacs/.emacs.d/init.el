@@ -826,6 +826,7 @@
               sh-mode-hook
               lua-mode-hook
               rust-mode-hook
+              markdown-mode-hook
               text-mode-hook))
 (dolist (mode modes)
   (add-hook mode (lambda () (toggle-truncate-lines t)))
@@ -834,6 +835,14 @@
   (add-hook mode 'font-lock-kw-hook)
   (add-hook mode 'subword-hook)
   (add-hook mode (lambda () (highlight-parentheses-mode t)))
+  (add-hook mode 'flyspell-prog-mode)
+  )
+
+(setq modes '(markdown-mode-hook
+              text-mode-hook))
+(dolist (mode modes)
+  (remove-hook mode 'flyspell-prog-mode)
+  (add-hook mode 'flyspell-mode)
   )
 
 (setq modes '(c-mode-hook
