@@ -22,13 +22,38 @@
 				<execute>steam-launch</execute>
 			</action>
 		</item>
-		<item label="planescape torment">
-			<action name="Execute">
-				<execute>gog-planescape-torment</execute>
-			</action>
-		</item>
 	</menu>
 	<menu id="apps-accessories-menu" label="Accessories">
+		<item label="kcachegrind">
+			<action name="Execute">
+				<execute>kcachegrind</execute>
+			</action>
+		</item>
+		<item label="Electrum">
+			<action name="Execute">
+				<execute>electrum</execute>
+			</action>
+		</item>
+		<item label="Baobab">
+			<action name="Execute">
+				<execute>baobab</execute>
+			</action>
+		</item>
+		<item label="GPA">
+			<action name="Execute">
+				<execute>gpa</execute>
+			</action>
+		</item>
+		<item label="BT">
+			<action name="Execute">
+				<execute>bitcoin-qt</execute>
+			</action>
+		</item>
+		<item label="Spotify">
+			<action name="Execute">
+				<execute>spotify</execute>
+			</action>
+		</item>
 		<item label="Dropbox">
 			<action name="Execute">
 				<execute>dropbox</execute>
@@ -141,16 +166,16 @@
 		</item>
 		<item label="calculator">
 			<action name="Execute">
-				<command>
+				<execute>
 					gnome-calculator
-				</command>
+				</execute>
 			</action>
 		</item>
 		<item label="DeaDBeeF">
 			<action name="Execute">
-				<command>
+				<execute>
 					deadbeef
-				</command>
+				</execute>
 			</action>
 		</item>
 		<item label="meld">
@@ -176,6 +201,11 @@
 		</item>
 	</menu>
 	<menu id="apps-net-menu" label="Internet">
+		<item label="Transmission">
+			<action name="Execute">
+				<execute>transmission</execute>
+			</action>
+		</item>
 		<item label="Wireshark">
 			<action name="Execute">
 				<execute>wireshark-qt</execute>
@@ -190,16 +220,16 @@
 		</item>
 		<item label="Firefox">
 			<action name="Execute">
-				<command>
+				<execute>
 					firefox
-				</command>
+				</execute>
 			</action>
 		</item>
 		<item label="Firefox Private">
 			<action name="Execute">
-				<command>
+				<execute>
 					firefox -private-window
-				</command>
+				</execute>
 			</action>
 		</item>
 		<item label="Pidgin">
@@ -209,23 +239,19 @@
 		</item>
 		<item label="Skype">
 			<action name="Execute">
-				<command>
+				<execute>
 					skype-relaxed
-				</command>
+				</execute>
 			</action>
 		</item>
 		<item label="Cromium">
 			<action name="Execute">
-				<command>
-					chromium
-				</command>
+				<execute>chromium --disk-cache-dir=/tmp/chromium-cache</execute>
 			</action>
 		</item>
 		<item label="Cromium Incognito">
 			<action name="Execute">
-				<command>
-					chromium --incognito
-				</command>
+				<execute>chromium --incognito --disk-cache-dir=/tmp/chromium-cache</execute>
 			</action>
 		</item>
 		<item label="Tor">
@@ -266,9 +292,9 @@
 		</item>
 		<item label="Openbox Configuration Manager">
 			<action name="Execute">
-				<command>
+				<execute>
 					obconf
-				</command>
+				</execute>
 			</action>
 		</item>
 		<separator/>
