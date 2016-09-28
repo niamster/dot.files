@@ -573,6 +573,7 @@
   (c-set-offset 'arglist-cont-nonempty '+)
   (c-set-offset 'arglist-close 'custom-c-arglist-close-expression)
   (c-set-offset 'arglist-intro 'custom-c-arglist-init-expression)
+  (c-set-offset 'inextern-lang 0)
 )
 (add-hook 'c-mode-hook 'indentation-mode-common-hook)
 (add-hook 'c++-mode-hook 'indentation-mode-common-hook)
