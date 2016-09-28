@@ -799,6 +799,7 @@
 (require 'etags-select)
 (global-set-key (kbd "M-?") 'etags-select-find-tag-at-point)
 (global-set-key (kbd "M-.") 'etags-select-find-tag)
+(global-set-key (kbd "M-*") 'pop-tag-mark)
 (add-hook 'etags-select-mode-hook
 		  (lambda ()
 			(define-key etags-select-mode-map (kbd "C-m") 'etags-select-goto-tag)
