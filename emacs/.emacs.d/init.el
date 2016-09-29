@@ -92,7 +92,7 @@
 (setq bugface '((:foreground "#ff0000" :weight bold)))
 (setq debugkeyface '((:foreground "#00cdcd" :weight bold)))
 (setq keys '(
-             ("\\(FIXME\\|TODO\\|NOTE\\)" 1 keysface t)
+             ("\\(FIXME\\|TODO\\|NOTE\\|WARNING\\|XXX\\)" 1 keysface t)
              ("[^E]\\(BUG\\)" 1 bugface t)
              ("[^E]\\(BUG_ON\\)" 1 bugface t)
              ("\\(WARN_ON[A-Z_]*\\)" 1 assertface t)
@@ -100,21 +100,13 @@
              ("\\([A-Z_]*DEBUG[A-Z_]*\\)" 1 debugkeyface t)
              )
       )
-(font-lock-add-keywords 'c-mode keys)
-(font-lock-add-keywords 'c++-mode keys)
-(font-lock-add-keywords 'emacs-lisp-mode keys)
-(font-lock-add-keywords 'python-mode keys)
+(defun font-lock-kw-hook () (font-lock-add-keywords nil keys t))
 
 (defface font-lock-function-call-face '((t (:foreground "#228b22"))) "Font Lock mode face used to highlight function calls." :group 'font-lock-highlighting-faces)
 (defvar font-lock-function-call-face 'font-lock-function-call-face)
 (defun font-lock-function-call-hook ()
-  (font-lock-add-keywords
-   nil
-   '(("\\<\\([a-zA-Z0-9_]+\\) ?(" 1 font-lock-function-call-face))
-   t)
+  (font-lock-add-keywords nil '(("\\<\\([a-zA-Z0-9_]+\\) ?(" 1 font-lock-function-call-face)) t)
   )
-(add-hook 'c-mode-hook 'font-lock-function-call-hook)
-(add-hook 'c++-mode-hook 'font-lock-function-call-hook)
 
 ; highlight #if 0
 (defface if0face '((t (:foreground "#cccccc"))) "#if 0 face" :group 'basic-faces)
@@ -207,15 +199,6 @@
 	(c-subword-mode)
 	)
   )
-(add-hook 'c-mode-hook 'subword-hook)
-(add-hook 'c++-mode-hook 'subword-hook)
-(add-hook 'text-mode-hook 'subword-hook)
-(add-hook 'asm-mode-hook 'subword-hook)
-(add-hook 'python-mode-hook 'subword-hook)
-(add-hook 'ruby-mode-hook 'subword-hook)
-(add-hook 'emacs-lisp-mode-hook 'subword-hook)
-(add-hook 'verilog-mode-hook 'subword-hook)
-(add-hook 'go-mode-hook 'subword-hook)
 
 ; backspace to delete character backwards
 (define-key key-translation-map "\177" (kbd "C-="))
@@ -492,6 +475,11 @@
   (setq indent-tabs-mode 1)
   )
 
+(defun spc-mode ()
+  (interactive)
+  (setq indent-tabs-mode nil)
+  )
+
 (defun linux-mode ()
   "Linux-style C mode with tabs for indentation."
   (interactive)
@@ -588,6 +576,7 @@
 (add-hook 'c-mode-hook 'comment-mode-common-hook)
 (add-hook 'c++-mode-hook 'comment-mode-common-hook)
 (add-hook 'asm-mode-hook 'comment-mode-common-hook)
+(add-hook 'java-mode-hook 'comment-mode-common-hook)
 
 ;; display current function in mode space
 (which-function-mode t)
@@ -700,34 +689,11 @@
 (setq load-path	(cons "~/.emacs.d" load-path))
 (byte-recompile-directory "~/.emacs.d" 0 nil)
 
-;; modules from elpa:
-;; - browse-kill-ring
-;; - dired+
-;; - etags-select
-;; - highlight-parentheses
-;; - highlight-symbol
-;; - idle-highlight-mode
-;; - list-register
-;; - xcscope
-
 ;; Modules initialization and their parameters
 
 (require 'whitespace)
 (setq whitespace-style '(face trailing empty))
 (global-whitespace-mode t)
-
-(require 'linum)
-(add-hook 'c-mode-hook (lambda () (linum-mode t)))
-(add-hook 'c++-mode-hook (lambda () (linum-mode t)))
-(add-hook 'asm-mode-hook (lambda () (linum-mode t)))
-(add-hook 'python-mode-hook (lambda () (linum-mode t)))
-(add-hook 'ruby-mode-hook (lambda () (linum-mode t)))
-(add-hook 'emacs-lisp-mode-hook (lambda () (linum-mode t)))
-(add-hook 'makefile-mode-hook (lambda () (linum-mode t)))
-(add-hook 'verilog-mode-hook (lambda () (linum-mode t)))
-(add-hook 'go-mode-hook (lambda () (linum-mode t)))
-(add-hook 'lua-mode-hook (lambda () (linum-mode t)))
-(add-hook 'rust-mode-hook (lambda () (linum-mode t)))
 
 (require 'ibuf-ext)
 (add-hook 'ibuffer-mode-hook (lambda ()
@@ -774,6 +740,10 @@
 (require 'counsel)
 (global-set-key (kbd "M-x") 'counsel-M-x)
 (global-set-key (kbd "C-x C-f") 'counsel-find-file)
+(setq counsel-find-file-ignore-regexp
+      (regexp-opt '(".o"
+                    ".pyc"
+                    )))
 
 (require 'projectile)
 (projectile-global-mode)
@@ -816,10 +786,6 @@
 (setq uniquify-ignore-buffers-re "^\\*")
 
 (require 'highlight-parentheses)
-(add-hook 'c-mode-hook (lambda () (highlight-parentheses-mode t)))
-(add-hook 'c++-mode-hook (lambda () (highlight-parentheses-mode t)))
-(add-hook 'ruby-hook (lambda () (highlight-parentheses-mode t)))
-(add-hook 'emacs-lisp-mode-hook (lambda () (highlight-parentheses-mode t)))
 
 (require 'highlight-symbol)
 (global-set-key (kbd "C-x h") 'highlight-symbol-at-point)
@@ -830,15 +796,6 @@
  '(idle-highlight ((t (:foreground "#ffd700" :bold t :weight bold))))
  )
 (setq idle-highlight-idle-time .6)
-(add-hook 'c-mode-hook (lambda () (idle-highlight-mode t)))
-(add-hook 'c++-mode-hook (lambda () (idle-highlight-mode t)))
-(add-hook 'asm-mode-hook (lambda () (idle-highlight-mode t)))
-(add-hook 'python-mode-hook (lambda () (idle-highlight-mode t)))
-(add-hook 'ruby-mode-hook (lambda () (idle-highlight-mode t)))
-(add-hook 'emacs-lisp-mode-hook (lambda () (idle-highlight-mode t)))
-(add-hook 'makefile-mode-hook (lambda () (idle-highlight-mode t)))
-(add-hook 'verilog-mode-hook (lambda () (idle-highlight-mode t)))
-(add-hook 'go-mode-hook (lambda () (idle-highlight-mode t)))
 
 (require 'xcscope)
 (cscope-setup)
@@ -853,20 +810,52 @@
 (global-set-key (kbd "C-c z") 'zeal-at-point)
 
 ; truncate lines [NOTE: keep this in the end]
-(add-hook 'c-mode-hook (lambda () (toggle-truncate-lines t)))
-(add-hook 'c++-mode-hook (lambda () (toggle-truncate-lines t)))
-(add-hook 'text-mode-hook (lambda () (toggle-truncate-lines t)))
-(add-hook 'asm-mode-hook (lambda () (toggle-truncate-lines t)))
 (add-hook 'dired-mode-hook (lambda () (toggle-truncate-lines t)))
 (add-hook 'ibuffer-mode-hook (lambda () (toggle-truncate-lines t)))
-(add-hook 'python-mode-hook (lambda () (toggle-truncate-lines t)))
-(add-hook 'ruby-mode-hook (lambda () (toggle-truncate-lines t)))
-(add-hook 'emacs-lisp-mode-hook (lambda () (toggle-truncate-lines t)))
 (add-hook 'grep-mode-hook (lambda () (toggle-truncate-lines t)))
-(add-hook 'makefile-mode-hook (lambda () (toggle-truncate-lines t)))
 (add-hook 'diff-mode-hook (lambda () (toggle-truncate-lines t)))
-(add-hook 'verilog-mode-hook (lambda () (toggle-truncate-lines t)))
-(add-hook 'go-mode-hook (lambda () (toggle-truncate-lines t)))
-(add-hook 'lua-mode-hook (lambda () (toggle-truncate-lines t)))
-(add-hook 'rust-mode-hook (lambda () (toggle-truncate-lines t)))
 
+(setq modes '(c-mode-hook
+              c++-mode-hook
+              java-mode-hook
+              asm-mode-hook
+              python-mode-hook
+              ruby-mode-hook
+              emacs-lisp-mode-hook
+              makefile-mode-hook
+              verilog-mode-hook
+              go-mode-hook
+              sh-mode-hook
+              lua-mode-hook
+              rust-mode-hook
+              markdown-mode-hook
+              text-mode-hook))
+(dolist (mode modes)
+  (add-hook mode (lambda () (toggle-truncate-lines t)))
+  (add-hook mode (lambda () (linum-mode t)))
+  (add-hook mode (lambda () (idle-highlight-mode t)))
+  (add-hook mode 'font-lock-kw-hook)
+  (add-hook mode 'subword-hook)
+  (add-hook mode (lambda () (highlight-parentheses-mode t)))
+  (add-hook mode 'flyspell-prog-mode)
+  )
+
+(setq modes '(markdown-mode-hook
+              text-mode-hook))
+(dolist (mode modes)
+  (remove-hook mode 'flyspell-prog-mode)
+  (add-hook mode 'flyspell-mode)
+  )
+
+(setq modes '(c-mode-hook
+              c++-mode-hook
+              java-mode-hook
+              python-mode-hook
+              ruby-mode-hook
+              go-mode-hook
+              sh-mode-hook
+              lua-mode-hook
+              rust-mode-hook))
+(dolist (mode modes)
+  (add-hook mode 'font-lock-function-call-hook)
+  )
