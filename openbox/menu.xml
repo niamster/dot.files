@@ -232,11 +232,6 @@
 				</execute>
 			</action>
 		</item>
-		<item label="Pidgin">
-			<action name="Execute">
-				<execute>pidgin</execute>
-			</action>
-		</item>
 		<item label="Skype">
 			<action name="Execute">
 				<execute>
