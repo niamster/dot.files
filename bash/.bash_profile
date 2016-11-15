@@ -7,6 +7,7 @@ which ruby >/dev/null 2>&1 && \
 export GOPATH=~/.local/go
 mkdir -p $GOPATH
 PATH=$PATH:$GOPATH/bin
+PATH=$PATH:~/.luarocks/bin
 
 export CCACHE_PATH=/usr/bin
 export LANG=en_US.UTF-8
