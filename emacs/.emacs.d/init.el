@@ -677,25 +677,7 @@
   (ediff-buffers first-buffer second-buffer)
   )
 
-(require 'package) ;; You might already have this line
-(add-to-list 'package-archives
-             '("melpa" . "http://melpa.org/packages/") t)
-(when (< emacs-major-version 24)
-  ;; For important compatibility libraries like cl-lib
-  (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
-(package-initialize) ;; You might already have this line
-
-;; This should go _after_ package-initialize(bug in package.el?)
-(setq load-path	(cons "~/.emacs.d" load-path))
-(byte-recompile-directory "~/.emacs.d" 0 nil)
-
-;; Modules initialization and their parameters
-
-(require 'whitespace)
-(setq whitespace-style '(face trailing empty))
-(global-whitespace-mode t)
-
-(require 'ibuf-ext)
+;; ibuffer grouping
 (add-hook 'ibuffer-mode-hook (lambda ()
 							   (setq ibuffer-filter-groups '(
 															 ("dired"    (mode . dired-mode))
@@ -727,17 +709,65 @@
 							   )
 		  )
 
-(require 'list-register)
+;; mechanism for making buffer names unique
+(setq uniquify-buffer-name-style 'reverse)
+(setq uniquify-separator "|")
+(setq uniquify-after-kill-buffer-p t)
+(setq uniquify-ignore-buffers-re "^\\*")
+
+(require 'package)
+(add-to-list 'package-archives
+             '("melpa" . "http://melpa.org/packages/") t)
+(when (< emacs-major-version 24)
+  ;; For important compatibility libraries like cl-lib
+  (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
+(package-initialize)
+
+;; This should go _after_ package-initialize(bug in package.el?)
+(setq load-path	(cons "~/.emacs.d" load-path))
+(byte-recompile-directory "~/.emacs.d" 0 nil)
+
+(if (not (package-installed-p 'use-package))
+    (progn
+      (package-refresh-contents)
+      (package-install 'use-package)))
+(require 'use-package)
+(setq use-package-always-ensure t)
+
+;; Modules initialization and their parameters
+
+;;
+(use-package flycheck)
+
+;;
+(use-package go-mode)
+
+;;
+(use-package lua-mode)
+
+;;
+(use-package markdown-mode)
+
+;;
+(use-package whitespace)
+(setq whitespace-style '(face trailing empty))
+(global-whitespace-mode t)
+
+;;
+(use-package list-register)
 (global-set-key (kbd "C-x r v") 'list-registers)
 
-(require 'ivy)
+;;
+(use-package ivy)
 (ivy-mode t)
 (setq ivy-use-virtual-buffers t)
 
-(require 'swiper)
+;;
+(use-package swiper)
 (global-set-key (kbd "C-s") 'swiper)
 
-(require 'counsel)
+;;
+(use-package counsel)
 (global-set-key (kbd "M-x") 'counsel-M-x)
 (global-set-key (kbd "C-x C-f") 'counsel-find-file)
 (setq counsel-find-file-ignore-regexp
@@ -745,12 +775,14 @@
                     ".pyc"
                     )))
 
-(require 'projectile)
+;;
+(use-package projectile)
 (projectile-global-mode)
 (setq projectile-enable-caching t)
 (setq projectile-completion-system 'ivy)
 
-(require 'dired+)
+;;
+(use-package dired+)
 (custom-set-faces
  '(diredp-dir-heading ((t (:foreground "white" :bold t :weight bold))))
  '(diredp-file-name ((t (:foreground "#00868b" :bold t :weight bold))))
@@ -763,10 +795,12 @@
 (setq diredp-hide-details-initially-flag nil)
 (setq diredp-hide-details-propagate-flag nil)
 
-(require 'browse-kill-ring)
+;;
+(use-package browse-kill-ring)
 (browse-kill-ring-default-keybindings)
 
-(require 'etags-select)
+;;
+(use-package etags-select)
 (global-set-key (kbd "M-?") 'etags-select-find-tag-at-point)
 (global-set-key (kbd "M-.") 'etags-select-find-tag)
 (global-set-key (kbd "M-*") 'pop-tag-mark)
@@ -779,25 +813,23 @@
 			)
 		  )
 
-(require 'uniquify)
-(setq uniquify-buffer-name-style 'reverse)
-(setq uniquify-separator "|")
-(setq uniquify-after-kill-buffer-p t)
-(setq uniquify-ignore-buffers-re "^\\*")
+;;
+(use-package highlight-parentheses)
 
-(require 'highlight-parentheses)
-
-(require 'highlight-symbol)
+;;
+(use-package highlight-symbol)
 (global-set-key (kbd "C-x h") 'highlight-symbol-at-point)
 (global-set-key (kbd "C-x u") 'highlight-symbol-remove-all)
 
-(require 'idle-highlight-mode)
+;;
+(use-package idle-highlight-mode)
 (custom-set-faces
  '(idle-highlight ((t (:foreground "#ffd700" :bold t :weight bold))))
  )
 (setq idle-highlight-idle-time .6)
 
-(require 'xcscope)
+;;
+(use-package xcscope)
 (cscope-setup)
 (define-prefix-command 'xscope-map)
 (define-key xscope-map "i" 'cscope-set-initial-directory)
@@ -806,7 +838,8 @@
 (define-key xscope-map "*" 'cscope-pop-mark)
 (global-set-key (kbd "C-x a") xscope-map)
 
-(require 'zeal-at-point)
+;;
+(use-package zeal-at-point)
 (global-set-key (kbd "C-c z") 'zeal-at-point)
 
 ; truncate lines [NOTE: keep this in the end]
