@@ -64,3 +64,7 @@ URxvt.background:           #000000
 URxvt.foreground:          	#228B22
 URxvt.cursorColor:          #a8a8a8
 URxvt.underlineColor:       #a8a8a8
+
+! disable ctrl+shift bindings
+URxvt.iso14755: false
+URxvt.iso14755_52: false
