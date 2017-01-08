@@ -171,10 +171,10 @@ function enable_rvm() {
     [[ -s ~/.rvm/scripts/rvm ]] && source ~/.rvm/scripts/rvm
 }
 
-function tp_mad_fan() {
+function tp_fan_mad() {
 	echo level disengaged | sudo tee /proc/acpi/ibm/fan
 }
-function tp_auto_fan() {
+function tp_fan_auto() {
 	echo level auto | sudo tee /proc/acpi/ibm/fan
 }
 
