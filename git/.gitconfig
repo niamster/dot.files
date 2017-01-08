@@ -38,6 +38,12 @@
 	wd = diff --color-words
 	cd = diff --cached
 	wcd = diff --color-words --cached
+	sh = stash
+	shp = stash pop
+	sha = stash apply
+	she = stash --all
+	shu = stash --include-untracked
+	sho = stash --keep-index
 [color]
     branch = auto
     diff = auto
