@@ -222,7 +222,6 @@
 (global-set-key (kbd "TAB") 'indent-according-to-mode)
 (global-set-key (kbd "C-i") 'indent-according-to-mode)
 (global-set-key (kbd "C-j") (lambda () (interactive) (end-of-line) (newline-and-indent))) ; newline and indent
-(global-set-key (kbd "C-x C-d") 'dired) ; open dired
 (global-set-key (kbd "C-x C-g") 'rgrep) ; find in files
 (global-set-key (kbd "C-h") 'delete-backward-char)
 (global-set-key (kbd "M-h") 'backward-kill-word)
@@ -776,6 +775,9 @@
       (regexp-opt '(".o"
                     ".pyc"
                     )))
+;; better than calling dired directly due to the way it handles the file selection
+(global-set-key (kbd "C-x C-d") 'counsel-find-file)
+(global-set-key (kbd "C-x d") 'counsel-find-file)
 
 ;;
 (use-package projectile)
