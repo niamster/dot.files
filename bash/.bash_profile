@@ -163,8 +163,8 @@ function tags_rb() {
     ripper-tags -f TAGS -R
 }
 function tags_rs() {
-    rm -f TAGS
-    rusty-tags emacs
+    rm -f rusty-tags.emacs
+    rusty-tags -f emacs
 }
 
 function enable_rvm() {
