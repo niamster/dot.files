@@ -9,6 +9,8 @@ mkdir -p $GOPATH
 PATH=$PATH:$GOPATH/bin
 PATH=$PATH:~/.luarocks/bin
 
+export RUST_SRC_PATH=/projects/rust/src
+
 export CCACHE_PATH=/usr/bin
 export LANG=en_US.UTF-8
 
