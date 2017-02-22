@@ -750,6 +750,9 @@
 (use-package markdown-mode)
 
 ;;
+(use-package toml-mode)
+
+;;
 (use-package whitespace)
 (setq whitespace-style '(face trailing empty))
 (global-whitespace-mode t)
@@ -847,7 +850,27 @@
 (global-set-key (kbd "C-c z") 'zeal-at-point)
 
 ;;
+(use-package company)
+(add-hook 'after-init-hook 'global-company-mode)
+
+;;
+(use-package racer)
+(add-hook 'rust-mode-hook #'racer-mode)
+(define-key rust-mode-map (kbd "TAB") #'company-indent-or-complete-common)
+(setq company-tooltip-align-annotations t)
+
+;;
+(use-package flycheck-rust)
+(add-hook 'flycheck-mode-hook #'flycheck-rust-setup)
+
+;;
+;; Solution for failed jedi installation: https://github.com/proofit404/anaconda-mode/issues/225#issuecomment-280009142
 (use-package anaconda-mode)
+(add-hook 'python-mode-hook 'anaconda-mode)
+
+;;
+(use-package company-anaconda)
+(eval-after-load "company" '(add-to-list 'company-backends 'company-anaconda))
 (add-hook 'python-mode-hook 'anaconda-mode)
 
 ; truncate lines [NOTE: keep this in the end]
