@@ -846,6 +846,10 @@
 (use-package zeal-at-point)
 (global-set-key (kbd "C-c z") 'zeal-at-point)
 
+;;
+(use-package anaconda-mode)
+(add-hook 'python-mode-hook 'anaconda-mode)
+
 ; truncate lines [NOTE: keep this in the end]
 (add-hook 'dired-mode-hook (lambda () (toggle-truncate-lines t)))
 (add-hook 'ibuffer-mode-hook (lambda () (toggle-truncate-lines t)))
