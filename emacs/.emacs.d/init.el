@@ -791,6 +791,8 @@
 ;;
 (use-package helm)
 (setq projectile-completion-system 'helm)
+(define-key helm-map (kbd "C-h") 'delete-backward-char)
+(define-key helm-map (kbd "TAB") nil)
 
 ;;
 (use-package dired+)
