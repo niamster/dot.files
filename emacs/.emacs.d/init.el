@@ -789,6 +789,10 @@
 (setq projectile-completion-system 'ivy)
 
 ;;
+(use-package helm)
+(setq projectile-completion-system 'helm)
+
+;;
 (use-package dired+)
 (custom-set-faces
  '(diredp-dir-heading ((t (:foreground "white" :bold t :weight bold))))
@@ -850,10 +854,6 @@
 (global-set-key (kbd "C-c z") 'zeal-at-point)
 
 ;;
-(use-package company)
-(add-hook 'after-init-hook 'global-company-mode)
-
-;;
 (use-package racer)
 (add-hook 'rust-mode-hook #'racer-mode)
 (define-key rust-mode-map (kbd "TAB") #'company-indent-or-complete-common)
@@ -872,6 +872,49 @@
 (use-package company-anaconda)
 (eval-after-load "company" '(add-to-list 'company-backends 'company-anaconda))
 (add-hook 'python-mode-hook 'anaconda-mode)
+
+;;
+;; Don't forget to run irony-install-server
+;; Want to use bear: https://github.com/rizsotto/Bear
+;; And wrap make like this:
+;;
+;; #!/bin/bash
+;; set -a
+;; make=/usr/bin/make
+;; bear=$(which bear 2>/dev/null)
+;; exec $bear $make "$@"
+(use-package irony)
+(add-hook 'c++-mode-hook 'irony-mode)
+(add-hook 'c-mode-hook 'irony-mode)
+;; Replace the `completion-at-point' and `complete-symbol' bindings in
+;; irony-mode's buffers by irony-mode's function
+(defun my-irony-mode-hook ()
+  (define-key irony-mode-map [remap completion-at-point]
+    'irony-completion-at-point-async)
+  (define-key irony-mode-map [remap complete-symbol]
+    'irony-completion-at-point-async))
+(add-hook 'irony-mode-hook 'my-irony-mode-hook)
+(add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
+
+;;
+(use-package company-irony)
+(eval-after-load 'company '(add-to-list 'company-backends 'company-irony))
+
+;;
+(use-package flycheck-irony)
+(eval-after-load 'flycheck '(add-hook 'flycheck-mode-hook #'flycheck-irony-setup))
+
+;;
+(use-package company)
+(add-hook 'after-init-hook 'global-company-mode)
+(add-to-list 'company-backends '(company-dabbrev-code company-capf company-gtags company-etags company-keywords))
+(define-key company-active-map (kbd "M-n") nil)
+(define-key company-active-map (kbd "M-p") nil)
+(define-key company-active-map (kbd "C-n") 'company-select-next)
+(define-key company-active-map (kbd "C-p") 'company-select-previous)
+(define-key company-active-map (kbd "C-h") nil)
+(setq company-minimum-prefix-length 2)
+(setq company-selection-wrap-around t)
 
 ; truncate lines [NOTE: keep this in the end]
 (add-hook 'dired-mode-hook (lambda () (toggle-truncate-lines t)))
