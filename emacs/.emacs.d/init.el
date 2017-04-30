@@ -830,6 +830,9 @@
 (use-package highlight-parentheses)
 
 ;;
+(use-package yaml-mode)
+
+;;
 (use-package highlight-symbol)
 (global-set-key (kbd "C-x h") 'highlight-symbol-at-point)
 (global-set-key (kbd "C-x u") 'highlight-symbol-remove-all)
