@@ -239,6 +239,11 @@
 				</execute>
 			</action>
 		</item>
+		<item label="Chrome">
+			<action name="Execute">
+				<execute>google-chrome-stable</execute>
+			</action>
+		</item>
 		<item label="Cromium">
 			<action name="Execute">
 				<execute>chromium --disk-cache-dir=/tmp/chromium-cache</execute>
