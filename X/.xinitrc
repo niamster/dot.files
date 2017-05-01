@@ -7,7 +7,6 @@ parcellite &
 pasystray &
 brightnessicon &
 nm-applet &
-radiotray &
 xcalib -d :0 ~/.color/icc/current.icm
 xbindkeys
 
