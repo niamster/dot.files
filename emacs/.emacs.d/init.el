@@ -833,6 +833,13 @@
 (use-package yaml-mode)
 
 ;;
+(use-package ini-mode)
+
+;;
+(use-package nginx-mode)
+(setq auto-mode-alist (cons '(".*/nginx.*/.*\\(\\.conf\\|_params\\)$" . nginx-mode) auto-mode-alist))
+
+;;
 (use-package highlight-symbol)
 (global-set-key (kbd "C-x h") 'highlight-symbol-at-point)
 (global-set-key (kbd "C-x u") 'highlight-symbol-remove-all)
