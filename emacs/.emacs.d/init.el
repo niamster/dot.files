@@ -765,6 +765,7 @@
 (use-package ivy)
 (ivy-mode t)
 (setq ivy-use-virtual-buffers t)
+(setq ivy-wrap t)
 
 ;;
 (use-package swiper)
