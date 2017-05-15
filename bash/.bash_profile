@@ -8,6 +8,7 @@ export GOPATH=~/.local/go
 mkdir -p $GOPATH
 PATH=$PATH:$GOPATH/bin
 PATH=$PATH:~/.luarocks/bin
+PATH=$PATH:~/.cargo/bin
 
 export RUST_SRC_PATH=/projects/rust/src
 
