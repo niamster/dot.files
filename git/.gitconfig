@@ -1,6 +1,6 @@
 [user]
-	name = Dmytro Milinevskyy
-	email = milinevskyy@gmail.com
+	name = Dmytro Milinevskyi
+	email = dmilinevskyi@gmail.com
 [core]
 	editor = vim
 	pager = less -+$LESS -FRSX
