@@ -232,13 +232,6 @@
 				</execute>
 			</action>
 		</item>
-		<item label="Skype">
-			<action name="Execute">
-				<execute>
-					skype-relaxed
-				</execute>
-			</action>
-		</item>
 		<item label="Chrome">
 			<action name="Execute">
 				<execute>google-chrome-stable</execute>
