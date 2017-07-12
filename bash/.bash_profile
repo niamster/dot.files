@@ -19,6 +19,7 @@ export LANG=en_US.UTF-8
 
 GREP=$(which grep)
 GAWK=$(which gawk)
+GREP_ARGS="--exclude-dir venv --exclude-dir=.svn --exclude-dir=.git --exclude-dir=.hg --exclude-dir=obj --exclude-dir=build --exclude=TAGS --exclude=rusty-tags.emacs --exclude='cscope.*' --exclude '*.d' --color=always -n"
 
 alias ls="ls --color"
 alias ll="ls -lh"
@@ -34,8 +35,6 @@ alias psf="ps xuf"
 alias sb="sudo bash"
 alias minicom="minicom -c on -w"
 alias tmux="tmux -2"
-alias grep="$GREP --exclude-dir=.svn --exclude-dir=.git --exclude-dir=.hg --exclude-dir=obj --exclude-dir=build --exclude=TAGS --exclude=rusty-tags.emacs --exclude='cscope.*' --exclude '*.d' --color=always -n"
-alias rgrep="grep -rI"
 alias gti=git
 [[ -f /usr/bin/colorsvn ]] && {
     alias svn="colorsvn"
@@ -116,7 +115,7 @@ function hexl() {
 }
 
 function grep() {
-    $GREP --exclude-dir=.svn --exclude-dir=.git --exclude-dir=.hg --exclude=TAGS --exclude '*.d' --color=always -n $*
+    $GREP $GREP_ARGS $*
 }
 
 function rgrep() {
