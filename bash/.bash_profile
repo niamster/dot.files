@@ -17,9 +17,18 @@ export LANG=en_US.UTF-8
 
 #[[ -z $DISPLAY && $XDG_VTNR -eq 9 ]] && exec startx -- -keeptty
 
-GREP=$(which grep)
 GAWK=$(which gawk)
+
+GREP=$(which grep)
 GREP_ARGS="--exclude-dir venv --exclude-dir=.svn --exclude-dir=.git --exclude-dir=.hg --exclude-dir=obj --exclude-dir=build --exclude=TAGS --exclude=rusty-tags.emacs --exclude='cscope.*' --exclude '*.d' --color=always -n"
+alias grep="$GREP $GREP_ARGS"
+alias rgrep="$GREP -rI \$(_rgrep_opt) $GREP_ARGS"
+function _rgrep_opt() {
+    _opts=$PWD/.rgrep
+    if [[ -f $_opts ]]; then
+        cat $_opts | tr '\n' ' '
+    fi
+}
 
 alias ls="ls --color"
 alias ll="ls -lh"
@@ -36,6 +45,7 @@ alias sb="sudo bash"
 alias minicom="minicom -c on -w"
 alias tmux="tmux -2"
 alias gti=git
+alias hot=git
 [[ -f /usr/bin/colorsvn ]] && {
     alias svn="colorsvn"
 }
@@ -112,17 +122,6 @@ function heff() {
 }
 function hexl() {
     ew -eval "(hexl-find-file \"$1\")"
-}
-
-function grep() {
-    $GREP $GREP_ARGS $*
-}
-
-function rgrep() {
-    _args=
-    _opts=$PWD/.rgrep
-    if [[ -f $_opts ]]; then _args=$(cat $_opts | tr '\n' ' '); fi
-    grep -rI $_args $*
 }
 
 function notify() {
