@@ -738,6 +738,10 @@
 ;; Modules initialization and their parameters
 
 ;;
+(use-package powerline)
+(powerline-default-theme)
+
+;;
 (use-package flycheck)
 
 ;;
