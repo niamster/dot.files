@@ -103,6 +103,11 @@
 				</execute>
 			</action>
 		</item>
+		<item label="tilix">
+			<action name="Execute">
+				<execute>tilix</execute>
+			</action>
+		</item>
 		<item label="VirtualBox">
 			<action name="Execute">
 				<execute>

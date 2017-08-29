@@ -106,6 +106,11 @@ __git_ps1 ()
 
 PS1="\[\e[0;31m\](\[\e[0;33m\]\u\[\e[0;36m\]@\[\e[0;37m\]\H\[\e[0;31m\]|\[\e[0;32m\]\t\[\e[0;31m\]|\[\e[1;34m\]\w\[\e[0;31m\])\n\[\e[0;31m\]*~>\[\e[0m\]"
 PS1="${PS1//\\w/\\w\$(__git_ps1)}"
+
+if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
+        source /etc/profile.d/vte.sh
+fi
+
 XTERM_TITLE='\[\033]0;\W@\u@\H\007\]'
 
 export BC_ENV_ARGS=-l
