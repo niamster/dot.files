@@ -516,13 +516,15 @@
     ;; Go to beginning of *previous* line:
     (c-backward-syntactic-ws)
     (back-to-indentation)
-    (cond
-     ;; We are making a reasonable assumption that if there is a control
-     ;; structure to indent past, it has to be at the beginning of the line.
-     ((looking-at ".*?\\([a-zA-Z0-9_]+\s*(\\)")
-      (goto-char (match-beginning 1))
-      )
-     )
+
+    ;; (cond
+    ;;  ;; We are making a reasonable assumption that if there is a control
+    ;;  ;; structure to indent past, it has to be at the beginning of the line.
+    ;;  ((looking-at ".*?\\([a-zA-Z0-9_]+\s*(\\)")
+    ;;   (goto-char (match-beginning 1))
+    ;;   )
+    ;;  )
+
     ;; (message "matched %d '%s'"
     ;;          (match-beginning 1)
     ;;          (buffer-substring (match-beginning 1) (match-end 1)))
@@ -889,6 +891,10 @@
 (use-package company-anaconda)
 (eval-after-load "company" '(add-to-list 'company-backends 'company-anaconda))
 (add-hook 'python-mode-hook 'anaconda-mode)
+
+;;
+(use-package indent-guide)
+(indent-guide-global-mode)
 
 ;;
 ;; Don't forget to run irony-install-server
