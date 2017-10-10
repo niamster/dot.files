@@ -24,6 +24,16 @@
 		</item>
 	</menu>
 	<menu id="apps-accessories-menu" label="Accessories">
+		<item label="gparted">
+			<action name="Execute">
+				<execute>gksu gparted</execute>
+			</action>
+		</item>
+		<item label="wifi-radar">
+			<action name="Execute">
+				<execute>gksu wifi-radar</execute>
+			</action>
+		</item>
 		<item label="kcachegrind">
 			<action name="Execute">
 				<execute>kcachegrind</execute>
@@ -44,7 +54,7 @@
 				<execute>gpa</execute>
 			</action>
 		</item>
-		<item label="BT">
+		<item label="BTC">
 			<action name="Execute">
 				<execute>bitcoin-qt</execute>
 			</action>
@@ -72,21 +82,6 @@
 		<item label="Libre Office">
 			<action name="Execute">
 				<execute>libreoffice</execute>
-			</action>
-		</item>
-		<item label="asoundconf">
-			<action name="Execute">
-				<execute>asoundconf-gtk</execute>
-			</action>
-		</item>
-		<item label="Redis Manager">
-			<action name="Execute">
-				<execute>rdm</execute>
-			</action>
-		</item>
-		<item label="robomongo">
-			<action name="Execute">
-				<execute>robomongo</execute>
 			</action>
 		</item>
 		<item label="urxvtc">
@@ -141,11 +136,9 @@
 				</execute>
 			</action>
 		</item>
-		<item label="PCManFM">
+		<item label="SpaceFM">
 			<action name="Execute">
-				<execute>
-					pcmanfm-mod
-				</execute>
+				<execute>spacefm</execute>
 			</action>
 		</item>
 		<item label="xArchiver">
@@ -259,6 +252,16 @@
 		</item>
 	</menu>
 	<menu id="config-menu" label="Config">
+		<item label="arandr">
+			<action name="Execute">
+				<execute>arandr</execute>
+			</action>
+		</item>
+		<item label="asoundconf">
+			<action name="Execute">
+				<execute>asoundconf-gtk</execute>
+			</action>
+		</item>
 		<item label="PA prefs">
 			<action name="Execute">
 				<execute>paprefs</execute>
