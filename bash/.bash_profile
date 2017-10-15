@@ -10,7 +10,7 @@ PATH=$PATH:$GOPATH/bin
 PATH=$PATH:~/.luarocks/bin
 PATH=$PATH:~/.cargo/bin
 
-export RUST_SRC_PATH=/projects/rust/src
+export RUST_SRC_PATH=/projects/rust/rust-lang/src
 
 export CCACHE_PATH=/usr/bin
 export LANG=en_US.UTF-8
