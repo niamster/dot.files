@@ -6,7 +6,7 @@ xxkb &
 parcellite &
 pasystray &
 brightnessicon &
-nm-applet &
+nm-applet --no-agent &
 xcalib -d :0 ~/.color/icc/current.icm
 xbindkeys
 
