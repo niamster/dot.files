@@ -6,6 +6,7 @@ Compression yes
 
 Host *
     ServerAliveInterval 60
+    AddKeysToAgent yes
     ControlMaster auto
     ControlPath ~/.ssh/master-%r@%h:%p
 
