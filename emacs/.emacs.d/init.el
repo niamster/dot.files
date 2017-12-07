@@ -10,6 +10,7 @@
 (if window-system
     (setq default-frame-alist '((left-fringe . 1) (right-fringe . 1)))
   (menu-bar-mode nil))
+(tool-bar-mode -1)
 
 (setq custom-bg-color "#101010")
 (setq custom-fg-color "#00868b")
@@ -29,6 +30,8 @@
 						   nil 'fullboth))
   )
 (global-set-key [f11] 'fullscreen)
+
+(add-to-list 'default-frame-alist '(fullscreen . maximized))
 
 ; do not copy marked region to the primary selection
 (setq select-active-regions nil)
@@ -50,7 +53,17 @@
 (setq default-input-method "russian-computer")
 (set-terminal-coding-system 'utf-8)
 (set-keyboard-coding-system 'utf-8)
-(prefer-coding-system 'utf-8-unix)
+(prefer-coding-system 'utf-8)
+(setq locale-coding-system 'utf-8)
+(set-selection-coding-system 'utf-8)
+(prefer-coding-system 'utf-8)
+
+;; mac specific key settings
+(when (eq system-type 'darwin)
+  (setq mac-option-modifier 'meta)
+  (setq mac-command-modifier 'meta)
+  (global-set-key [kp-delete] 'delete-char) ;; sets fn-delete to be right-delete
+  )
 
 ; highlighting
 (setq font-lock-maximum-decoration t)
