@@ -7,6 +7,8 @@
 
 (if (>= emacs-major-version 24) (load-theme 'monokai t))
 
+(setq exec-path (append exec-path '("/usr/local/bin")))
+
 (if window-system
     (setq default-frame-alist '((left-fringe . 1) (right-fringe . 1)))
   (menu-bar-mode nil))
