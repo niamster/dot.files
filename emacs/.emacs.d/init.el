@@ -11,6 +11,7 @@
     (setq default-frame-alist '((left-fringe . 1) (right-fringe . 1)))
   (menu-bar-mode nil))
 (tool-bar-mode -1)
+(scroll-bar-mode -1)
 
 (setq custom-bg-color "#101010")
 (setq custom-fg-color "#00868b")
@@ -18,7 +19,6 @@
 (custom-set-faces `(default ((t (:background ,custom-bg-color)))))
 (custom-set-faces `(default ((t (:foreground ,custom-fg-color)))))
 (set-face-attribute 'default nil :background custom-bg-color :foreground custom-fg-color)
-
 
 (setq frame-title-format '("" "%b:" default-directory))
 
