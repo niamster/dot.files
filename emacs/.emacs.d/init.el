@@ -764,12 +764,12 @@
 
 ;;
 (use-package go-mode)
-(defun my-go-mode-hook ()
+(defun custom-go-mode-hook ()
   (add-hook 'before-save-hook 'gofmt-before-save)
   (add-hook 'before-save-hook 'delete-trailing-whitespace)
   (global-set-key (kbd "M-.") 'godef-jump)
   )
-(add-hook 'go-mode-hook 'my-go-mode-hook)
+(add-hook 'go-mode-hook 'custom-go-mode-hook)
 
 ;;
 (use-package lua-mode)
@@ -933,12 +933,12 @@
 (add-hook 'c-mode-hook 'irony-mode)
 ;; Replace the `completion-at-point' and `complete-symbol' bindings in
 ;; irony-mode's buffers by irony-mode's function
-(defun my-irony-mode-hook ()
+(defun custom-irony-mode-hook ()
   (define-key irony-mode-map [remap completion-at-point]
     'irony-completion-at-point-async)
   (define-key irony-mode-map [remap complete-symbol]
     'irony-completion-at-point-async))
-(add-hook 'irony-mode-hook 'my-irony-mode-hook)
+(add-hook 'irony-mode-hook 'custom-irony-mode-hook)
 (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
 
 ;;
