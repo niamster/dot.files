@@ -201,7 +201,7 @@
 	<menu id="apps-net-menu" label="Internet">
 		<item label="Transmission">
 			<action name="Execute">
-				<execute>transmission</execute>
+				<execute>transmission-gtk</execute>
 			</action>
 		</item>
 		<item label="Wireshark">
@@ -252,6 +252,11 @@
 		</item>
 	</menu>
 	<menu id="config-menu" label="Config">
+		<item label="Printer config">
+			<action name="Execute">
+				<execute>system-config-printer</execute>
+			</action>
+		</item>
 		<item label="arandr">
 			<action name="Execute">
 				<execute>arandr</execute>
