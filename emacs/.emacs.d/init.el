@@ -8,6 +8,7 @@
 (if (>= emacs-major-version 24) (load-theme 'monokai t))
 
 (setq exec-path (append exec-path '("/usr/local/bin")))
+(setq exec-path (append exec-path '("~/bin")))
 
 (if window-system
     (setq default-frame-alist '((left-fringe . 1) (right-fringe . 1)))
@@ -766,6 +767,7 @@
 (defun my-go-mode-hook ()
   (add-hook 'before-save-hook 'gofmt-before-save)
   (add-hook 'before-save-hook 'delete-trailing-whitespace)
+  (global-set-key (kbd "M-.") 'godef-jump)
   )
 (add-hook 'go-mode-hook 'my-go-mode-hook)
 
