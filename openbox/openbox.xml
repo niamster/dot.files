@@ -320,15 +320,6 @@
         <command>emacs /projects</command>
       </action>
     </keybind>
-    <keybind key="W-b">
-      <action name="Execute">
-        <startupnotify>
-          <enabled>true</enabled>
-          <name>firefox</name>
-        </startupnotify>
-        <command>firefox</command>
-      </action>
-    </keybind>
     <keybind key="W-p">
       <action name="Execute">
         <startupnotify>
