@@ -1,21 +1,26 @@
 PATH=/usr/lib/colorgcc/bin:/opt/bin:~/bin:~/.local/bin/:$PATH
-which ruby >/dev/null 2>&1 && \
-	which gem >/dev/null 2>&1 && \
-	export GEM_HOME=$(ruby -e 'print Gem.user_dir') && \
+
+function _has() {
+    which $1 >/dev/null 2>&1
+}
+
+if _has ruby && _has gem; then
+	export GEM_HOME=$(ruby -e 'print Gem.user_dir')
 	PATH=$GEM_HOME/bin:$PATH
+fi
 
 export GOPATH=~/.local/go
-mkdir -p $GOPATH
 PATH=$PATH:$GOPATH/bin
+
 PATH=$PATH:~/.luarocks/bin
 PATH=$PATH:~/.cargo/bin
 
 export RUST_SRC_PATH=/projects/rust/rust-lang/src
+export RUST_BACKTRACE=1
 
 export CCACHE_PATH=/usr/bin
-export LANG=en_US.UTF-8
 
-#[[ -z $DISPLAY && $XDG_VTNR -eq 9 ]] && exec startx -- -keeptty
+export LANG=en_US.UTF-8
 
 GAWK=$(which gawk)
 
@@ -30,46 +35,46 @@ function _rgrep_opt() {
     fi
 }
 
-alias ls="ls --color"
+LS=$(which ls)
+alias ls="$LS --color"
 alias ll="ls -lh"
 alias l="ll"
 alias lt="l -t"
 alias la="l -a"
 alias lat="l -at"
+
 alias vi="vim"
 alias et="emacs -nw"
-alias ec="emacsclient -a \"\" -c -n"
-alias ect="emacsclient -a \"\" -c -nw"
-alias psf="ps xuf"
 alias sb="sudo bash"
 alias minicom="minicom -c on -w"
 alias tmux="tmux -2"
+
+# misspelling
 alias gti=git
 alias hot=git
-[[ -f /usr/bin/colorsvn ]] && {
+
+if _has colorsvn; then
     alias svn="colorsvn"
-}
-[[ -f /usr/bin/grc ]] && {
-  alias ping="grc --colour=auto ping"
-  alias traceroute="grc --colour=auto traceroute"
-  alias netstat="grc --colour=auto netstat"
-}
+fi
+
+if _has grc; then
+    GRC="$(which grc) --colour=auto"
+    alias ping="$GRC ping"
+    alias traceroute="$GRC traceroute"
+    alias netstat="$GRC netstat"
+    alias ps="$GRC ps"
+fi
 
 # cleanly reset terminal
 alias cls="reset; echo -ne '\033c'"
 
 export LESS="-FRX"
 
-alias pp="sudo sh -c 'echo performance > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor; echo performance > /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor'"
-alias pc="sudo sh -c 'echo conservative > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor; echo conservative > /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor'"
-
 complete -cf sudo
 complete -cf xargs
 complete -cf man
 
-# Git me harder!
-__git_ps1 ()
-{
+function _git () {
     local g="$(git rev-parse --git-dir 2>/dev/null)"
     if [ -n "$g" ]; then
         local r
@@ -105,7 +110,7 @@ __git_ps1 ()
 }
 
 PS1="\[\e[0;31m\](\[\e[0;33m\]\u\[\e[0;36m\]@\[\e[0;37m\]\H\[\e[0;31m\]|\[\e[0;32m\]\t\[\e[0;31m\]|\[\e[1;34m\]\w\[\e[0;31m\])\n\[\e[0;31m\]*~>\[\e[0m\]"
-PS1="${PS1//\\w/\\w\$(__git_ps1)}"
+PS1="${PS1//\\w/\\w\$(_git)}"
 
 if [[ ( $TILIX_ID || $VTE_VERSION ) && -f /etc/profile.d/vte.sh ]]; then
     source /etc/profile.d/vte.sh
@@ -116,36 +121,14 @@ XTERM_TITLE='\[\033]0;\W@\u@\H\007\]'
 export BC_ENV_ARGS=-l
 HISTIGNORE='&'
 
-function ew() {
-    emacs "$@" >/dev/null 2>&1 &
-}
-function ediff() {
-    ew -eval "(ediff-files \"$1\" \"$2\")"
-}
-function heff() {
-    ew -eval "(ediff-hexl \"$1\" \"$2\")"
-}
-function hexl() {
-    ew -eval "(hexl-find-file \"$1\")"
-}
-
-function notify() {
-	TITLE='successfully completed'
-	eval $@
-	if [[ $? > 0 ]]; then TITLE='completed with error'; fi
-	notify-send -i typing-monitor "$TITLE" "$*"
-}
-
 function wtitle() {
-	TITLE=$1
-	wmctrl -i -r $(xprop -root | $GREP "_NET_ACTIVE_WINDOW(WINDOW)" | $GAWK -F '# ' '{print $2}') -T "$TITLE"
+	local title=$1
+    if _has wmctrl; then
+	    wmctrl -i -r $(xprop -root | $GREP "_NET_ACTIVE_WINDOW(WINDOW)" | $GAWK -F '# ' '{print $2}') -T "$title"
+    fi
 	if [[ -n "$TMUX" ]]; then
-		tmux rename-session $TITLE
+		tmux rename-session $title
 	fi
-}
-
-function tptoggle() {
-	synclient TouchpadOff=$(synclient -l| $GREP TouchpadOff | $GAWK -F'= ' '{print !$2}')
 }
 
 function cscope_c() {
@@ -177,15 +160,6 @@ function enable_rvm() {
     [[ -s ~/.rvm/scripts/rvm ]] && source ~/.rvm/scripts/rvm
 }
 
-function tp_fan_mad() {
-	echo level disengaged | sudo tee /proc/acpi/ibm/fan
-}
-function tp_fan_auto() {
-	echo level auto | sudo tee /proc/acpi/ibm/fan
-}
-
-export RUST_BACKTRACE=1
-
 # pretty man pages
 export LESS_TERMCAP_mb=$'\e[01;31m'        # begin blinking
 export LESS_TERMCAP_md=$'\e[01;33m'        # begin bold
@@ -195,8 +169,7 @@ export LESS_TERMCAP_me=$'\e[0m'            # end mode
 export LESS_TERMCAP_se=$'\e[0m'            # end standout-mode
 export LESS_TERMCAP_ue=$'\e[0m'            # end underline
 
-COLORTERM=y
-export COLORTERM
+export COLORTERM=y
 
 BASHRC_USER=~/.bashrc_user
 [[ -s $BASHRC_USER ]] && source $BASHRC_USER
