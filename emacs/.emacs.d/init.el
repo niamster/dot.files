@@ -172,6 +172,9 @@
 (setq woman-use-own-frame nil)
 
 ; dired ls options
+(if (eq system-type 'darwin)
+  (setq insert-directory-program "/usr/local/bin/gls")
+  )
 (setq dired-listing-switches "-l --group-directories-first -h -G -a")
 
 ; search: toggle case, edit search string
