@@ -11,10 +11,12 @@
 (setq exec-path (append exec-path '("~/bin")))
 
 (if window-system
-    (setq default-frame-alist '((left-fringe . 1) (right-fringe . 1)))
+    (progn
+      (setq default-frame-alist '((left-fringe . 1) (right-fringe . 1)))
+      (scroll-bar-mode -1)
+      )
   (menu-bar-mode nil))
 (tool-bar-mode -1)
-(scroll-bar-mode -1)
 
 (setq custom-bg-color "#101010")
 (setq custom-fg-color "#00868b")
