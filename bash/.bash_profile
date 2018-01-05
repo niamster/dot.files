@@ -137,6 +137,11 @@ function wtitle() {
 	fi
 }
 
+function ttitle {
+    local title=$1
+    echo -ne "\033]0;${title}\007"
+}
+
 function cscope_c() {
     rm -f cscope.*
     find ./ -name '*.[ch]' -o -name '*.cpp' -o -name '*.cxx' > cscope.files
