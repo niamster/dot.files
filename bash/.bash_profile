@@ -184,3 +184,5 @@ export COLORTERM=y
 
 BASHRC_USER=~/.bashrc_user
 [[ -s $BASHRC_USER ]] && source $BASHRC_USER
+
+export PATH="$HOME/.cargo/bin:$PATH"
