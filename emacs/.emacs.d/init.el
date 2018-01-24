@@ -772,7 +772,7 @@
 (defun custom-go-mode-hook ()
   (add-hook 'before-save-hook 'gofmt-before-save)
   (add-hook 'before-save-hook 'delete-trailing-whitespace)
-  (global-set-key (kbd "M-.") 'godef-jump)
+  (local-set-key (kbd "M-.") 'godef-jump)
   )
 (add-hook 'go-mode-hook 'custom-go-mode-hook)
 
