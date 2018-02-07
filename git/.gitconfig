@@ -8,6 +8,7 @@
 	d = diff
 	l = log --color=always
 	br = branch
+    brs = branch --sort=committerdate
 	in = !git remote update -p && git log --color=always ..@{u}
 	out = log --color=always @{u}..
 	fp = format-patch
