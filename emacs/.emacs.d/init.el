@@ -749,7 +749,6 @@
 
 ;; This should go _after_ package-initialize(bug in package.el?)
 (setq load-path	(cons "~/.emacs.d" load-path))
-(byte-recompile-directory "~/.emacs.d" 0 nil)
 
 (if (not (package-installed-p 'use-package))
     (progn
@@ -759,6 +758,12 @@
 (setq use-package-always-ensure t)
 
 ;; Modules initialization and their parameters
+
+;;
+(setq quelpa-update-melpa-p nil)
+(setq quelpa-self-upgrade-p nil)
+(setq quelpa-stable-p t)
+(use-package quelpa)
 
 ;;
 (use-package powerline)
@@ -795,6 +800,7 @@
 (global-set-key (kbd "C-x r v") 'list-registers)
 
 ;;
+; C-M-j to open file name that matches smth else
 (use-package ivy)
 (ivy-mode t)
 (setq ivy-use-virtual-buffers t)
@@ -829,7 +835,7 @@
 (define-key helm-map (kbd "TAB") nil)
 
 ;;
-(use-package dired+)
+(quelpa 'dired+)
 (custom-set-faces
  '(diredp-dir-heading ((t (:foreground "white" :bold t :weight bold))))
  '(diredp-file-name ((t (:foreground "#00868b" :bold t :weight bold))))
@@ -847,7 +853,7 @@
 (browse-kill-ring-default-keybindings)
 
 ;;
-(use-package etags-select)
+(quelpa 'etags-select)
 (global-set-key (kbd "M-?") 'etags-select-find-tag-at-point)
 (global-set-key (kbd "M-.") 'etags-select-find-tag)
 (global-set-key (kbd "M-*") 'pop-tag-mark)
