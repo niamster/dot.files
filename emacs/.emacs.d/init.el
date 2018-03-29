@@ -68,6 +68,9 @@
   (setq mac-option-modifier 'meta)
   (setq mac-command-modifier 'meta)
   (global-set-key [kp-delete] 'delete-char) ;; sets fn-delete to be right-delete
+  ;; brew install libressl
+  (require 'gnutls)
+  (add-to-list 'gnutls-trustfiles "/usr/local/etc/openssl/cert.pem")
   )
 
 ; highlighting
@@ -753,7 +756,9 @@
 (if (not (package-installed-p 'use-package))
     (progn
       (package-refresh-contents)
-      (package-install 'use-package)))
+      (package-install 'use-package)
+      )
+  )
 (require 'use-package)
 (setq use-package-always-ensure t)
 
@@ -764,6 +769,7 @@
 (setq quelpa-self-upgrade-p nil)
 (setq quelpa-stable-p t)
 (use-package quelpa)
+(use-package quelpa-use-package)
 
 ;;
 (use-package powerline)
@@ -835,7 +841,9 @@
 (define-key helm-map (kbd "TAB") nil)
 
 ;;
-(quelpa 'dired+)
+(use-package dired+
+  :quelpa (dired+ :fetcher url :url "https://raw.githubusercontent.com/emacsmirror/emacswiki.org/master/dired+.el")
+  )
 (custom-set-faces
  '(diredp-dir-heading ((t (:foreground "white" :bold t :weight bold))))
  '(diredp-file-name ((t (:foreground "#00868b" :bold t :weight bold))))
@@ -853,7 +861,9 @@
 (browse-kill-ring-default-keybindings)
 
 ;;
-(quelpa 'etags-select)
+(use-package etags-select
+  :quelpa (etags-select :fetcher url :url "https://raw.githubusercontent.com/emacsmirror/emacswiki.org/master/etags-select.el")
+  )
 (global-set-key (kbd "M-?") 'etags-select-find-tag-at-point)
 (global-set-key (kbd "M-.") 'etags-select-find-tag)
 (global-set-key (kbd "M-*") 'pop-tag-mark)
@@ -972,7 +982,10 @@
 (setq company-minimum-prefix-length 2)
 (setq company-selection-wrap-around t)
 
-; truncate lines [NOTE: keep this in the end]
+;;
+(use-package protobuf-mode)
+
+;; truncate lines [NOTE: keep this in the end]
 (add-hook 'dired-mode-hook (lambda () (toggle-truncate-lines t)))
 (add-hook 'ibuffer-mode-hook (lambda () (toggle-truncate-lines t)))
 (add-hook 'grep-mode-hook (lambda () (toggle-truncate-lines t)))
