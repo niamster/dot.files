@@ -28,7 +28,7 @@ GREP=$(which grep)
 if _has ggrep; then
     GREP=$(which ggrep)
 fi
-GREP_ARGS="--exclude-dir venv --exclude-dir=.svn --exclude-dir=.git --exclude-dir=.hg --exclude-dir=obj --exclude-dir=build --exclude=TAGS --exclude=rusty-tags.emacs --exclude='cscope.*' --exclude '*.d' --color=always -n"
+GREP_ARGS="--exclude-dir venv --exclude-dir=.svn --exclude-dir=.git --exclude-dir=.hg --exclude-dir=obj --exclude-dir=build --exclude=TAGS --exclude=rusty-tags.emacs --exclude='cscope.*' --exclude '*.d' --color=always"
 alias grep="$GREP $GREP_ARGS"
 alias rgrep="$GREP -rI \$(_rgrep_opt) $GREP_ARGS"
 function _rgrep_opt() {
