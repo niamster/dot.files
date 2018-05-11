@@ -10,5 +10,8 @@ Host *
     PermitLocalCommand yes
     LocalCommand echo -ne "\033]0;%h\007"
 
+Host github.com
+    ControlMaster no
+    PermitLocalCommand no
 
 # Custom host configuration goes here
