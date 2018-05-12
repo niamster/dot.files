@@ -22,6 +22,9 @@ export CCACHE_PATH=/usr/bin
 
 export LANG=en_US.UTF-8
 
+# ignore ^D
+set -o ignoreeof
+
 GAWK=$(which gawk)
 
 GREP=$(which grep)
