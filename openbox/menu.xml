@@ -190,6 +190,11 @@
 				</execute>
 			</action>
 		</item>
+		<item label="Inkscape">
+			<action name="Execute">
+				<execute>inkscape</execute>
+			</action>
+		</item>
 		<item label="quartus">
 			<action name="Execute">
 				<execute>
