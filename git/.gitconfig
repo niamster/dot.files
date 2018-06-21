@@ -17,7 +17,12 @@
 	rbis = !git stash && git rebase -i && git stash pop
 	rbc = rebase --continue
 	rba = rebase --abort
+	m = merge
+	mc = merge --continue
+	ma = merge --abort
 	cp = cherry-pick
+	cpc = cherry-pick --continue
+	cpa = cherry-pick --abort
 	ci = commit
 	cia = commit --amend
 	ciaa = commit --amend -a
@@ -32,6 +37,8 @@
 	pr = pull --rebase
 	prs = !git stash && git pull --rebase && git stash pop
 	rvt = revert --no-edit
+	rvtc = revert --continue
+	rvta = revert --abort
 	lg = log --color=always -p
 	lol = log --color=always --graph --decorate --pretty=oneline --abbrev-commit
 	lola = log --color=always --graph --decorate --pretty=oneline --abbrev-commit --all

@@ -8,7 +8,6 @@ Host *
     ConnectTimeout 60
     Compression yes
     PermitLocalCommand yes
-    LocalCommand echo -ne "\033]0;%h\007"
 
 
 # Custom host configuration goes here
