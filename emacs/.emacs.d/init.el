@@ -104,10 +104,10 @@
 (setq show-paren-delay 0)
 (show-paren-mode t)
 (setq show-paren-style 'parenthesis)
-(set-face-background 'show-paren-match-face "green")
-(set-face-attribute 'show-paren-match-face nil :weight 'bold :underline nil :overline nil :slant 'normal)
-(set-face-foreground 'show-paren-mismatch-face "red")
-(set-face-attribute 'show-paren-mismatch-face nil :weight 'bold :underline t :overline nil :slant 'normal)
+(set-face-background 'show-paren-match "green")
+(set-face-attribute 'show-paren-match nil :weight 'bold :underline nil :overline nil :slant 'normal)
+(set-face-foreground 'show-paren-mismatch "red")
+(set-face-attribute 'show-paren-mismatch nil :weight 'bold :underline t :overline nil :slant 'normal)
 
 ; highlight additional keywords NOTE TODO FIXME BUG DEBUG
 (setq assertface '((:foreground "#d7ff00" :weight bold)))
@@ -804,10 +804,6 @@
 (global-whitespace-mode t)
 
 ;;
-(use-package list-register)
-(global-set-key (kbd "C-x r v") 'list-registers)
-
-;;
 ; C-M-j to open file name that matches smth else
 (use-package ivy)
 (ivy-mode t)
@@ -844,7 +840,7 @@
 
 ;;
 (use-package dired+
-  :quelpa (dired+ :fetcher url :url "https://raw.githubusercontent.com/emacsmirror/emacswiki.org/master/dired+.el")
+  :quelpa (dired+ :fetcher url :url "https://raw.githubusercontent.com/emacsmirror/dired-plus/master/dired+.el")
   )
 (custom-set-faces
  '(diredp-dir-heading ((t (:foreground "white" :bold t :weight bold))))
@@ -857,6 +853,7 @@
  )
 (setq diredp-hide-details-initially-flag nil)
 (setq diredp-hide-details-propagate-flag nil)
+(diredp-toggle-find-file-reuse-dir 1)
 
 ;;
 (use-package browse-kill-ring)
@@ -864,7 +861,7 @@
 
 ;;
 (use-package etags-select
-  :quelpa (etags-select :fetcher url :url "https://raw.githubusercontent.com/emacsmirror/emacswiki.org/master/etags-select.el")
+  :quelpa (etags-select :fetcher url :url "https://raw.githubusercontent.com/emacsmirror/etags-select/master/etags-select.el")
   )
 (global-set-key (kbd "M-?") 'etags-select-find-tag-at-point)
 (global-set-key (kbd "M-.") 'etags-select-find-tag)
