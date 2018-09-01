@@ -2,7 +2,7 @@ xrdb ~/.Xdefaults
 tint2 &
 feh --bg-scale ~/images/wallpaper.* &
 urxvtd -q -f
-xxkb &
+gxkb &
 parcellite &
 pasystray &
 brightnessicon &
