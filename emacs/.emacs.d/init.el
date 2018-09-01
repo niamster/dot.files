@@ -243,6 +243,8 @@
 (global-set-key (kbd "C-r") 'isearch-backward-regexp) ; search regexp backward
 (global-set-key (kbd "RET") 'newline-and-indent) ; indent after return pressed
 (global-set-key (kbd "C-m") 'newline-and-indent)
+(global-set-key (kbd "C-c >") 'indent-rigidly-right-to-tab-stop)
+(global-set-key (kbd "C-c <") 'indent-rigidly-left-to-tab-stop)
 (global-set-key (kbd "TAB") 'indent-according-to-mode)
 (global-set-key (kbd "C-i") 'indent-according-to-mode)
 (global-set-key (kbd "C-j") (lambda () (interactive) (end-of-line) (newline-and-indent))) ; newline and indent
