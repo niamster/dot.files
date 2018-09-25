@@ -22,3 +22,5 @@ set t_Co=256
 
 " prevent screen clearing on exit
 set t_ti= t_te=
+
+set backspace=indent,eol,start
