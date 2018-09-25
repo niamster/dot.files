@@ -985,6 +985,13 @@
 
 ;;
 (use-package protobuf-mode)
+(defconst custom-protobuf-style
+  '((c-basic-offset . 2)
+    (indent-tabs-mode . nil))
+  )
+(add-hook 'protobuf-mode-hook
+          (lambda () (c-add-style "custom-protobuf-style" custom-protobuf-style t))
+          )
 
 ;; truncate lines [NOTE: keep this in the end]
 (add-hook 'dired-mode-hook (lambda () (toggle-truncate-lines t)))
