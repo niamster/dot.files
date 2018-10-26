@@ -9,6 +9,7 @@
 	l = log --color=always
 	br = branch
     brs = branch --sort=committerdate
+    brsl =!git brs --color=always | tail
 	in = !git remote update -p && git log --color=always ..@{u}
 	out = log --color=always @{u}..
 	fp = format-patch
@@ -41,6 +42,7 @@
 	rvta = revert --abort
 	lg = log --color=always -p
 	lol = log --color=always --graph --decorate --pretty=oneline --abbrev-commit
+	loll = !git lol -10
 	lola = log --color=always --graph --decorate --pretty=oneline --abbrev-commit --all
 	gr = log --color=always --all --graph --pretty=format:'%Cred%h%Creset%x09%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
 	wd = diff --color-words
