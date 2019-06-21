@@ -77,6 +77,9 @@ fi
 # cleanly reset terminal
 alias cls="reset; echo -ne '\033c'"
 
+# exit bracketed paste mode
+alias rbr="printf '\e[?2004l'; printf '\e[?2004h'"
+
 export LESS="-FRX"
 
 complete -cf sudo
