@@ -607,6 +607,8 @@
 (add-hook 'asm-mode-hook 'comment-mode-common-hook)
 (add-hook 'java-mode-hook 'comment-mode-common-hook)
 
+(add-hook 'java-mode-hook (lambda () (setq c-basic-offset 2)))
+
 ;; display current function in mode space
 (which-function-mode t)
 
@@ -972,6 +974,9 @@
 (eval-after-load 'flycheck '(add-hook 'flycheck-mode-hook #'flycheck-irony-setup))
 
 ;;
+(use-package clang-format)
+
+;;
 (use-package company)
 (add-hook 'after-init-hook 'global-company-mode)
 (add-to-list 'company-backends '(company-dabbrev-code company-capf company-gtags company-etags company-keywords))
@@ -1043,3 +1048,9 @@
 (dolist (mode modes)
   (add-hook mode 'font-lock-function-call-hook)
   )
+
+(defun custom-java-mode-hook ()
+  (add-hook 'before-save-hook 'clang-format-buffer)
+  (add-hook 'before-save-hook 'delete-trailing-whitespace)
+  )
+(add-hook 'java-mode-hook 'custom-java-mode-hook)
