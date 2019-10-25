@@ -121,7 +121,26 @@ function _git () {
     fi
 }
 
-PS1="\[\e[0;31m\](\[\e[0;33m\]\u\[\e[0;36m\]@\[\e[0;37m\]\H\[\e[0;31m\]|\[\e[0;32m\]\t\[\e[0;31m\]|\[\e[1;34m\]\w\[\e[0;31m\])\n\[\e[0;31m\]*~>\[\e[0m\]"
+function _kontext() {
+    if ! _has kubectl; then
+        return
+    fi
+
+    local k=$(kubectl config current-context)
+    case $k in
+        *dev*|*staging*)
+            printf "\e[0;32m"
+            ;;
+        *prod*)
+            printf "\e[0;31m"
+            ;;
+        *)
+            ;;
+    esac
+    printf "${k}\e[0;31m|"
+}
+
+PS1="\[\e[0;31m\](\[\e[0;33m\]\u\[\e[0;36m\]@\[\e[0;37m\]\H\[\e[0;31m\]|\[\e[0;32m\]\t\[\e[0;31m\]|\$(_kontext)\[\e[1;34m\]\w\[\e[0;31m\])\n\[\e[0;31m\]*~>\[\e[0m\]"
 PS1="${PS1//\\w/\\w\$(_git)}"
 
 if [[ ( $TILIX_ID || $VTE_VERSION ) && -f /etc/profile.d/vte.sh ]]; then
