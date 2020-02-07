@@ -889,6 +889,15 @@
 
 ;;
 (use-package yaml-mode)
+(defun yaml-two-space-mode ()
+  "YAML mode with 2 spaces for indentation."
+  (interactive)
+  (setq tab-width 2)
+  (setq default-tab-width tab-width)
+  (setq tab-stop-list '(2 4 6 8 10 12 14 16 18 20 22 24 26 28 30 32 34 36 38 40))
+  (setq standard-indent tab-width)
+  )
+(add-hook 'yaml-mode-hook 'yaml-two-space-mode)
 
 ;;
 (use-package ini-mode)
