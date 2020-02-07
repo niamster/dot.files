@@ -169,17 +169,17 @@ function ttitle {
 
 function cscope_c() {
     rm -f cscope.*
-    find ./ -name '*.[ch]' -o -name '*.cpp' -o -name '*.cxx' > cscope.files
+    find . -name '*.[ch]' -o -name '*.cpp' -o -name '*.cxx' > cscope.files
     cscope -bq
 }
 
 function tags_c() {
     rm -f TAGS
-    find ./ -name '*.[ch]' -o -name '*.cpp' -o -name '*.cxx' -o -name '*.java' | xargs etags -a
+    find . -name '*.[ch]' -o -name '*.cpp' -o -name '*.cxx' -o -name '*.java' | xargs etags -a
 }
 function tags_py() {
     rm -f TAGS
-    find ./ -name '*.py' | xargs etags -a
+    find . -name '*.py' | xargs etags -a
 }
 function tags_rb() {
     rm -f TAGS
