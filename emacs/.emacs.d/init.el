@@ -1050,6 +1050,12 @@
   (add-hook mode 'flyspell-mode)
   )
 
+; w/a for md-mode for `(define-key map (kbd "C-x n b") 'markdown-narrow-to-block)`
+; see https://github.com/jrblevin/markdown-mode/blob/e9dff50d572caa96b68a7466c18c97a8d6ed651c/markdown-mode.el#L5386
+(add-hook 'markdown-mode-hook
+          (lambda () (local-set-key (kbd "C-x n b") 'windmove-left))
+          )
+
 (setq modes '(c-mode-hook
               c++-mode-hook
               java-mode-hook
