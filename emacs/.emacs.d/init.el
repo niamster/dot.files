@@ -476,6 +476,7 @@
 (setq tab-width 2)
 (setq-default indent-tabs-mode nil)
 (setq tab-always-indent t)
+(setq-default tab-width tab-width)
 (setq default-tab-width tab-width)
 (setq tab-stop-list '(2 4 6 8 10 12 14 16 18 20 22 24 26 28 30 32 34 36 38 40))
 ; (setq tab-stop-list '(4 8 12 16 20 24 28 32 36 40 44 48 52 56 60 64 68 72 76 80))
