@@ -985,6 +985,9 @@
           (lambda () (c-add-style "custom-protobuf-style" custom-protobuf-style t))
           )
 
+;;
+(use-package bazel-mode)
+
 ;; truncate lines [NOTE: keep this in the end]
 (add-hook 'dired-mode-hook (lambda () (toggle-truncate-lines t)))
 (add-hook 'ibuffer-mode-hook (lambda () (toggle-truncate-lines t)))

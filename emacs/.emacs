@@ -17,7 +17,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (protobuf-mode quelpa yaml-mode helm irony company-anaconda racer company toml-mode rust-mode elixir-mode zeal-at-point xcscope projectile list-register idle-highlight-mode highlight-symbol highlight-parentheses etags-select dired+ counsel browse-kill-ring))))
+    (bazel-mode protobuf-mode quelpa yaml-mode helm irony company-anaconda racer company toml-mode rust-mode elixir-mode zeal-at-point xcscope projectile list-register idle-highlight-mode highlight-symbol highlight-parentheses etags-select dired+ counsel browse-kill-ring))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
