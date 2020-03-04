@@ -518,17 +518,6 @@
   )
 (setq auto-mode-alist (cons '(".*/linux-.*/.*\\.[chsS]$" . linux-mode) auto-mode-alist))
 
-(defun two-space-mode ()
-  "C mode with 2 spaces for indentation."
-  (interactive)
-  (c-mode)
-  (setq tab-width 2)
-  (setq default-tab-width tab-width)
-  (setq tab-stop-list '(2 4 6 8 10 12 14 16 18 20 22 24 26 28 30 32 34 36 38 40))
-  (setq standard-indent tab-width)
-  )
-(setq auto-mode-alist (cons '(".*/chibios/.*\\.[ch]$" . two-space-mode) auto-mode-alist))
-
 (defun Kconfig-mode ()
   "Kconfig mode"
   (interactive)
@@ -654,24 +643,7 @@
  '(diff-removed ((t (:foreground "#de1923"))))
  )
 
-; Automatically split window horizontally [from http://tsdh.wordpress.com/2007/03/09/automatically-split-window-horizontally-if-current-window-is-wide-enough/]
-(setq display-buffer-function 'th-display-buffer)
-(defun th-display-buffer (buffer force-other-window)
-  (or (get-buffer-window buffer)
-	  (if (one-window-p)
-		  (let ((new-win (if (> (window-width) 165)
-							 (split-window-horizontally)
-						   (split-window-vertically))))
-			(set-window-buffer new-win buffer)
-			new-win)
-		(let ((new-win (get-lru-window)))
-		  (set-window-buffer new-win buffer)
-		  new-win)
-		)
-	  )
-  )
-
-; toggle HTML entities
+;; toggle HTML entities
 (setq html-entities-on nil)
 (defun toggle-html-entities ()
   (interactive)
