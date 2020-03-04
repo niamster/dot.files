@@ -1,7 +1,7 @@
-; defined in ~/.Xdefaults
-;(set-default-font "Dejavu Sans Mono-6")
-;(set-default-font "-bitstream-bitstream vera sans mono-bold-r-normal--10-8-*-*-m-*-iso8859-1")
-;(set-default-font "-misc-dejavu sans mono-medium-r-normal--10-8-*-*-m-*-iso8859-1")
+;; defined in ~/.Xdefaults
+;;(set-default-font "Dejavu Sans Mono-6")
+;;(set-default-font "-bitstream-bitstream vera sans mono-bold-r-normal--10-8-*-*-m-*-iso8859-1")
+;;(set-default-font "-misc-dejavu sans mono-medium-r-normal--10-8-*-*-m-*-iso8859-1")
 
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
 
@@ -27,22 +27,22 @@
 
 (setq frame-title-format '("" "%b:" default-directory))
 
-; fullscreen mode
+;; fullscreen mode
 (defun fullscreen ()
   (interactive)
   (set-frame-parameter nil 'fullscreen
-					   (if (frame-parameter nil 'fullscreen)
-						   nil 'fullboth))
+                       (if (frame-parameter nil 'fullscreen)
+                           nil 'fullboth))
   )
 (global-set-key [f11] 'fullscreen)
 
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 
-; do not copy marked region to the primary selection
+;; do not copy marked region to the primary selection
 (setq select-active-regions nil)
 (setq mouse-drag-copy-region nil)
 
-; server
+;; server
 (setq server-use-tcp t)
 (setq server-host "0.0.0.0")
 (defun run-server()
@@ -53,7 +53,7 @@
   )
 (global-set-key (kbd "C-c s") 'run-server)
 
-; locale
+;; locale
 (setq current-language-environment "UTF-8")
 (setq default-input-method "russian-computer")
 (set-terminal-coding-system 'utf-8)
@@ -73,14 +73,14 @@
   (add-to-list 'gnutls-trustfiles "/usr/local/etc/openssl/cert.pem")
   )
 
-; highlighting
+;; highlighting
 (setq font-lock-maximum-decoration t)
 (setq-default font-lock-multiline t)
 
 (global-font-lock-mode t)
 (setq light-symbol-mode t)
 
-; hi-lock
+;; hi-lock
 (defface hi-brown  '((t (:foreground "#cd3333"))) "hi- face" :group 'hi-lock-faces)
 (defface hi-orange '((t (:foreground "#cd6600"))) "hi- face" :group 'hi-lock-faces)
 (defface hi-white  '((t (:foreground "#ffffff"))) "hi- face" :group 'hi-lock-faces)
@@ -100,7 +100,7 @@
 (defface hi-pink     '((t (:background "#ff1595"))) "hi- face" :group 'hi-lock-faces)
 (global-hi-lock-mode t)
 
-; highlight parent brace
+;; highlight parent brace
 (setq show-paren-delay 0)
 (show-paren-mode t)
 (setq show-paren-style 'parenthesis)
@@ -109,7 +109,7 @@
 (set-face-foreground 'show-paren-mismatch "red")
 (set-face-attribute 'show-paren-mismatch nil :weight 'bold :underline t :overline nil :slant 'normal)
 
-; highlight additional keywords NOTE TODO FIXME BUG DEBUG
+;; highlight additional keywords NOTE TODO FIXME BUG DEBUG
 (setq assertface '((:foreground "#d7ff00" :weight bold)))
 (setq keysface '((:foreground "#d7ff00" :underline t :weight bold)))
 (setq bugface '((:foreground "#ff0000" :weight bold)))
@@ -131,7 +131,7 @@
   (font-lock-add-keywords nil '(("\\<\\([a-zA-Z0-9_]+\\) ?(" 1 font-lock-function-call-face)) t)
   )
 
-; highlight #if 0
+;; highlight #if 0
 (defface if0face '((t (:foreground "#cccccc"))) "#if 0 face" :group 'basic-faces)
 (setq cpp-known-face 'default)
 (setq cpp-unknown-face 'default)
@@ -150,55 +150,55 @@
 (add-hook 'c-mode-hook 'cpp-font-lock-if0-hook)
 (add-hook 'c++-mode-hook 'cpp-font-lock-if0-hook)
 
-; misc staff
-(setq-default bidi-display-reordering nil) ; do not use BIDI
-(transient-mark-mode t) ; highlight the region whenever it is active
-(auto-compression-mode t) ; uncompress files before displaying them
+;; misc staff
+(setq-default bidi-display-reordering nil) ;; do not use BIDI
+(transient-mark-mode t) ;; highlight the region whenever it is active
+(auto-compression-mode t) ;; uncompress files before displaying them
 (setq make-backup-files nil)
-(setq scroll-conservatively most-positive-fixnum) ; scroll only one line when move past the bottom of the screen
+(setq scroll-conservatively most-positive-fixnum) ;; scroll only one line when move past the bottom of the screen
 (setq scroll-down-aggressively 0.0)
 (setq scroll-margin 10)
 (setq scroll-step 1)
 (setq scroll-up-aggressively 0.0)
 (setq scroll-preserve-screen-position t)
-(setq auto-window-vscroll nil) ; speedup down scroll
+(setq auto-window-vscroll nil) ;; speedup down scroll
 (setq hscroll-step 1)
-(setq redisplay-dont-pause t) ; this will be default in emacs24
-(fset 'yes-or-no-p 'y-or-n-p) ; make the y or n suffice for a yes or no question
+(setq redisplay-dont-pause t) ;; this will be default in emacs24
+(fset 'yes-or-no-p 'y-or-n-p) ;; make the y or n suffice for a yes or no question
 (setq comment-style 'indent)
-(delete-selection-mode t) ; replace highlighted text with what typed
-(setq case-fold-search nil) ; case-sensitive search
-(setq inhibit-startup-message t) ; do not show startup message
-(column-number-mode t) ; column-number in the mode line
-(setq pop-up-windows nil) ; stop emacs from changing window configuration
-(setq confirm-nonexistent-file-or-buffer nil) ; stop emacs from prompting you whenever a new file is created
+(delete-selection-mode t) ;; replace highlighted text with what typed
+(setq case-fold-search nil) ;; case-sensitive search
+(setq inhibit-startup-message t) ;; do not show startup message
+(column-number-mode t) ;; column-number in the mode line
+(setq pop-up-windows nil) ;; stop emacs from changing window configuration
+(setq confirm-nonexistent-file-or-buffer nil) ;; stop emacs from prompting you whenever a new file is created
 
-; woman in same frame
+;; woman in same frame
 (setq woman-use-own-frame nil)
 
-; dired ls options
+;; dired ls options
 (if (eq system-type 'darwin)
-  (setq insert-directory-program "/usr/local/bin/gls")
+    (setq insert-directory-program "/usr/local/bin/gls")
   )
 (setq dired-listing-switches "-l --group-directories-first -h -G -a")
 
-; search: toggle case, edit search string
+;; search: toggle case, edit search string
 (add-hook 'isearch-mode-hook
-		  (lambda ()
-			(define-key isearch-mode-map (kbd "C-c") 'isearch-toggle-case-fold)
-			(define-key isearch-mode-map (kbd "C-j") 'isearch-edit-string)
-			)
-		  )
+          (lambda ()
+            (define-key isearch-mode-map (kbd "C-c") 'isearch-toggle-case-fold)
+            (define-key isearch-mode-map (kbd "C-j") 'isearch-edit-string)
+            )
+          )
 
-; give 5 secs to think before killing emacs
+;; give 5 secs to think before killing emacs
 (setq confirm-kill-emacs
-	  (lambda (e)
-		(y-or-n-p-with-timeout
-		 "Really exit Emacs (automatically exits in 5 secs)? " 5 t)
-		)
-	  )
+      (lambda (e)
+        (y-or-n-p-with-timeout
+         "Really exit Emacs (automatically exits in 5 secs)? " 5 t)
+        )
+      )
 
-; stop prompting me about whether I really mean to bring that large file into a buffer
+;; stop prompting me about whether I really mean to bring that large file into a buffer
 (setq large-file-warning-threshold nil)
 
 (defun find-file-check-make-large-file-read-only-hook ()
@@ -212,43 +212,43 @@
   )
 (add-hook 'find-file-hook 'find-file-check-make-large-file-read-only-hook)
 
-; up/low case region
-(put 'upcase-region 'disabled nil) ; enable C-x C-u for upcase region
-(put 'downcase-region 'disabled nil) ; enable C-x C-l for downcase region
-; M-l : Convert following word to lower case
-; M-u : Convert following word to upper case
+;; up/low case region
+(put 'upcase-region 'disabled nil) ;; enable C-x C-u for upcase region
+(put 'downcase-region 'disabled nil) ;; enable C-x C-l for downcase region
+;; M-l : Convert following word to lower case
+;; M-u : Convert following word to upper case
 
-; treat word with uppercase and lowercase letters as different words
+;; treat word with uppercase and lowercase letters as different words
 (defun subword-hook ()
   (if (fboundp 'subword-mode)
       (subword-mode)
-	(c-subword-mode)
-	)
+    (c-subword-mode)
+    )
   )
 
-; backspace to delete character backwards
+;; backspace to delete character backwards
 (define-key key-translation-map "\177" (kbd "C-="))
 (define-key key-translation-map (kbd "C-=") "\177")
 (global-set-key "\177" 'delete-backward-char)
 (global-set-key (kbd "C-=") 'delete-backward-char)
 (global-set-key (kbd "C-M-=") 'backward-kill-word)
 
-; keybinding
-(global-set-key (kbd "C-x g") 'gdb) ; gdb
-(global-set-key (kbd "C-x m") 'woman) ; man
-(global-set-key (kbd "M-g") 'goto-line) ; go to line
-(global-set-key (kbd "M-t") 'tab-to-tab-stop) ; inserts indentation before point
-(global-set-key (kbd "C-x C-b") 'ibuffer) ; buffers menu in the same window
-(global-set-key (kbd "C-s") 'isearch-forward-regexp) ; search regexp forward
-(global-set-key (kbd "C-r") 'isearch-backward-regexp) ; search regexp backward
-(global-set-key (kbd "RET") 'newline-and-indent) ; indent after return pressed
+;; keybinding
+(global-set-key (kbd "C-x g") 'gdb) ;; gdb
+(global-set-key (kbd "C-x m") 'woman) ;; man
+(global-set-key (kbd "M-g") 'goto-line) ;; go to line
+(global-set-key (kbd "M-t") 'tab-to-tab-stop) ;; inserts indentation before point
+(global-set-key (kbd "C-x C-b") 'ibuffer) ;; buffers menu in the same window
+(global-set-key (kbd "C-s") 'isearch-forward-regexp) ;; search regexp forward
+(global-set-key (kbd "C-r") 'isearch-backward-regexp) ;; search regexp backward
+(global-set-key (kbd "RET") 'newline-and-indent) ;; indent after return pressed
 (global-set-key (kbd "C-m") 'newline-and-indent)
 (global-set-key (kbd "C-c >") 'indent-rigidly-right-to-tab-stop)
 (global-set-key (kbd "C-c <") 'indent-rigidly-left-to-tab-stop)
 (global-set-key (kbd "TAB") 'indent-according-to-mode)
 (global-set-key (kbd "C-i") 'indent-according-to-mode)
-(global-set-key (kbd "C-j") (lambda () (interactive) (end-of-line) (newline-and-indent))) ; newline and indent
-(global-set-key (kbd "C-x C-g") 'rgrep) ; find in files
+(global-set-key (kbd "C-j") (lambda () (interactive) (end-of-line) (newline-and-indent))) ;; newline and indent
+(global-set-key (kbd "C-x C-g") 'rgrep) ;; find in files
 (global-set-key (kbd "C-h") 'delete-backward-char)
 (global-set-key (kbd "M-h") 'backward-kill-word)
 (global-set-key (kbd "C-x C-t") '(lambda ()(interactive)(ansi-term "/bin/bash")))
@@ -261,7 +261,7 @@
 (setq initial-major-mode 'text-mode)
 (setq default-major-mode 'text-mode)
 
-; buffer navigation
+;; buffer navigation
 (define-prefix-command 'buffer-nav-map)
 (define-key buffer-nav-map "b" 'windmove-left)
 (define-key buffer-nav-map "f" 'windmove-right)
@@ -303,16 +303,16 @@
 ;; remove annoying keybinding(`[` is too close to `p`)
 (global-unset-key (kbd "C-[ C-["))
 
-; frame control
+;; frame control
 (global-set-key (kbd "C-x 5 3") 'make-frame-on-display)
-; C-z     : Minimize (or “iconify) the selected Emacs frame (suspend-frame)
-; C-x 5 0 : Delete the selected frame (delete-frame)
-; C-x 5 o : Select another frame, raise it, and warp the mouse to it.
-; C-x 5 1 : Delete all frames except the selected one.
-; C-x 5 2 : Create a new frame
-; C-x 5 b : Select buffer bufname in another frame
-; C-x 5 f : Visit file filename and select its buffer in another frame
-; C-x 5 d : Select a Dired buffer for directory directory in another frame
+;; C-z     : Minimize (or “iconify) the selected Emacs frame (suspend-frame)
+;; C-x 5 0 : Delete the selected frame (delete-frame)
+;; C-x 5 o : Select another frame, raise it, and warp the mouse to it.
+;; C-x 5 1 : Delete all frames except the selected one.
+;; C-x 5 2 : Create a new frame
+;; C-x 5 b : Select buffer bufname in another frame
+;; C-x 5 f : Visit file filename and select its buffer in another frame
+;; C-x 5 d : Select a Dired buffer for directory directory in another frame
 
 (move-key minibuffer-local-map (kbd "<up>") (kbd "C-p"))
 (move-key minibuffer-local-map (kbd "<down>") (kbd "C-n"))
@@ -322,12 +322,12 @@
 (global-unset-key (kbd "C-x <left>"))
 (global-unset-key (kbd "C-x <right>"))
 
-; speedup vc-git for big git repos(http://debbugs.gnu.org/cgi/bugreport.cgi?bug=8288)
+;; speedup vc-git for big git repos(http://debbugs.gnu.org/cgi/bugreport.cgi?bug=8288)
 (defun vc-git-state-heuristic (file)
   "Just claim we're up to date."
   'up-to-date)
 
-; duplicate the line and comment the first
+;; duplicate the line and comment the first
 (defun duplicate-comment-line ()
   (interactive)
   (beginning-of-line)
@@ -336,13 +336,13 @@
   (let ((str (buffer-substring (region-beginning) (region-end))))
     (comment-region (region-beginning) (region-end))
     (insert-string
-      (concat (if (= 0 (forward-line 1)) "" "\n") str "\n"))
+     (concat (if (= 0 (forward-line 1)) "" "\n") str "\n"))
     (forward-line -1)
     )
   )
 (global-set-key (kbd "C-c c") 'duplicate-comment-line)
 
-; Wrap marked region with #if 0/#endif
+;; Wrap marked region with #if 0/#endif
 (defun wrap-if-0 ()
   (interactive)
   (save-excursion
@@ -362,7 +362,7 @@
   )
 (global-set-key (kbd "C-x M-0") 'wrap-if-0)
 
-; killing and yanking lines
+;; killing and yanking lines
 (defun copy-whole-line ()
   (interactive)
   (kill-new (buffer-substring-no-properties (line-beginning-position) (line-end-position)))
@@ -378,17 +378,17 @@
 (defun kill-total-line ()
   (interactive)
   (let ((kill-whole-line t))
-	(beginning-of-line)
-	(kill-line)
-	(setq top (car kill-ring))
-	(setq last (substring top -1))
-	(if (string-equal last "\n")
-		(let ()
-		  (setq stripped (substring top 0 -1))
-		  (setq kill-ring (cons stripped (cdr kill-ring)))
-		  )
-	  )
-	)
+    (beginning-of-line)
+    (kill-line)
+    (setq top (car kill-ring))
+    (setq last (substring top -1))
+    (if (string-equal last "\n")
+        (let ()
+          (setq stripped (substring top 0 -1))
+          (setq kill-ring (cons stripped (cdr kill-ring)))
+          )
+      )
+    )
   )
 (defun yank-line-after ()
   (interactive)
@@ -408,7 +408,7 @@
 (global-set-key (kbd "M-p") 'yank-line-after)
 (global-set-key (kbd "M-i") 'yank-indent-line-after)
 
-; window spliting
+;; window spliting
 (defun split-window-horizontally-other ()
   (interactive)
   (split-window-horizontally)
@@ -422,7 +422,7 @@
 (global-set-key (kbd "C-x 3") 'split-window-horizontally-other)
 (global-set-key (kbd "C-x 2") 'split-window-vertically-other)
 
-; string/regexp replacing
+;; string/regexp replacing
 (defun replace-string-in-buffer ()
   (interactive)
   (setq cpoint (point))
@@ -444,60 +444,60 @@
 (global-set-key (kbd "M-C-s") 'replace-string-in-buffer)
 (global-set-key (kbd "M-C-r") 'replace-regexp-in-buffer)
 
-; region indentation
+;; region indentation
 (defun unindent-region ()
   (interactive)
   (indent-region (region-beginning) (region-end) -1)
-)
+  )
 (global-set-key (kbd "C-x TAB") 'indent-region)
 (global-set-key (kbd "C-x <backtab>") 'unindent-region)
 
-; cursor color
+;; cursor color
 (defun set-cursor-according-to-mode ()
   "change cursor color and type according to some minor modes."
   (cond
-    (buffer-read-only
-      (set-cursor-color "grey")
-      (setq cursor-type 'hbar)
-      )
-    (overwrite-mode
-      (set-cursor-color "red")
-      (setq cursor-type 'block)
-      )
-    (t
-      (set-cursor-color "yellow")
-      (setq cursor-type 'bar)
-      )
+   (buffer-read-only
+    (set-cursor-color "grey")
+    (setq cursor-type 'hbar)
     )
+   (overwrite-mode
+    (set-cursor-color "red")
+    (setq cursor-type 'block)
+    )
+   (t
+    (set-cursor-color "yellow")
+    (setq cursor-type 'bar)
+    )
+   )
   )
 (add-hook 'post-command-hook 'set-cursor-according-to-mode)
 
-; indentation
+;; indentation
 (setq tab-width 2)
 (setq-default indent-tabs-mode nil)
 (setq tab-always-indent t)
 (setq-default tab-width tab-width)
 (setq default-tab-width tab-width)
 (setq tab-stop-list '(2 4 6 8 10 12 14 16 18 20 22 24 26 28 30 32 34 36 38 40))
-; (setq tab-stop-list '(4 8 12 16 20 24 28 32 36 40 44 48 52 56 60 64 68 72 76 80))
+;; (setq tab-stop-list '(4 8 12 16 20 24 28 32 36 40 44 48 52 56 60 64 68 72 76 80))
 (setq standard-indent tab-width)
 (setq python-indent tab-width)
 (setq python-guess-indent nil)
 (add-hook 'python-mode-hook (function (lambda () (setq tab-width tab-width))))
 (setq lua-indent-level tab-width)
 
-; file types to mode
+;; file types to mode
 (setq auto-mode-alist
-	  (append '(
-				("\\.cpp$"		. c++-mode)
-				("\\.h$"		. c++-mode)
-				("\\.hpp$"		. c++-mode)
-				("\\.inline$"   . c++-mode)
-				("\\.env$"		. shell-script-mode)
-				("\\.conf$"		. shell-script-mode)
+      (append '(
+                ("\\.cpp$"		. c++-mode)
+                ("\\.h$"		. c++-mode)
+                ("\\.hpp$"		. c++-mode)
+                ("\\.inline$"           . c++-mode)
+                ("\\.env$"		. shell-script-mode)
+                ("\\.conf$"		. shell-script-mode)
                 ("\\.go$"		. go-mode)
-				)
-			  auto-mode-alist))
+                )
+              auto-mode-alist))
 
 (defun tab-mode ()
   (interactive)
@@ -560,7 +560,7 @@
     )
   )
 
-; List of c-set-offset's [from http://stuff.mit.edu/afs/sipb/contrib/emacs/packages/cc-mode-5.21/cc-styles.el]
+;; List of c-set-offset's [from http://stuff.mit.edu/afs/sipb/contrib/emacs/packages/cc-mode-5.21/cc-styles.el]
 (defun indentation-mode-common-hook ()
   (interactive)
 
@@ -583,20 +583,20 @@
   (c-set-offset 'arglist-intro 'custom-c-arglist-init-expression)
   (c-set-offset 'inextern-lang 0)
 
-  ; http://clang.llvm.org/docs/ClangFormatStyleOptions.html#configurable-format-style-options
+  ;; http://clang.llvm.org/docs/ClangFormatStyleOptions.html#configurable-format-style-options
   (setq clang-format-style "{BasedOnStyle: Google, ColumnLimit: 120}")
   (add-hook (make-local-variable 'before-save-hook) 'clang-format-buffer)
-)
+  )
 (add-hook 'c-mode-hook 'indentation-mode-common-hook)
 (add-hook 'c++-mode-hook 'indentation-mode-common-hook)
 
-; comment style
+;; comment style
 (defun comment-mode-common-hook ()
   (interactive)
 
   (setq comment-start "/* ")
   (setq comment-end " */")
-)
+  )
 (add-hook 'c-mode-hook 'comment-mode-common-hook)
 (add-hook 'c++-mode-hook 'comment-mode-common-hook)
 (add-hook 'asm-mode-hook 'comment-mode-common-hook)
@@ -607,10 +607,10 @@
 ;; display current function in mode space
 (which-function-mode t)
 
-; gdb configuration
+;; gdb configuration
 (setq gdb-many-windows t)
 
-; verilog-mode configuration
+;; verilog-mode configuration
 (defun verilog-mode-custom ()
   (setq verilog-auto-newline nil)
   (setq verilog-auto-endcomments nil)
@@ -619,10 +619,10 @@
   (setq verilog-indent-level-module 2)
   (setq verilog-indent-level-declaration 2)
   (setq verilog-indent-level-behavioral 2)
-)
+  )
 (setq verilog-mode-hook 'verilog-mode-custom)
 
-; ediff
+;; ediff
 (define-prefix-command 'ediff-map)
 (define-key ediff-map "b" 'ediff-buffers)
 (define-key ediff-map "f" 'ediff-files)
@@ -630,7 +630,7 @@
 (setq ediff-split-window-function 'split-window-horizontally)
 (setq ediff-window-setup-function 'ediff-setup-windows-plain)
 
-; diff
+;; diff
 (custom-set-faces
  '(diff-added ((t (:foreground "#559944"))))
  '(diff-context ((t nil)))
@@ -648,34 +648,34 @@
 (defun toggle-html-entities ()
   (interactive)
   (setq cpoint (point))
-  (let ((sym '("\&" "\>" "\<")) (ent '("\&amp;" "\&gt;" "\&lt;")) lst0 lst1)
-	(if html-entities-on
-		(let ()
-		  (setq html-entities-on nil)
-		  (setq lst0 ent)
-		  (setq lst1 sym)
-		  )
-	  (let ()
-		  (setq html-entities-on t)
-		  (setq lst0 sym)
-		  (setq lst1 ent)
-		)
-	  )
-	(let (i0 i1)
-	  (while (and lst0 lst1)
-		(setq i0 (car lst0))
-		(setq i1 (car lst1))
-		(goto-char 1)
-		(replace-regexp i0 i1)
-		(setq lst0 (cdr lst0))
-		(setq lst1 (cdr lst1))
-		)
-	)
-	)
+  (let ((sym '("\&" "\>" "\<")) (ent '("\&amp;;" "\&gt;;" "\&lt;;")) lst0 lst1)
+    (if html-entities-on
+        (let ()
+          (setq html-entities-on nil)
+          (setq lst0 ent)
+          (setq lst1 sym)
+          )
+      (let ()
+        (setq html-entities-on t)
+        (setq lst0 sym)
+        (setq lst1 ent)
+        )
+      )
+    (let (i0 i1)
+      (while (and lst0 lst1)
+        (setq i0 (car lst0))
+        (setq i1 (car lst1))
+        (goto-char 1)
+        (replace-regexp i0 i1)
+        (setq lst0 (cdr lst0))
+        (setq lst1 (cdr lst1))
+        )
+      )
+    )
   (goto-char cpoint)
   )
 
-; ediff hexl of files
+;; ediff hexl of files
 (defun ediff-hexl (first second)
   (setq first-buffer (find-file-noselect first))
   (switch-to-buffer first-buffer)
@@ -688,8 +688,8 @@
 
 ;; ibuffer grouping
 (add-hook 'ibuffer-mode-hook (lambda ()
-							   (setq ibuffer-filter-groups '(
-															 ("dired"    (mode . dired-mode))
+                               (setq ibuffer-filter-groups '(
+                                                             ("dired"    (mode . dired-mode))
                                                              ("emacs"    (or
                                                                           (name . "^\\*Compile-log\\*$")
                                                                           (name . "^\\*Completions\\*$")
@@ -703,20 +703,20 @@
                                                                           (name . "^\\*Annotate.*\\*$")
                                                                           )
                                                               )
-															 ("*buffer*" (name . "\\*.*\\*"))
-															 )
-									 )
-							   (setq ibuffer-sorting-mode 'alphabetic)
-							   (setq ibuffer-always-show-last-buffer nil)
-							   (setq ibuffer-show-empty-filter-groups nil)
-							   (setq ibuffer-formats '(
-													   (mark modified read-only
-															 " " (name 36 36 :left :elide)
-															 " " filename)
-													   )
-									 )
-							   )
-		  )
+                                                             ("*buffer*" (name . "\\*.*\\*"))
+                                                             )
+                                     )
+                               (setq ibuffer-sorting-mode 'alphabetic)
+                               (setq ibuffer-always-show-last-buffer nil)
+                               (setq ibuffer-show-empty-filter-groups nil)
+                               (setq ibuffer-formats '(
+                                                       (mark modified read-only
+                                                             " " (name 36 36 :left :elide)
+                                                             " " filename)
+                                                       )
+                                     )
+                               )
+          )
 
 ;; mechanism for making buffer names unique
 (setq uniquify-buffer-name-style 'reverse)
@@ -784,7 +784,7 @@
 (global-whitespace-mode t)
 
 ;;
-; C-M-j to open file name that matches smth else
+;; C-M-j to open file name that matches smth else
 (use-package ivy)
 (ivy-mode t)
 (setq ivy-use-virtual-buffers t)
@@ -849,13 +849,13 @@
 (global-set-key (kbd "M-.") 'etags-select-find-tag)
 (global-set-key (kbd "M-*") 'pop-tag-mark)
 (add-hook 'etags-select-mode-hook
-		  (lambda ()
-			(define-key etags-select-mode-map (kbd "C-m") 'etags-select-goto-tag)
-			(define-key etags-select-mode-map (kbd "C-o") 'etags-select-goto-tag-other-window)
+          (lambda ()
+            (define-key etags-select-mode-map (kbd "C-m") 'etags-select-goto-tag)
+            (define-key etags-select-mode-map (kbd "C-o") 'etags-select-goto-tag-other-window)
             (define-key etags-select-mode-map (kbd "C-n") 'etags-select-next-tag)
             (define-key etags-select-mode-map (kbd "C-p") 'etags-select-previous-tag)
-			)
-		  )
+            )
+          )
 
 ;;
 (use-package highlight-parentheses)
@@ -1026,8 +1026,8 @@
   (add-hook mode 'flyspell-mode)
   )
 
-; w/a for md-mode for `(define-key map (kbd "C-x n b") 'markdown-narrow-to-block)`
-; see https://github.com/jrblevin/markdown-mode/blob/e9dff50d572caa96b68a7466c18c97a8d6ed651c/markdown-mode.el#L5386
+;; w/a for md-mode for `(define-key map (kbd "C-x n b") 'markdown-narrow-to-block)`
+;; see https://github.com/jrblevin/markdown-mode/blob/e9dff50d572caa96b68a7466c18c97a8d6ed651c/markdown-mode.el#L5386
 (add-hook 'markdown-mode-hook
           (lambda () (local-set-key (kbd "C-x n b") 'windmove-left))
           )
