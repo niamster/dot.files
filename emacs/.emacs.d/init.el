@@ -822,7 +822,7 @@
 
 ;;
 (use-package dired+
-  :quelpa (dired+ :fetcher url :url "https://raw.githubusercontent.com/emacsmirror/dired-plus/master/dired+.el")
+  :quelpa (dired+ :fetcher github :repo "emacsmirror/dired-plus")
   )
 (custom-set-faces
  '(diredp-dir-heading ((t (:foreground "white" :bold t :weight bold))))
@@ -843,7 +843,7 @@
 
 ;;
 (use-package etags-select
-  :quelpa (etags-select :fetcher url :url "https://raw.githubusercontent.com/emacsmirror/etags-select/master/etags-select.el")
+  :quelpa (etags-select :fetcher github :repo "emacsmirror/etags-select")
   )
 (global-set-key (kbd "M-?") 'etags-select-find-tag-at-point)
 (global-set-key (kbd "M-.") 'etags-select-find-tag)
