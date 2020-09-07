@@ -7,7 +7,8 @@ Host *
     ControlPath ~/.ssh/m-%h:%p
     ConnectTimeout 60
     Compression yes
-    PermitLocalCommand yes
+    IgnoreUnknown UseKeychain
+    PermitLocalCommand no
 
 
 # Custom host configuration goes here
