@@ -24,6 +24,11 @@
 		</item>
 	</menu>
 	<menu id="apps-accessories-menu" label="Accessories">
+		<item label="IntelliJ">
+			<action name="Execute">
+				<execute>idea</execute>
+			</action>
+		</item>
 		<item label="gparted">
 			<action name="Execute">
 				<execute>gksu gparted</execute>
