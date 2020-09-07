@@ -207,6 +207,16 @@ export LESS_TERMCAP_ue=$'\e[0m'            # end underline
 
 export COLORTERM=y
 
+alias k=kubectl
+alias ktx=kubectx
+alias klog="kubectl logs --all-containers=true"
+function _kube_contexts() {
+  local curr_arg;
+  curr_arg=${COMP_WORDS[COMP_CWORD]}
+  COMPREPLY=( $(compgen -W "- $(kubectl config get-contexts --output='name')" -- $curr_arg ) );
+}
+complete -F _kube_contexts kubectx ktx
+
 BASHRC_USER=~/.bashrc_user
 [[ -s $BASHRC_USER ]] && source $BASHRC_USER
 
