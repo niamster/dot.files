@@ -74,3 +74,5 @@
     untracked = cyan
 [push]
 	default = simple
+[pull]
+	rebase = false
