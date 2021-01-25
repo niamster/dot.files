@@ -3,7 +3,7 @@
 	email = dmilinevskyi@gmail.com
 [core]
 	editor = vim
-	pager = less -+$LESS -FRSX
+	pager = diff-so-fancy | less --tabs=4 -RFX
 [alias]
 	d = diff
 	l = log --color=always
@@ -59,15 +59,18 @@
     diff = auto
     status = auto
     log = always
+	ui = true
 [color "branch"]
     current = red
     local = yellow
     remote = green
 [color "diff"]
-    meta = yellow bold
-    frag = magenta bold
-    old = red bold
-    new = green bold
+	meta = yellow bold
+	frag = magenta bold
+	old = red bold
+	new = green bold
+	commit = yellow bold
+	whitespace = red reverse
 [color "status"]
     added = green
     changed = red
@@ -76,3 +79,8 @@
 	default = simple
 [pull]
 	rebase = false
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
