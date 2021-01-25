@@ -179,7 +179,7 @@ function cscope_c() {
 
 function tags_c() {
     rm -f TAGS
-    find . -name '*.[ch]' -o -name '*.cpp' -o -name '*.cxx' -o -name '*.java' | xargs etags -a
+    find . -name '*.[ch]' -o -name '*.cpp' -o -name '*.cxx' -o -name '*.java' | xargs ctags -a -e
 }
 function tags_py() {
     rm -f TAGS
