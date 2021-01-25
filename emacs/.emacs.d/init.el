@@ -473,13 +473,26 @@
 (add-hook 'post-command-hook 'set-cursor-according-to-mode)
 
 ;; indentation
+(defun two-space-mode ()
+  (interactive)
+  (setq tab-width 2)
+  (setq default-tab-width tab-width)
+  (setq tab-stop-list '(2 4 6 8 10 12 14 16 18 20 22 24 26 28 30 32 34 36 38 40))
+  (setq standard-indent tab-width)
+  )
+(defun four-space-mode ()
+  (interactive)
+  (setq tab-width 4)
+  (setq default-tab-width tab-width)
+  (setq tab-stop-list '(4 8 12 16 20 24 28 32 36 40 44 48 52 56 60 64 68 72 76 80))
+  (setq standard-indent tab-width)
+  )
 (setq tab-width 2)
 (setq-default indent-tabs-mode nil)
 (setq tab-always-indent t)
 (setq-default tab-width tab-width)
 (setq default-tab-width tab-width)
 (setq tab-stop-list '(2 4 6 8 10 12 14 16 18 20 22 24 26 28 30 32 34 36 38 40))
-;; (setq tab-stop-list '(4 8 12 16 20 24 28 32 36 40 44 48 52 56 60 64 68 72 76 80))
 (setq standard-indent tab-width)
 (setq python-indent tab-width)
 (setq python-guess-indent nil)
@@ -862,15 +875,7 @@
 
 ;;
 (use-package yaml-mode)
-(defun yaml-two-space-mode ()
-  "YAML mode with 2 spaces for indentation."
-  (interactive)
-  (setq tab-width 2)
-  (setq default-tab-width tab-width)
-  (setq tab-stop-list '(2 4 6 8 10 12 14 16 18 20 22 24 26 28 30 32 34 36 38 40))
-  (setq standard-indent tab-width)
-  )
-(add-hook 'yaml-mode-hook 'yaml-two-space-mode)
+(add-hook 'yaml-mode-hook 'two-space-mode)
 
 ;;
 (use-package ini-mode)
@@ -987,6 +992,7 @@
 
 ;;
 (use-package bazel-mode)
+(add-hook 'bazel-mode-hook 'four-space-mode)
 
 ;; truncate lines [NOTE: keep this in the end]
 (add-hook 'dired-mode-hook (lambda () (toggle-truncate-lines t)))
