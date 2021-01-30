@@ -915,6 +915,18 @@
 (add-hook 'rust-mode-hook #'racer-mode)
 (define-key rust-mode-map (kbd "TAB") #'company-indent-or-complete-common)
 (setq company-tooltip-align-annotations t)
+;; See https://github.com/racer-rust/emacs-racer/issues/140
+(add-hook 'rust-mode-hook
+          (lambda ()
+            (setq racer-rust-src-path
+                  (let* ((sysroot (string-trim
+                                   (shell-command-to-string "rustc --print sysroot")))
+                         (lib-path (concat sysroot "/lib/rustlib/src/rust/library"))
+                         (src-path (concat sysroot "/lib/rustlib/src/rust/src")))
+                    (or (when (file-exists-p lib-path) lib-path)
+                        (when (file-exists-p src-path) src-path))))
+            )
+          )
 
 ;;
 (use-package flycheck-rust)
