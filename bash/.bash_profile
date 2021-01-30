@@ -17,10 +17,6 @@ export GOPATH=~/.local/go
 PATH=$PATH:$GOPATH/bin
 
 PATH=$PATH:~/.luarocks/bin
-PATH=$PATH:~/.cargo/bin
-
-export RUST_SRC_PATH=/projects/rust/rust-lang/src
-export RUST_BACKTRACE=1
 
 export CCACHE_PATH=/usr/bin
 
@@ -225,3 +221,4 @@ BASHRC_USER=~/.bashrc_user
 [[ -s $BASHRC_USER ]] && source $BASHRC_USER
 
 export PATH="$HOME/.cargo/bin:$PATH"
+export RUST_BACKTRACE=1
