@@ -1068,3 +1068,6 @@
   (add-hook 'before-save-hook 'delete-trailing-whitespace)
   )
 (add-hook 'java-mode-hook 'custom-java-mode-hook)
+
+;;
+(setq rust-format-on-save t)
