@@ -18,6 +18,7 @@
   fp = format-patch
   rb = rebase
   rbi = rebase -i
+  rbe = rebase --exec 'GIT_COMMITTER_DATE=\"$(date)\" git commit --amend --no-edit --date \"$(date)\"'
   rbis = !git stash && git rebase -i && git stash pop
   rbc = rebase --continue
   rba = rebase --abort
