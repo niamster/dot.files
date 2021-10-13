@@ -1015,6 +1015,9 @@
 (use-package bazel)
 (add-hook 'bazel-mode-hook 'four-space-mode)
 
+;;
+(use-package terraform-mode)
+
 ;; truncate lines [NOTE: keep this in the end]
 (add-hook 'dired-mode-hook (lambda () (toggle-truncate-lines t)))
 (add-hook 'ibuffer-mode-hook (lambda () (toggle-truncate-lines t)))
