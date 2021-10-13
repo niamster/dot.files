@@ -774,11 +774,20 @@
 (use-package flycheck)
 
 ;;
+(use-package lsp-mode)
+(setq lsp-keymap-prefix "C-c l")
+(setq lsp-file-watch-threshold 100000)
+(add-hook 'go-mode-hook #'lsp)
+
+;;
+;; You need to install gopls.
+;; See https://github.com/golang/tools/blob/master/gopls/doc/emacs.md for more details.
 (use-package go-mode)
 (defun custom-go-mode-hook ()
-  (add-hook 'before-save-hook 'gofmt-before-save)
+  (add-hook 'before-save-hook #'lsp-format-buffer t t)
+  (add-hook 'before-save-hook #'lsp-organize-imports t t)
   (add-hook 'before-save-hook 'delete-trailing-whitespace)
-  (local-set-key (kbd "M-.") 'godef-jump)
+  (local-set-key (kbd "M-.") 'lsp-find-definition)
   )
 (add-hook 'go-mode-hook 'custom-go-mode-hook)
 
