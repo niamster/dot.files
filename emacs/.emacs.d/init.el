@@ -1012,7 +1012,7 @@
           )
 
 ;;
-(use-package bazel-mode)
+(use-package bazel)
 (add-hook 'bazel-mode-hook 'four-space-mode)
 
 ;; truncate lines [NOTE: keep this in the end]
