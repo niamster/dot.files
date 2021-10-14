@@ -85,3 +85,6 @@
   oldHighlight = red bold 52
   newNormal = green bold
   newHighlight = green bold 22
+[grep]
+	extendRegexp = true
+	lineNumber = true
