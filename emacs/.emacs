@@ -5,13 +5,7 @@
 (setq user-emacs-directory (expand-file-name "~/.emacs.d/savefiles/" main-dir))
 
 (load "~/.emacs.d/init.el")
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   '(bazel-mode protobuf-mode clang-format flycheck-irony company-irony irony indent-guide company-anaconda anaconda-mode flycheck-rust racer zeal-at-point xcscope idle-highlight-mode highlight-symbol nginx-mode ini-mode yaml-mode highlight-parentheses etags-select browse-kill-ring dired+ helm projectile counsel swiper ivy toml-mode markdown-mode lua-mode go-mode flycheck powerline quelpa-use-package quelpa use-package)))
+
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -35,3 +29,10 @@
  '(diredp-read-priv ((t (:background "#1e1e1e" :foreground "green"))))
  '(diredp-write-priv ((t (:background "#1e1e1e" :foreground "red"))))
  '(idle-highlight ((t (:foreground "#ffd700" :bold t :weight bold)))))
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   '(terraform-mode bazel protobuf-mode clang-format flycheck-irony company-irony irony indent-guide company-anaconda anaconda-mode flycheck-rust racer zeal-at-point xcscope idle-highlight-mode highlight-symbol nginx-mode ini-mode yaml-mode highlight-parentheses etags-select browse-kill-ring dired+ helm projectile counsel swiper ivy toml-mode lua-mode go-mode lsp-mode flycheck powerline quelpa-use-package quelpa use-package)))
