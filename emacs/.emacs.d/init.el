@@ -1038,7 +1038,9 @@
               lua-mode-hook
               rust-mode-hook
               markdown-mode-hook
-              text-mode-hook))
+              text-mode-hook
+              bazel-mode-hook
+              ))
 (dolist (mode modes)
   (add-hook mode (lambda () (toggle-truncate-lines t)))
   (add-hook mode (lambda () (linum-mode t)))
@@ -1070,7 +1072,9 @@
               go-mode-hook
               sh-mode-hook
               lua-mode-hook
-              rust-mode-hook))
+              rust-mode-hook
+              bazel-mode-hook
+              ))
 (dolist (mode modes)
   (add-hook mode 'font-lock-function-call-hook)
   )
