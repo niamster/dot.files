@@ -780,9 +780,6 @@
 (add-hook 'go-mode-hook #'lsp)
 
 ;;
-(use-package lsp-ui)
-
-;;
 ;; You need to install gopls.
 ;; See https://github.com/golang/tools/blob/master/gopls/doc/emacs.md for more details.
 (use-package go-mode)
