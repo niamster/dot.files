@@ -1013,8 +1013,13 @@
 
 ;;
 (use-package bazel)
-(add-hook 'bazel-mode-hook 'four-space-mode)
-
+(add-hook 'bazel-mode-hook
+          (lambda ()
+            (add-hook 'four-space-mode)
+            ;; https://github.com/bazelbuild/buildtools/blob/master/buildifier/README.md
+            (add-hook 'before-save-hook #'bazel-format nil t)
+            )
+          )
 ;;
 (use-package terraform-mode)
 
