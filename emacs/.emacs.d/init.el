@@ -1056,8 +1056,13 @@
   (add-hook mode 'flyspell-prog-mode)
   )
 
-(setq modes '(markdown-mode-hook
-              text-mode-hook))
+;; go-pls issues `go list` too often which kills the perf
+(remove-hook go-mode-hook 'flyspell-prog-mode)
+
+(setq modes '(
+              markdown-mode-hook
+              text-mode-hook
+              ))
 (dolist (mode modes)
   (remove-hook mode 'flyspell-prog-mode)
   (add-hook mode 'flyspell-mode)
