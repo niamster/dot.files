@@ -778,6 +778,9 @@
 (setq lsp-keymap-prefix "C-c l")
 (setq lsp-file-watch-threshold 100000)
 (add-hook 'go-mode-hook #'lsp)
+;; Perf tuning, see https://emacs-lsp.github.io/lsp-mode/page/performance/
+(setq gc-cons-threshold 100000000)
+(setq read-process-output-max (* 1024 1024))
 
 ;;
 ;; You need to install gopls.
