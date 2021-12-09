@@ -791,6 +791,8 @@
   (add-hook 'before-save-hook #'lsp-organize-imports t t)
   (add-hook 'before-save-hook 'delete-trailing-whitespace)
   (local-set-key (kbd "M-.") 'lsp-find-definition)
+  ;; go-pls issues `go list` too often which kills the perf
+  (setq lsp-diagnostics-provider :none)
   )
 (add-hook 'go-mode-hook 'custom-go-mode-hook)
 
@@ -1058,9 +1060,6 @@
   (add-hook mode (lambda () (highlight-parentheses-mode t)))
   (add-hook mode 'flyspell-prog-mode)
   )
-
-;; go-pls issues `go list` too often which kills the perf
-(remove-hook go-mode-hook 'flyspell-prog-mode)
 
 (setq modes '(
               markdown-mode-hook
