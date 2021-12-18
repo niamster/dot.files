@@ -1098,5 +1098,41 @@
   )
 (add-hook 'java-mode-hook 'custom-java-mode-hook)
 
+;; Define ligatures
+;; See https://andreyorst.gitlab.io/posts/2020-07-21-programming-ligatures-in-emacs/
+;; https://github.com/tonsky/FiraCode/wiki/Emacs-instructions
+(let ((ligatures `((?-  . ,(regexp-opt '("-|" "-~" "---" "-<<" "-<" "--" "->" "->>" "-->")))
+                   (?/  . ,(regexp-opt '("/**" "/*" "///" "/=" "/==" "/>" "//")))
+                   (?*  . ,(regexp-opt '("*>" "***" "*/")))
+                   (?<  . ,(regexp-opt '("<-" "<<-" "<=>" "<=" "<|" "<||" "<|||::=" "<|>" "<:" "<>" "<-<"
+                                         "<<<" "<==" "<<=" "<=<" "<==>" "<-|" "<<" "<~>" "<=|" "<~~" "<~"
+                                         "<$>" "<$" "<+>" "<+" "</>" "</" "<*" "<*>" "<->" "<!--")))
+                   (?:  . ,(regexp-opt '(":>" ":<" ":::" "::" ":?" ":?>" ":=")))
+                   (?=  . ,(regexp-opt '("=>>" "==>" "=/=" "=!=" "=>" "===" "=:=" "==")))
+                   (?!  . ,(regexp-opt '("!==" "!!" "!=")))
+                   (?>  . ,(regexp-opt '(">]" ">:" ">>-" ">>=" ">=>" ">>>" ">-" ">=")))
+                   (?&  . ,(regexp-opt '("&&&" "&&")))
+                   (?|  . ,(regexp-opt '("|||>" "||>" "|>" "|]" "|}" "|=>" "|->" "|=" "||-" "|-" "||=" "||")))
+                   (?.  . ,(regexp-opt '(".." ".?" ".=" ".-" "..<" "...")))
+                   (?+  . ,(regexp-opt '("+++" "+>" "++")))
+                   (?\[ . ,(regexp-opt '("[||]" "[<" "[|")))
+                   (?\{ . ,(regexp-opt '("{|")))
+                   (?\? . ,(regexp-opt '("??" "?." "?=" "?:")))
+                   (?#  . ,(regexp-opt '("####" "###" "#[" "#{" "#=" "#!" "#:" "#_(" "#_" "#?" "#(" "##")))
+                   (?\; . ,(regexp-opt '(";;")))
+                   (?_  . ,(regexp-opt '("_|_" "__")))
+                   (?\\ . ,(regexp-opt '("\\" "\\/")))
+                   (?~  . ,(regexp-opt '("~~" "~~>" "~>" "~=" "~-" "~@")))
+                   (?$  . ,(regexp-opt '("$>")))
+                   (?^  . ,(regexp-opt '("^=")))
+                   (?\] . ,(regexp-opt '("]#"))))))
+  (dolist (char-regexp ligatures)
+    (set-char-table-range composition-function-table (car char-regexp)
+                          `([,(cdr char-regexp) 0 font-shape-gstring]))))
+
+;; Enable composite mode only in prog modes
+(global-auto-composition-mode -1)
+(add-hook 'prog-mode-hook 'auto-composition-mode)
+
 ;;
 (setq rust-format-on-save t)
