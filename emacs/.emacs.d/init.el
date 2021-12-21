@@ -2,7 +2,7 @@
 ;;(set-default-font "Dejavu Sans Mono-6")
 ;;(set-default-font "-bitstream-bitstream vera sans mono-bold-r-normal--10-8-*-*-m-*-iso8859-1")
 ;;(set-default-font "-misc-dejavu sans mono-medium-r-normal--10-8-*-*-m-*-iso8859-1")
-(set-face-attribute 'default t :font "JetBrains Mono-12")
+(set-face-attribute 'default t :font "Fira Code-12")
 
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
 
