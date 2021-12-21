@@ -127,6 +127,7 @@ function _kontext() {
     fi
 
     local k=$(kubectl config current-context)
+    local ns=$(kubectl config get-contexts $k --no-headers | awk '{print $5}')
     case $k in
         *dev*|*staging*)
             printf "\e[0;32m"
@@ -137,7 +138,7 @@ function _kontext() {
         *)
             ;;
     esac
-    printf "${k}\e[0;31m|"
+    printf "${k}\e[0;35m:${ns}\e[0;31m|"
 }
 
 PS1="\[\e[0;31m\](\[\e[0;33m\]\u\[\e[0;36m\]@\[\e[0;37m\]\H\[\e[0;31m\]|\[\e[0;32m\]\t\[\e[0;31m\]|\$(_kontext)\[\e[1;34m\]\w\[\e[0;31m\])\n\[\e[0;31m\]*~>\[\e[0m\]"
