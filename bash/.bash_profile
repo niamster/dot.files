@@ -209,6 +209,7 @@ export LESS_TERMCAP_ue=$'\e[0m'            # end underline
 export COLORTERM=y
 
 alias k=kubectl
+# kubectx and kubens come from https://github.com/ahmetb/kubectx
 alias ktx=kubectx
 alias kns=kubens
 alias klog="kubectl logs --all-containers=true"
