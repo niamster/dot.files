@@ -790,7 +790,6 @@
 (defun custom-go-mode-hook ()
   (add-hook 'before-save-hook #'lsp-format-buffer t t)
   (add-hook 'before-save-hook #'lsp-organize-imports t t)
-  (add-hook 'before-save-hook 'delete-trailing-whitespace)
   (local-set-key (kbd "M-.") 'lsp-find-definition)
   ;; go-pls issues `go list` too often which kills the perf
   (setq lsp-diagnostics-provider :none)
@@ -1090,11 +1089,11 @@
               ))
 (dolist (mode modes)
   (add-hook mode 'font-lock-function-call-hook)
+  (add-hook 'before-save-hook 'delete-trailing-whitespace)
   )
 
 (defun custom-java-mode-hook ()
   (add-hook 'before-save-hook 'clang-format-buffer)
-  (add-hook 'before-save-hook 'delete-trailing-whitespace)
   )
 (add-hook 'java-mode-hook 'custom-java-mode-hook)
 
