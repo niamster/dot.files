@@ -1029,6 +1029,9 @@
 (use-package terraform-mode)
 
 ;;
+(use-package swift-mode)
+
+;;
 (use-package format-all)
 (add-hook 'prog-mode-hook 'format-all-mode)
 (add-hook 'format-all-mode-hook 'format-all-ensure-formatter)
@@ -1055,6 +1058,7 @@
               markdown-mode-hook
               text-mode-hook
               bazel-mode-hook
+              swift-mode
               ))
 (dolist (mode modes)
   (add-hook mode (lambda () (toggle-truncate-lines t)))
@@ -1091,6 +1095,7 @@
               lua-mode-hook
               rust-mode-hook
               bazel-mode-hook
+              swift-mode
               ))
 (dolist (mode modes)
   (add-hook mode 'font-lock-function-call-hook)
