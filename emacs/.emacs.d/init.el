@@ -1068,6 +1068,8 @@
   (add-hook mode 'subword-hook)
   (add-hook mode (lambda () (highlight-parentheses-mode t)))
   (add-hook mode 'flyspell-prog-mode)
+  (add-hook mode 'font-lock-function-call-hook)
+  (add-hook 'before-save-hook 'delete-trailing-whitespace)
   )
 
 (setq modes '(
@@ -1084,23 +1086,6 @@
 (add-hook 'markdown-mode-hook
           (lambda () (local-set-key (kbd "C-x n b") 'windmove-left))
           )
-
-(setq modes '(c-mode-hook
-              c++-mode-hook
-              java-mode-hook
-              python-mode-hook
-              ruby-mode-hook
-              go-mode-hook
-              sh-mode-hook
-              lua-mode-hook
-              rust-mode-hook
-              bazel-mode-hook
-              swift-mode
-              ))
-(dolist (mode modes)
-  (add-hook mode 'font-lock-function-call-hook)
-  (add-hook 'before-save-hook 'delete-trailing-whitespace)
-  )
 
 ;; Define ligatures
 ;; See https://andreyorst.gitlab.io/posts/2020-07-21-programming-ligatures-in-emacs/
