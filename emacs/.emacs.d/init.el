@@ -1028,6 +1028,11 @@
 ;;
 (use-package terraform-mode)
 
+;;
+(use-package format-all)
+(add-hook 'prog-mode-hook 'format-all-mode)
+(add-hook 'format-all-mode-hook 'format-all-ensure-formatter)
+
 ;; truncate lines [NOTE: keep this in the end]
 (add-hook 'dired-mode-hook (lambda () (toggle-truncate-lines t)))
 (add-hook 'ibuffer-mode-hook (lambda () (toggle-truncate-lines t)))
@@ -1091,11 +1096,6 @@
   (add-hook mode 'font-lock-function-call-hook)
   (add-hook 'before-save-hook 'delete-trailing-whitespace)
   )
-
-(defun custom-java-mode-hook ()
-  (add-hook 'before-save-hook 'clang-format-buffer)
-  )
-(add-hook 'java-mode-hook 'custom-java-mode-hook)
 
 ;; Define ligatures
 ;; See https://andreyorst.gitlab.io/posts/2020-07-21-programming-ligatures-in-emacs/
