@@ -254,6 +254,7 @@
 (global-set-key (kbd "M-h") 'backward-kill-word)
 (global-set-key (kbd "C-x C-t") '(lambda ()(interactive)(ansi-term "/bin/bash")))
 (global-set-key (kbd "C-c r") 'set-frame-name)
+(global-set-key (kbd "M-*") 'pop-tag-mark)
 
 (add-hook 'text-mode-hook '(lambda () (local-set-key (kbd "RET") 'newline)))
 (add-hook 'text-mode-hook '(lambda () (local-set-key (kbd "C-m") 'newline)))
@@ -774,10 +775,23 @@
 (use-package lsp-mode)
 (setq lsp-keymap-prefix "C-c l")
 (setq lsp-file-watch-threshold 100000)
-(add-hook 'go-mode-hook #'lsp)
 ;; Perf tuning, see https://emacs-lsp.github.io/lsp-mode/page/performance/
 (setq gc-cons-threshold 100000000)
 (setq read-process-output-max (* 1024 1024))
+
+(add-hook 'go-mode-hook #'lsp)
+(add-hook 'c-mode-hook #'lsp)
+(add-hook 'c++-mode-hook #'lsp)
+
+;;
+(use-package ccls
+  :ensure t
+  :hook ((c-mode c++-mode objc-mode cuda-mode) .
+         (lambda () (require 'ccls) (lsp)))
+  :config
+  (setq ccls-initialization-options
+	      '(:index (:comments 2) :completion (:detailedLabel t)))
+  )
 
 ;;
 ;; You need to install gopls.
@@ -870,7 +884,6 @@
   )
 (global-set-key (kbd "M-?") 'etags-select-find-tag-at-point)
 (global-set-key (kbd "M-.") 'etags-select-find-tag)
-(global-set-key (kbd "M-*") 'pop-tag-mark)
 (add-hook 'etags-select-mode-hook
           (lambda ()
             (define-key etags-select-mode-map (kbd "C-m") 'etags-select-goto-tag)
