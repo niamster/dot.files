@@ -596,10 +596,6 @@
   (c-set-offset 'arglist-close 'custom-c-arglist-close-expression)
   (c-set-offset 'arglist-intro 'custom-c-arglist-init-expression)
   (c-set-offset 'inextern-lang 0)
-
-  ;; http://clang.llvm.org/docs/ClangFormatStyleOptions.html#configurable-format-style-options
-  (setq clang-format-style "{BasedOnStyle: Google, ColumnLimit: 120}")
-  (add-hook (make-local-variable 'before-save-hook) 'clang-format-buffer)
   )
 (add-hook 'c-mode-hook 'indentation-mode-common-hook)
 (add-hook 'c++-mode-hook 'indentation-mode-common-hook)
@@ -993,6 +989,13 @@
 
 ;;
 (use-package clang-format)
+(defun clang-format-hook ()
+  ;; http://clang.llvm.org/docs/ClangFormatStyleOptions.html#configurable-format-style-options
+  (unless (f-exists? (expand-file-name ".clang-format" (projectile-project-root)))
+    (setq clang-format-style "{BasedOnStyle: Google, ColumnLimit: 120}"))
+  )
+(add-hook 'c-mode-hook 'clang-format-hook)
+(add-hook 'c++-mode-hook 'clang-format-hook)
 
 ;;
 (use-package company)
