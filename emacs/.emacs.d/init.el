@@ -882,16 +882,7 @@
 (use-package etags-select
   :quelpa (etags-select :fetcher github :repo "emacsmirror/etags-select")
   )
-(global-set-key (kbd "M-?") 'etags-select-find-tag-at-point)
-(global-set-key (kbd "M-.") 'etags-select-find-tag)
-(add-hook 'etags-select-mode-hook
-          (lambda ()
-            (define-key etags-select-mode-map (kbd "C-m") 'etags-select-goto-tag)
-            (define-key etags-select-mode-map (kbd "C-o") 'etags-select-goto-tag-other-window)
-            (define-key etags-select-mode-map (kbd "C-n") 'etags-select-next-tag)
-            (define-key etags-select-mode-map (kbd "C-p") 'etags-select-previous-tag)
-            )
-          )
+(global-set-key (kbd "M-.") 'etags-select-find-tag-at-point)
 
 ;;
 (use-package highlight-parentheses)
