@@ -780,18 +780,6 @@
 (setq read-process-output-max (* 1024 1024))
 
 (add-hook 'go-mode-hook #'lsp)
-(add-hook 'c-mode-hook #'lsp)
-(add-hook 'c++-mode-hook #'lsp)
-
-;;
-(use-package ccls
-  :ensure t
-  :hook ((c-mode c++-mode objc-mode cuda-mode) .
-         (lambda () (require 'ccls) (lsp)))
-  :config
-  (setq ccls-initialization-options
-	      '(:index (:comments 2) :completion (:detailedLabel t)))
-  )
 
 ;;
 ;; You need to install gopls.
@@ -1042,12 +1030,6 @@
 (use-package format-all)
 (add-hook 'prog-mode-hook 'format-all-mode)
 (add-hook 'format-all-mode-hook 'format-all-ensure-formatter)
-
-;;
-(use-package project)
-
-;;
-(use-package eglot)
 
 ;; truncate lines [NOTE: keep this in the end]
 (add-hook 'dired-mode-hook (lambda () (toggle-truncate-lines t)))
