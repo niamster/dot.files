@@ -876,6 +876,7 @@
   :quelpa (etags-select :fetcher github :repo "emacsmirror/etags-select")
   )
 (global-set-key (kbd "M-.") 'etags-select-find-tag-at-point)
+(define-key etags-select-mode-map (kbd "C-m") 'etags-select-goto-tag)
 
 ;;
 (use-package highlight-parentheses)
@@ -945,6 +946,7 @@
 ;; make=/usr/bin/make
 ;; bear=$(which bear 2>/dev/null)
 ;; exec $bear $make "$@"
+;; See also https://github.com/Sarcasm/irony-mode/issues/167#issuecomment-71817840
 (use-package irony)
 (add-hook 'c++-mode-hook 'irony-mode)
 (add-hook 'c-mode-hook 'irony-mode)
