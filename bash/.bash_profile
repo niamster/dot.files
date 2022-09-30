@@ -230,5 +230,5 @@ complete -F _kube_namespaces kubens kns
 BASHRC_USER=~/.bashrc_user
 [[ -s $BASHRC_USER ]] && source $BASHRC_USER
 
-export PATH="$HOME/.cargo/bin:$PATH"
 export RUST_BACKTRACE=1
+. "$HOME/.cargo/env"
