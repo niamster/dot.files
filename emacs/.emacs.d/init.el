@@ -496,9 +496,15 @@
 (setq default-tab-width tab-width)
 (setq tab-stop-list '(2 4 6 8 10 12 14 16 18 20 22 24 26 28 30 32 34 36 38 40))
 (setq standard-indent tab-width)
-(setq python-indent tab-width)
+
+;; Prefer four-space-mode for Python (standard black policy)
+(setq python-indent 4)
 (setq python-guess-indent nil)
-(add-hook 'python-mode-hook (function (lambda () (setq tab-width tab-width))))
+(add-hook 'python-mode-hook
+          (lambda ()
+            (four-space-mode)
+            )
+          )
 (setq lua-indent-level tab-width)
 
 ;; file types to mode
@@ -883,7 +889,6 @@
 
 ;;
 (use-package yaml-mode)
-(add-hook 'yaml-mode-hook 'two-space-mode)
 
 ;;
 (use-package ini-mode)
