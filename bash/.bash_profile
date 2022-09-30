@@ -1,4 +1,5 @@
 PATH=/usr/lib/colorgcc/bin:/opt/bin:~/bin:~/.local/bin/:$PATH
+PATH=/opt/homebrew/bin:$PATH
 
 function _has() {
     which $1 >/dev/null 2>&1
