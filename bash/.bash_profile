@@ -157,6 +157,10 @@ XTERM_TITLE='\[\033]0;\W@\u@\H\007\]'
 export BC_ENV_ARGS=-l
 HISTIGNORE='&'
 
+export PROMPT_COMMAND='history -a'
+export HISTSIZE=20000
+export HISTFILESIZE=20000
+
 function wtitle() {
 	local title=$1
     if _has wmctrl; then
