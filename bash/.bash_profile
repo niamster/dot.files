@@ -87,6 +87,9 @@ complete -cf sudo
 complete -cf xargs
 complete -cf man
 
+# Do not prompt to edit merge message
+export GIT_MERGE_AUTOEDIT=no
+
 function _git () {
     local g="$(git rev-parse --git-dir 2>/dev/null)"
     if [ -n "$g" ]; then
