@@ -126,12 +126,6 @@
       )
 (defun font-lock-kw-hook () (font-lock-add-keywords nil keys t))
 
-(defface font-lock-function-call-face '((t (:foreground "#228b22"))) "Font Lock mode face used to highlight function calls." :group 'font-lock-highlighting-faces)
-(defvar font-lock-function-call-face 'font-lock-function-call-face)
-(defun font-lock-function-call-hook ()
-  (font-lock-add-keywords nil '(("\\<\\([a-zA-Z0-9_]+\\) ?(" 1 font-lock-function-call-face)) t)
-  )
-
 ;; highlight #if 0
 (defface if0face '((t (:foreground "#cccccc"))) "#if 0 face" :group 'basic-faces)
 (setq cpp-known-face 'default)
@@ -1025,6 +1019,16 @@
 (add-hook 'prog-mode-hook 'format-all-mode)
 (add-hook 'format-all-mode-hook 'format-all-ensure-formatter)
 
+;;
+(use-package tree-sitter)
+(use-package tree-sitter-langs)
+(global-tree-sitter-mode)
+(add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode)
+(face-spec-set 'tree-sitter-hl-face:function '((t (:slant italic))))
+(face-spec-set 'tree-sitter-hl-face:method\.call '((t (:inherit tree-sitter-hl-face:method :weight normal :slant normal))))
+(face-spec-set 'tree-sitter-hl-face:method '((t (:slant italic))))
+(face-spec-set 'tree-sitter-hl-face:function\.call '((t (:inherit tree-sitter-hl-face:function :weight normal :slant normal))))
+
 ;; truncate lines [NOTE: keep this in the end]
 (add-hook 'dired-mode-hook (lambda () (toggle-truncate-lines t)))
 (add-hook 'ibuffer-mode-hook (lambda () (toggle-truncate-lines t)))
@@ -1057,7 +1061,6 @@
   (add-hook mode 'subword-hook)
   (add-hook mode (lambda () (highlight-parentheses-mode t)))
   (add-hook mode 'flyspell-prog-mode)
-  (add-hook mode 'font-lock-function-call-hook)
   (add-hook 'before-save-hook 'delete-trailing-whitespace)
   )
 
