@@ -821,6 +821,7 @@
 (use-package whitespace)
 (setq whitespace-style '(face trailing empty))
 (global-whitespace-mode t)
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 ;;
 ;; C-M-j to open file name that matches smth else
@@ -1070,7 +1071,6 @@
   (add-hook mode 'subword-hook)
   (add-hook mode (lambda () (highlight-parentheses-mode t)))
   (add-hook mode 'flyspell-prog-mode)
-  (add-hook 'before-save-hook 'delete-trailing-whitespace)
   )
 
 (setq modes '(
