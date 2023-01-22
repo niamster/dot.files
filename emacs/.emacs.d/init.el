@@ -1032,8 +1032,6 @@
 ;;
 (use-package tree-sitter)
 (use-package tree-sitter-langs)
-(global-tree-sitter-mode)
-(add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode)
 (face-spec-set 'tree-sitter-hl-face:function '((t (:slant italic))))
 (face-spec-set 'tree-sitter-hl-face:method\.call '((t (:inherit tree-sitter-hl-face:method :weight normal :slant normal))))
 (face-spec-set 'tree-sitter-hl-face:method '((t (:slant italic))))
@@ -1071,6 +1069,10 @@
   (add-hook mode 'subword-hook)
   (add-hook mode (lambda () (highlight-parentheses-mode t)))
   (add-hook mode 'flyspell-prog-mode)
+  (unless (member mode '(text-mode-hook))
+    (add-hook mode 'tree-sitter-mode)
+    (add-hook mode 'tree-sitter-hl-mode)
+    )
   )
 
 (setq modes '(
