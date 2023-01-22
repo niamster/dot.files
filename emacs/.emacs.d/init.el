@@ -769,6 +769,15 @@
 (powerline-default-theme)
 
 ;;
+(use-package rust-mode)
+
+;;
+(use-package json-mode)
+
+;; snake <-> camel conversion
+(use-package string-inflection)
+
+;;
 (use-package flycheck)
 
 ;;
