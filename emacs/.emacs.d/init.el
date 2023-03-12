@@ -790,6 +790,7 @@
 
 (setq modes '(go-mode-hook
               rust-mode-hook
+              zig-mode-hook
               ))
 (dolist (mode modes)
   (add-hook mode 'lsp)
@@ -1022,7 +1023,11 @@
 (use-package terraform-mode)
 
 ;;
-(use-package swift-mode)
+;; Also handy to install ZLS (https://github.com/zigtools/zls)
+(use-package zig-mode)
+
+;;
+(use-package dockerfile-mode)
 
 ;;
 (use-package format-all)
@@ -1059,7 +1064,8 @@
               markdown-mode-hook
               text-mode-hook
               bazel-mode-hook
-              swift-mode
+              zig-mode-hook
+              dockerfile-mode-hook
               ))
 (dolist (mode modes)
   (add-hook mode (lambda () (toggle-truncate-lines t)))

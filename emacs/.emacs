@@ -33,4 +33,4 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(rust-mode string-inflection json-mode format-all swift-mode terraform-mode bazel protobuf-mode clang-format flycheck-irony company-irony irony indent-guide company-anaconda anaconda-mode flycheck-rust racer zeal-at-point xcscope idle-highlight-mode highlight-symbol nginx-mode ini-mode yaml-mode highlight-parentheses etags-select browse-kill-ring dired+ helm projectile counsel swiper ivy toml-mode lua-mode go-mode lsp-mode flycheck powerline quelpa-use-package quelpa use-package)))
+   '(zig-mode dockerfile-mode rust-mode string-inflection json-mode format-all swift-mode terraform-mode bazel protobuf-mode clang-format flycheck-irony company-irony irony indent-guide company-anaconda anaconda-mode flycheck-rust racer zeal-at-point xcscope idle-highlight-mode highlight-symbol nginx-mode ini-mode yaml-mode highlight-parentheses etags-select browse-kill-ring dired+ helm projectile counsel swiper ivy toml-mode lua-mode go-mode lsp-mode flycheck powerline quelpa-use-package quelpa use-package)))
