@@ -7,6 +7,9 @@ function _has() {
 
 if _has brew; then
     PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
+    if [ -f $(brew --prefix)/etc/bash_completion ]; then
+        . $(brew --prefix)/etc/bash_completion
+    fi
 fi
 
 if _has ruby && _has gem; then
