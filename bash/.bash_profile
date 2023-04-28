@@ -66,6 +66,17 @@ alias tmux="tmux -2"
 alias gti=git
 alias hot=git
 
+function git_ci_for_date {
+    # usage: `git_ci_for_date "9 hours ago" -m 'my commit at 3am'`
+    date=$(date --date="$1")
+    if [[ $? != 0 ]]; then
+        return
+    fi
+    echo "Comitting for $date"
+    shift
+    GIT_AUTHOR_DATE="${date}" GIT_COMMITTER_DATE="${date}" git ci "$@"
+}
+
 if _has colorsvn; then
     alias svn="colorsvn"
 fi
