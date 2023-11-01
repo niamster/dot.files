@@ -247,13 +247,13 @@
 (global-set-key (kbd "C-x C-g") 'rgrep) ;; find in files
 (global-set-key (kbd "C-h") 'delete-backward-char)
 (global-set-key (kbd "M-h") 'backward-kill-word)
-(global-set-key (kbd "C-x C-t") '(lambda ()(interactive)(ansi-term "/bin/bash")))
+(global-set-key (kbd "C-x C-t") #'(lambda ()(interactive)(ansi-term "/bin/bash")))
 (global-set-key (kbd "C-c r") 'set-frame-name)
 (global-set-key (kbd "M-*") 'pop-tag-mark)
 
-(add-hook 'text-mode-hook '(lambda () (local-set-key (kbd "RET") 'newline)))
-(add-hook 'text-mode-hook '(lambda () (local-set-key (kbd "C-m") 'newline)))
-(add-hook 'text-mode-hook '(lambda () (local-set-key (kbd "C-j") (lambda () (interactive) (end-of-line) (newline-and-indent)))))
+(add-hook 'text-mode-hook #'(lambda () (local-set-key (kbd "RET") 'newline)))
+(add-hook 'text-mode-hook #'(lambda () (local-set-key (kbd "C-m") 'newline)))
+(add-hook 'text-mode-hook #'(lambda () (local-set-key (kbd "C-j") (lambda () (interactive) (end-of-line) (newline-and-indent)))))
 
 (setq initial-major-mode 'text-mode)
 (setq default-major-mode 'text-mode)
