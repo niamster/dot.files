@@ -783,8 +783,15 @@
 
 ;;
 (use-package lsp-mode)
+(setq lsp-semgrep-languages '()) ; disable semgrep as it is currently broken
 (setq lsp-keymap-prefix "C-c l")
 (setq lsp-file-watch-threshold 100000)
+(setq lsp-enable-snippet nil)
+;; See https://github.com/emacs-lsp/lsp-mode/blob/ee58d9eb66f85c2258b9745f721965f0d62071fb/clients/lsp-go.el#L97
+(setq lsp-go-directory-filters [
+                                "-**/bazel-out"
+                                "-**/bazel-bin"
+                                ])
 ;; Perf tuning, see https://emacs-lsp.github.io/lsp-mode/page/performance/
 (setq gc-cons-threshold 100000000)
 (setq read-process-output-max (* 1024 1024))
