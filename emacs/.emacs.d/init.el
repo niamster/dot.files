@@ -167,6 +167,7 @@
 (column-number-mode t) ;; column-number in the mode line
 (setq pop-up-windows nil) ;; stop emacs from changing window configuration
 (setq confirm-nonexistent-file-or-buffer nil) ;; stop emacs from prompting you whenever a new file is created
+(global-display-line-numbers-mode t)
 
 ;; woman in same frame
 (setq woman-use-own-frame nil)
@@ -1069,7 +1070,6 @@
               ))
 (dolist (mode modes)
   (add-hook mode (lambda () (toggle-truncate-lines t)))
-  (add-hook mode (lambda () (linum-mode t)))
   (add-hook mode (lambda () (idle-highlight-mode t)))
   (add-hook mode 'font-lock-kw-hook)
   (add-hook mode 'subword-hook)
