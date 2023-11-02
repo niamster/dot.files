@@ -230,6 +230,9 @@ export LESS_TERMCAP_ue=$'\e[0m'            # end underline
 
 export COLORTERM=y
 
+# See https://emacs-lsp.github.io/lsp-mode/page/performance/#use-plists-for-deserialization
+export LSP_USE_PLISTS=true
+
 alias k=kubectl
 # kubectx and kubens come from https://github.com/ahmetb/kubectx
 alias ktx=kubectx
