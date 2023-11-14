@@ -268,12 +268,12 @@
 (defun disable-key (keymap oldkey newkey)
   "Disable a keybinding, and replace it with a message of what key to use."
   (define-key keymap oldkey
-    (list 'lambda ()
-          "Disabled key"
-          '(interactive)
-          (list 'message "Key disabled, use %s instead" newkey)
-          )
-    )
+              (list 'lambda ()
+                    "Disabled key"
+                    '(interactive)
+                    (list 'message "Key disabled, use %s instead" newkey)
+                    )
+              )
   )
 
 (defun move-key (keymap oldkey newkey)
@@ -971,9 +971,9 @@
 ;; irony-mode's buffers by irony-mode's function
 (defun custom-irony-mode-hook ()
   (define-key irony-mode-map [remap completion-at-point]
-    'irony-completion-at-point-async)
+              'irony-completion-at-point-async)
   (define-key irony-mode-map [remap complete-symbol]
-    'irony-completion-at-point-async))
+              'irony-completion-at-point-async))
 (add-hook 'irony-mode-hook 'custom-irony-mode-hook)
 (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
 
