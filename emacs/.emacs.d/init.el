@@ -1049,6 +1049,9 @@
 (face-spec-set 'tree-sitter-hl-face:method '((t (:slant italic))))
 (face-spec-set 'tree-sitter-hl-face:function\.call '((t (:inherit tree-sitter-hl-face:function :weight normal :slant normal))))
 
+;;
+(use-package magit)
+
 ;; truncate lines [NOTE: keep this in the end]
 (add-hook 'dired-mode-hook (lambda () (toggle-truncate-lines t)))
 (add-hook 'ibuffer-mode-hook (lambda () (toggle-truncate-lines t)))
