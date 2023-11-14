@@ -230,7 +230,6 @@
 (global-set-key (kbd "C-M-=") 'backward-kill-word)
 
 ;; keybinding
-(global-set-key (kbd "C-x g") 'gdb) ;; gdb
 (global-set-key (kbd "C-x m") 'woman) ;; man
 (global-set-key (kbd "M-g") 'goto-line) ;; go to line
 (global-set-key (kbd "M-t") 'tab-to-tab-stop) ;; inserts indentation before point
