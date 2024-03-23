@@ -1050,6 +1050,25 @@
 (face-spec-set 'tree-sitter-hl-face:function\.call '((t (:inherit tree-sitter-hl-face:function :weight normal :slant normal))))
 
 ;;
+;; NOTE: currently this package does not provide stable version, need to set `quelpa-stable-p` to nil
+(use-package copilot
+  :quelpa (copilot :fetcher github
+                   :repo "zerolfx/copilot.el"
+                   :files ("dist" "*.el"))
+  )
+(add-to-list 'copilot-indentation-alist '(go-mode 2))
+(add-to-list 'copilot-indentation-alist '(emacs-lisp-mode 2))
+(add-to-list 'copilot-indentation-alist '(bazel-mode 2))
+(add-hook 'prog-mode-hook 'copilot-mode)
+(define-key copilot-completion-map (kbd "<tab>") 'copilot-accept-completion)
+(define-key copilot-completion-map (kbd "TAB") 'copilot-accept-completion)
+(define-key copilot-completion-map (kbd "C-x n") #'copilot-next-completion)
+(define-key copilot-completion-map (kbd "C-x p") #'copilot-previous-completion)
+(setq copilot-indent-offset-warning-disable t)
+(setq copilot-indent-warning-suppress t)
+(setq copilot-max-char 1000000)
+
+;;
 (use-package magit)
 
 ;; truncate lines [NOTE: keep this in the end]
