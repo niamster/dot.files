@@ -6,6 +6,7 @@
   pager = diff-so-fancy | less --tabs=4 -RFX
 [alias]
   d = diff -b
+  sb = show -b
   wd = diff --color-words -b
   cd = diff --cached -b
   wcd = diff --color-words --cached -b
@@ -44,9 +45,12 @@
   rvt = revert --no-edit
   rvtc = revert --continue
   rvta = revert --abort
-  lg = log --color=always -p
-  lol = log --color=always --graph --decorate --pretty=oneline --abbrev-commit
+  lg = log --color=always -p --no-merges
+  lol = log --color=always --graph --decorate --pretty=oneline --abbrev-commit --no-merges
   loll = !git lol -n 40
+  lgx = !git lg --first-parent
+  lolx = !git lol --first-parent
+  lollx = !git loll --first-parent
   lola = log --color=always --graph --decorate --pretty=oneline --abbrev-commit --all
   gr = log --color=always --all --graph --pretty=format:'%Cred%h%Creset%x09%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
   sh = stash
