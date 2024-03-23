@@ -91,6 +91,13 @@
   oldHighlight = red bold 52
   newNormal = green bold
   newHighlight = green bold 22
+[rerere]
+	enabled = true
+	autoUpdate = true
+[merge]
+	conflictStyle = zdiff3
+[diff]
+	algorithm = histogram
 [grep]
 	extendRegexp = true
 	lineNumber = true
