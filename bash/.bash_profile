@@ -10,6 +10,9 @@ if _has brew; then
     if [ -f $(brew --prefix)/etc/bash_completion ]; then
         . $(brew --prefix)/etc/bash_completion
     fi
+    if [ -f $(brew --prefix)/etc/profile.d/bash_completion.sh ]; then
+        . $(brew --prefix)/etc/profile.d/bash_completion.sh
+    fi
 fi
 
 if _has ruby && _has gem; then
