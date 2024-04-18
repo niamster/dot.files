@@ -46,11 +46,11 @@
   rvtc = revert --continue
   rvta = revert --abort
   lg = log --color=always -p --no-merges
-  lol = log --color=always --graph --decorate --pretty=oneline --abbrev-commit --no-merges
+  lol = log --color=always --graph --decorate --pretty=oneline --abbrev-commit
   loll = !git lol -n 40
-  lgx = !git lg --first-parent
-  lolx = !git lol --first-parent
-  lollx = !git loll --first-parent
+  lgx = !git lg --no-merges --first-parent
+  lolx = !git lol --no-merges --first-parent
+  lollx = !git loll --no-merges --first-parent
   lola = log --color=always --graph --decorate --pretty=oneline --abbrev-commit --all
   gr = log --color=always --all --graph --pretty=format:'%Cred%h%Creset%x09%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
   sh = stash
