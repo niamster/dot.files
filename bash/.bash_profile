@@ -66,8 +66,11 @@ alias minicom="minicom -c on -w"
 alias tmux="tmux -2"
 
 # misspelling
-alias gti=git
-alias hot=git
+git_aliases="gti hot"
+for alias in $git_aliases; do
+    alias $alias=git
+    $(complete -p git | rev | cut -d' ' -f2- | rev) $alias
+done
 
 function git_ci_for_date {
     # usage: `git_ci_for_date "9 hours ago" -m 'my commit at 3am'`
