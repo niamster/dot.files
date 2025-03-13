@@ -1083,11 +1083,15 @@
 
 ;;
 ;; NOTE: currently this package does not provide stable version, need to set `quelpa-stable-p` to nil
+;; (use-package copilot
+;;   :vc (:url "https://github.com/copilot-emacs/copilot.el"
+;;             :rev :newest
+;;             :branch "main"))
 (use-package copilot
   :quelpa (copilot :fetcher github
-                   :repo "zerolfx/copilot.el"
-                   :files ("dist" "*.el"))
-  )
+                   :repo "copilot-emacs/copilot.el"
+                   :branch "main"
+                   :files ("*.el")))
 (add-to-list 'copilot-indentation-alist '(go-mode 2))
 (add-to-list 'copilot-indentation-alist '(emacs-lisp-mode 2))
 (add-to-list 'copilot-indentation-alist '(bazel-mode 2))
