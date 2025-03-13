@@ -1104,9 +1104,6 @@
 (setq copilot-indent-warning-suppress t)
 (setq copilot-max-char 1000000)
 
-;;
-(use-package magit)
-
 ;; truncate lines [NOTE: keep this in the end]
 (add-hook 'dired-mode-hook (lambda () (toggle-truncate-lines t)))
 (add-hook 'ibuffer-mode-hook (lambda () (toggle-truncate-lines t)))
