@@ -4,10 +4,6 @@
 ;;(set-default-font "-misc-dejavu sans mono-medium-r-normal--10-8-*-*-m-*-iso8859-1")
 (set-face-attribute 'default t :font "Fira Code-12")
 
-(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
-
-(if (>= emacs-major-version 24) (load-theme 'monokai t))
-
 (setq exec-path (append exec-path '("/usr/local/bin")))
 (setq exec-path (append exec-path '("~/bin")))
 
@@ -763,6 +759,10 @@
 (setq quelpa-stable-p t)
 (use-package quelpa)
 (use-package quelpa-use-package)
+
+;;
+(use-package monokai-theme)
+(load-theme 'monokai t)
 
 ;;
 (use-package powerline)
