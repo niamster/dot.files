@@ -263,6 +263,7 @@ BASHRC_USER=~/.bashrc_user
 [[ -s $BASHRC_USER ]] && source $BASHRC_USER
 
 export RUST_BACKTRACE=1
+# Need to run rustup-init to popluate ~/.cargo
 if [ -f "$HOME/.cargo/env" ]; then
     . "$HOME/.cargo/env"
 fi
