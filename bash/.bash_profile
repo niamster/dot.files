@@ -65,6 +65,8 @@ alias sb="sudo bash"
 alias minicom="minicom -c on -w"
 alias tmux="tmux -2"
 
+alias brup="brew update && brew upgrade"
+
 # misspelling
 git_aliases="gti hot"
 for alias in $git_aliases; do
